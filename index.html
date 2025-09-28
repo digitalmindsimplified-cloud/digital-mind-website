@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Mind Simplified - منصة التحول الرقمي العربي</title>
+    <meta name="description" content="أول منصة عربية متكاملة للتحول الرقمي: أمن سيبراني، ذكاء اصطناعي، أتمتة - حلول جاهزة للشركات">
+    
+    <!-- خطوط عربية احترافية -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- خط Montserrat للوجو -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- EmailJS للنظام الأوتوماتيكي -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #050505; /* لون دهبي أعمق */
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* شريط التنقل الاحترافي */
+        .navbar {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* الروابط على اليسار */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin-left: 40px;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #D4AF37, #FFD700);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: #D4AF37;
+        }
+        
+        /* اسم المنصة بدلاً من اللوجو */
+        .site-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #D4AF37;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: -0.5px;
+        }
+        
+        .site-name:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+        
+        /* القسم الرئيسي - احترافي */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #050505 0%, #1a1a1a 100%);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(80, 227, 194, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.8)); }
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: #cccccc;
+            line-height: 1.8;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            color: #050505;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #D4AF37;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border: 2px solid #D4AF37;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+        
+        /* قسم الخدمات - احترافي */
+        .services {
+            padding: 150px 0;
+            background: linear-gradient(180deg, #1a1a1a 0%, #050505 100%);
+            position: relative;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+        
+        .section-title h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #D4AF37, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-title p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.8), rgba(20, 20, 20, 0.8));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+        }
+        
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: #050505;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        
+        .service-card p {
+            color: #cccccc;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .service-link {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-link i {
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-link:hover i {
+            transform: translateX(-5px);
+        }
+        
+        .service-link:hover {
+            color: #ffffff;
+        }
+        
+        /* قسم المدونة - احترافي */
+        .blog {
+            padding: 150px 0;
+            background: linear-gradient(180deg, #1a1a1a 0%, #050505 100%);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .blog-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .blog-image {
+            height: 250px;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #050505;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .blog-card:hover .blog-image::before {
+            opacity: 1;
+        }
+        
+        .blog-content {
+            padding: 40px;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        
+        .blog-content p {
+            color: #cccccc;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #888888;
+        }
+        
+        .blog-link {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-link i {
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-link:hover i {
+            transform: translateX(-5px);
+        }
+        
+        .blog-link:hover {
+            color: #ffffff;
+        }
+        
+        /* نموذج الاشتراك - احترافي */
+        .subscription-section {
+            padding: 150px 0;
+            background: linear-gradient(135deg, #050505, #1a1a1a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .subscription-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(80, 227, 194, 0.05) 0%, transparent 50%);
+        }
+        
+        .subscription-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .subscription-content h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #D4AF37, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subscription-content p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 50px;
+        }
+        
+        .subscription-form {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 50px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+            text-align: right;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #D4AF37;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #D4AF37;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        .form-group input::placeholder,
+        .form-group select::placeholder {
+            color: #888888;
+        }
+        
+        .btn-subscribe {
+            width: 100%;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            color: #050505;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .btn-subscribe::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-subscribe:hover::before {
+            left: 100%;
+        }
+        
+        .btn-subscribe:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* رسائل النجاح والخطأ */
+        .message {
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .message.success {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+        }
+        
+        .message.error {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            color: #f44336;
+        }
+        
+        /* قسم من نحن - احترافي */
+        .about {
+            padding: 150px 0;
+            background: linear-gradient(135deg, #050505, #1a1a1a);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #D4AF37, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .about-text p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 30px;
+            line-height: 1.9;
+        }
+        
+        .about-image {
+            height: 500px;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #050505;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .about-image:hover::before {
+            opacity: 1;
+        }
+        
+        .about-image i {
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover i {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        /* التذييل - احترافي */
+        .footer {
+            background: #000000;
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #D4AF37;
+            font-weight: 700;
+        }
+        
+        .footer-section p, 
+        .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            line-height: 1.9;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #D4AF37;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #888888;
+            font-size: 0.9rem;
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .about-image {
+                height: 300px;
+            }
+            
+            .subscription-form {
+                padding: 30px 20px;
+            }
+            
+            .site-name {
+                font-size: 20px;
+            }
+        }
+        
+        /* تأثيرات إضافية */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل الاحترافي -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- الروابط على اليسار -->
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#blog">المدونة</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+            
+            <!-- اسم المنصة بدلاً من اللوجو -->
+            <div class="logo-container">
+                <a href="#" class="site-name">Digital Mind</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي - احترافي -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="floating">منصة التحول الرقمي العربي</h1>
+                <p>أول منصة عربية متكاملة تجمع بين الأمن السيبراني والذكاء الاصطناعي والأتمتة - حلول ذكية للشركات والمؤسسات</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-primary">اكتشف الخدمات</a>
+                    <a href="#subscription" class="btn-secondary">اشترك الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات - احترافي -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>خدماتنا الثورية</h2>
+                <p>حلول ذكية مصممة خصيصاً للسوق العربي</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- خدمة 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>مقياس الجاهزية الرقمية</h3>
+                    <p>أداة ذكاء اصطناعي تقيس جاهزية شركتك للتحول الرقمي وتصدر شهادة معتمدة</p>
+                    <a href="#" class="service-link">جرب الآن مجاناً <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <!-- خدمة 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>سوق الخدمات التقنية</h3>
+                    <p>منصة ذكية تربط بين الشركات والخبراء التقنيين بنظام مطابقة متقدم</p>
+                    <a href="#" class="service-link">تصفح الخبراء <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <!-- خدمة 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3>مكتبة الحلول الجاهزة</h3>
+                    <p>قوالب متخصصة للسوق العربي مع شهادة "توافق عربي" معتمدة</p>
+                    <a href="#" class="service-link">استكشف الحلول <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المدونة - احترافي -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>المدونة التقنية</h2>
+                <p>أحدث المقالات والمعلومات في مجال التحول الرقمي</p>
+            </div>
+            
+            <div class="blog-grid">
+                <!-- مقال 1 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>دليل الأمن السيبراني للمبتدئين</h3>
+                        <p>كل ما تحتاج لمعرفته عن حماية بياناتك وأنظمتك من التهديدات السيبرانية</p>
+                        <div class="blog-meta">
+                            <span>أكتوبر 28, 2025</span>
+                            <span>5 دقائق قراءة</span>
+                        </div>
+                        <a href="#" class="blog-link">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <!-- مقال 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>تطبيقات الذكاء الاصطناعي في الأعمال</h3>
+                        <p>كيف تستخدم الذكاء الاصطناعي لزيادة كفاءة أعمالك وتطوير خدماتك</p>
+                        <div class="blog-meta">
+                            <span>أكتوبر 27, 2025</span>
+                            <span>7 دقائق قراءة</span>
+                        </div>
+                        <a href="#" class="blog-link">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <!-- مقال 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>دليل الأتمتة الكامل</h3>
+                        <p>أفضل الأدوات والاستراتيجيات لأتمتة العمليات في شركتك</p>
+                        <div class="blog-meta">
+                            <span>أكتوبر 26, 2025</span>
+                            <span>10 دقائق قراءة</span>
+                        </div>
+                        <a href="#" class="blog-link">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم من نحن - احترافي -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>من نحن</h2>
+                    <p>نحن منصة Digital Mind Simplified - أول منصة عربية متكاملة للتحول الرقمي الذكي.</p>
+                    <p>نسعى لتقديم حلول مبتكرة في مجالات الأمن السيبراني والذكاء الاصطناعي والأتمتة للشركات والمؤسسات العربية.</p>
+                    <p>رؤيتنا: أن نكون الشريك التقني الموثوق لكل مؤسسة عربية تسعى للتحول الرقمي.</p>
+                    <p>رسالتنا: تقديم حلول ذكية وعملية تساعد على تحقيق التميز الرقمي.</p>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-rocket"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاشتراك - احترافي -->
+    <section id="subscription" class="subscription-section">
+        <div class="container">
+            <div class="subscription-content">
+                <h2>انضم إلى مجتمعنا المميز</h2>
+                <p>اشترك الآن واحصل على أحدث التحديثات والمحتوى الحصري مباشرة في بريدك الإلكتروني</p>
+                
+                <form class="subscription-form" id="subscriptionForm">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">الخدمة المطلوبة</label>
+                        <select id="service" name="service" required>
+                            <option value="">اختر الخدمة</option>
+                            <option value="مقياس الجاهزية الرقمية">مقياس الجاهزية الرقمية</option>
+                            <option value="سوق الخدمات التقنية">سوق الخدمات التقنية</option>
+                            <option value="مكتبة الحلول الجاهزة">مكتبة الحلول الجاهزة</option>
+                            <option value="الاستشارات المتخصصة">الاستشارات المتخصصة</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn-subscribe pulse">اشترك الآن</button>
+                    
+                    <div id="message" class="message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل - احترافي -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>عن المنصة</h3>
+                    <p>أول منصة عربية متكاملة للتحول الرقمي الذكي تجمع بين الأمن السيبراني والذكاء الاصطناعي والأتمتة</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <p><a href="#services">الخدمات</a></p>
+                    <p><a href="#blog">المدونة</a></p>
+                    <p><a href="#about">من نحن</a></p>
+                    <p><a href="#contact">اتصل بنا</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <p>البريد الإلكتروني: info@digitalmindsimplified.com</p>
+                    <p>الهاتف: 00966581871332</p>
+                    <p>الرياض، المملكة العربية السعودية</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Digital Mind Simplified. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        // تهيئة EmailJS
+        emailjs.init("YOUR_SERVICE_ID"); // استبدل YOUR_SERVICE_ID بمعرف الخدمة الخاص بك
+        
+        // معالجة نموذج الاشتراك
+        document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // جمع بيانات النموذج
+            const templateParams = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value
+            };
+            
+            // إرسال البريد الإلكتروني
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    showMessage('تم اشتراكك بنجاح! ستصلك رسالة تأكيد على بريدك الإلكتروني.', 'success');
+                    document.getElementById('subscriptionForm').reset();
+                }, function(error) {
+                    showMessage('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.', 'error');
+                });
+        });
+        
+        // عرض رسائل النجاح/الخطأ
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = text;
+            messageDiv.className = 'message ' + type;
+            messageDiv.style.display = 'block';
+            
+            // إخفاء الرسالة بعد 5 ثواني
+            setTimeout(function() {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
