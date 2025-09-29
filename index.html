@@ -1066,7 +1066,7 @@
 
     <script type="text/javascript">
         // تهيئة EmailJS
-        emailjs.init("public_key"); // استخدم public_key بدل User ID
+        emailjs.init("yef1ybmulax4pT4WI"); // هنا وضعنا المفتاح العام الصحيح
         
         // معالجة نموذج الاشتراك
         document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
@@ -1086,6 +1086,7 @@
                     document.getElementById('subscriptionForm').reset();
                 }, function(error) {
                     showMessage('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.', 'error');
+                    console.log('FAILED...', error);
                 });
         });
         
