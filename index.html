@@ -1066,7 +1066,7 @@
 
     <script type="text/javascript">
         // تهيئة EmailJS
-        emailjs.init("YOUR_SERVICE_ID"); // استبدل YOUR_SERVICE_ID بمعرف الخدمة الخاص بك
+        emailjs.init("public_key"); // استخدم public_key بدل User ID
         
         // معالجة نموذج الاشتراك
         document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
@@ -1080,7 +1080,7 @@
             };
             
             // إرسال البريد الإلكتروني
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            emailjs.send('service_i7rpq9f', 'template_2ul5hcg', templateParams)
                 .then(function(response) {
                     showMessage('تم اشتراكك بنجاح! ستصلك رسالة تأكيد على بريدك الإلكتروني.', 'success');
                     document.getElementById('subscriptionForm').reset();
