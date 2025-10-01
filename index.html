@@ -409,12 +409,12 @@
         .blog-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
-            border-color: rgba(212, 175, 55, 0.3);
+            border-color: rgba(212, 175, 55، 0.3);
         }
         
         .blog-image {
             height: 250px;
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            background: linear-gradient(135deg, #D4AF37، #FFD700);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -505,7 +505,7 @@
             bottom: 0;
             background: 
                 radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(80, 227, 194, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 70% 80%, rgba(80، 227، 194، 0.05) 0%، transparent 50%);
         }
         
         .subscription-content {
@@ -629,7 +629,7 @@
         
         .btn-subscribe:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 40px rgba(212، 175، 55، 0.4);
         }
         
         /* رسائل النجاح والخطأ */
@@ -661,8 +661,8 @@
         }
         
         .message.error {
-            background: rgba(244, 67, 54, 0.1);
-            border: 1px solid rgba(244, 67, 54, 0.3);
+            background: rgba(244، 67، 54، 0.1);
+            border: 1px solid rgba(244، 67، 54، 0.3);
             color: #f44336;
         }
         
@@ -717,7 +717,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 175، 55، 0.1) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.5s ease;
         }
@@ -750,7 +750,7 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+            background: linear-gradient(90deg، transparent، rgba(212، 175، 55، 0.5)، transparent);
         }
         
         .footer-content {
@@ -780,7 +780,7 @@
         }
         
         .footer-bottom {
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            border-top: 1px solid rgba(212، 175، 55، 0.1);
             padding-top: 30px;
             text-align: center;
             color: #888888;
@@ -878,9 +878,9 @@
         }
         
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(212، 175، 55، 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(212، 175، 55، 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212، 175، 55، 0); }
         }
     </style>
 </head>
@@ -1058,6 +1058,12 @@
                         <label for="email">البريد الإلكتروني</label>
                         <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
                     </div>
+
+                    <!-- إضافة جديدة: رقم الجوال -->
+                    <div class="form-group">
+                        <label for="phone">رقم الجوال</label>
+                        <input type="tel" id="phone" name="phone" placeholder="مثال: +966501234567" required pattern="^\+?[0-9]{10,15}$">
+                    </div>
                     
                     <div class="form-group">
                         <label for="service">الخدمة المطلوبة</label>
@@ -1113,17 +1119,36 @@
         // معالجة نموذج الاشتراك
         document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
             event.preventDefault();
+
+            // التحقق من صحة رقم الهاتف
+            const phoneInput = document.getElementById('phone');
+            const phoneRegex = /^\+?[0-9]{10,15}$/;
+            if (!phoneRegex.test(phoneInput.value)) {
+                showMessage('يرجى إدخال رقم هاتف صحيح (مثال: +966501234567)', 'error');
+                return;
+            }
             
             // جمع بيانات النموذج
             const templateParams = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
+                phone: phoneInput.value,
                 service: document.getElementById('service').value
             };
             
-            // إرسال البريد الإلكتروني
+            // إرسال البريد الإلكتروني عبر EmailJS
             emailjs.send('service_i7rpq9f', 'template_2ul5hcg', templateParams)
                 .then(function(response) {
+                    // إرسال البيانات إلى Google Sheets عبر Apps Script
+                    fetch('https://script.google.com/macros/s/AKfycbx-eZJdEzJAX-nTyiam0eRtADgNK1y3Tz6cutSVdpzk3AQqbzQp7aJo5KRkjrY4AAi0Sw/exec', {
+                        method: 'POST',
+                        body: JSON.stringify({ 
+                            ...templateParams, 
+                            source: 'website', 
+                            timestamp: new Date().toISOString() 
+                        })
+                    }).catch(err => console.error('Google Sheets error:', err));
+
                     showMessage('تم اشتراكك بنجاح! ستصلك رسالة تأكيد على بريدك الإلكتروني.', 'success');
                     document.getElementById('subscriptionForm').reset();
                 }, function(error) {
