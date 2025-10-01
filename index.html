@@ -437,7 +437,7 @@
                         <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
                     </div>
 
-                    <!-- رقم الجوال (مثال عالمي) -->
+                    <!-- رقم الجوال (صيغة دولية عامة) -->
                     <div class="form-group">
                         <label for="phone">رقم الجوال</label>
                         <input type="tel" id="phone" name="phone" inputmode="tel"
@@ -493,17 +493,52 @@
     </footer>
 
     <script type="text/javascript">
-        // رابط Web App من Apps Script (جاهز منّك)
-        const APPS_SCRIPT_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjSwIh3O4-qBDQ2IvbCrqwSVQzy-FO9Cs8y42TLUuPXKJMVG6wQaXJyk29dwR3mhor8jTOAG7OvtOiXEzThCq0zVmTrvLxKjsQSm7YPgqLZ6kYjI3U71huynJ-86LR3AkGpAxGXOFNiNj1ryO8-cJy7jB24tW3z5k_43f78NUNJmiongjCP2J-gHIBjUqhTsc8rH5x0gtIzxg8TlGpTeCf8dQIRaHQSw-mb7aW6vkD82X2iavBic2E4ez2Pv7i4AfBDtE8h5np37CxjJOz-sCBBn5Q9R7YBdnGqPLSU&lib=MNMbj6FmCqDzeuv8DbeHPAUYFjs5ysRRP';
+        // رابط Web App من Apps Script (الرابط الجديد الذي أرسلته)
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-eZjdEzJAX-nTyiam0eRtADgNK1y3Tz6cutSVdpzk3AQqbzQp7aJo5KRkjrY4AAi0Sw/exec';
 
         // تهيئة EmailJS
         emailjs.init("yef1ybmulax4pT4WI");
+
+        // دالة إرسال إلى جوجل شيت مع آلية fallback ذكية
+        async function postToSheet(data) {
+            // 1) نحاول JSON عادي (لو CORS متاح)
+            try {
+                await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        ...data,
+                        source: 'website',
+                        timestamp: new Date().toISOString()
+                    })
+                });
+                return; // لو نجح نخرج
+            } catch (e) {
+                console.warn('JSON POST failed, fallback to form-encoded...', e);
+            }
+            // 2) فالباك: x-www-form-urlencoded + no-cors (مضمون التشغيل مع Apps Script)
+            try {
+                const formBody = new URLSearchParams({
+                    ...data,
+                    source: 'website',
+                    timestamp: new Date().toISOString()
+                });
+                await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formBody.toString()
+                });
+            } catch (e2) {
+                console.error('Fallback form POST failed:', e2);
+            }
+        }
         
         // معالجة نموذج الاشتراك
-        document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
+        document.getElementById('subscriptionForm').addEventListener('submit', async function(event) {
             event.preventDefault();
 
-            // التحقق من صحة رقم الهاتف
+            // التحقق من صحة رقم الهاتف (صيغة دولية)
             const phoneInput = document.getElementById('phone');
             const phoneRegex = /^\+?[0-9]{10,15}$/;
             if (!phoneRegex.test(phoneInput.value)) {
@@ -513,36 +548,23 @@
             
             // جمع بيانات النموذج
             const templateParams = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: phoneInput.value,
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: phoneInput.value.trim(),
                 service: document.getElementById('service').value
             };
             
             // إرسال البريد الإلكتروني عبر EmailJS
-            emailjs.send('service_i7rpq9f', 'template_2ul5hcg', templateParams)
-                .then(function() {
-                    // إرسال البيانات إلى Google Sheets عبر Apps Script (JSON)
-                    fetch(APPS_SCRIPT_URL, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        mode: 'no-cors', // لا نقرأ الرد لتجنّب CORS
-                        body: JSON.stringify({
-                            ...templateParams,
-                            source: 'website',
-                            timestamp: new Date().toISOString()
-                        })
-                    }).catch(err => console.error('Google Sheets error:', err));
-
-                    showMessage('تم اشتراكك بنجاح! ستصلك رسالة تأكيد على بريدك الإلكتروني.', 'success');
-                    document.getElementById('subscriptionForm').reset();
-                }, function(error) {
-                    showMessage('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.', 'error');
-                    console.log('FAILED...', error);
-                });
+            try {
+                await emailjs.send('service_i7rpq9f', 'template_2ul5hcg', templateParams);
+                // إرسال البيانات إلى Google Sheets عبر Apps Script
+                postToSheet(templateParams);
+                showMessage('تم اشتراكك بنجاح! ستصلك رسالة تأكيد على بريدك الإلكتروني.', 'success');
+                document.getElementById('subscriptionForm').reset();
+            } catch (error) {
+                showMessage('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.', 'error');
+                console.log('FAILED...', error);
+            }
         });
         
         // عرض رسائل النجاح/الخطأ
