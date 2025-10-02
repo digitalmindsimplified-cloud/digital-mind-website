@@ -367,13 +367,26 @@
   </footer>
 
   <script>
-    // 1) اربط Web App الجديد
+    // رابط الويب آب (الأخير)
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRf2j1bhu8n1_g7k_vM2FsxhsSFQFq24944fBFQ6ioRR3FRXilhRFx7rK37TZME8K6IQ/exec';
 
-    // 2) EmailJS init
+    // تهيئة EmailJS
     emailjs.init('yef1ybmulax4pT4WI');
 
-    // 3) معالجة النموذج
+    // دالة تولّد ISO لتوقيت الرياض +03:00
+    function nowInKSAIso() {
+      const parts = Object.fromEntries(
+        new Intl.DateTimeFormat('en-CA', {
+          timeZone: 'Asia/Riyadh',
+          hour12: false,
+          year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', second: '2-digit'
+        }).formatToParts(new Date()).map(p => [p.type, p.value])
+      );
+      return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+03:00`;
+    }
+
+    // معالجة النموذج
     document.getElementById('subscriptionForm').addEventListener('submit', async function(e){
       e.preventDefault();
 
@@ -388,22 +401,23 @@
         name: document.getElementById('name').value.trim(),
         email: document.getElementById('email').value.trim(),
         phone: phoneInput.value.trim(),
-        service: document.getElementById('service').value,
+        service: document.getElementById('service').value
       };
 
       try{
-        // EmailJS
+        // إرسال بريد
         await emailjs.send('service_i7rpq9f','template_2ul5hcg',templateParams);
 
-        // إرسال إلى Google Sheets (JSON)
+        // إرسال إلى Google Sheets
         fetch(APPS_SCRIPT_URL, {
           method: 'POST',
-          headers: {'Content-Type':'application/json'},
-          mode: 'no-cors', // الطلب يوصل بدون ما نقرأ الرد
+          headers: { 'Content-Type':'application/json' },
+          mode: 'no-cors', // بنبعت من غير ما نستنى الرد
           body: JSON.stringify({
             ...templateParams,
             source: 'website',
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(), // UTC
+            ksa_time: nowInKSAIso()              // وقت الرياض
           })
         }).catch(err => console.error('Google Sheets fetch error:', err));
 
