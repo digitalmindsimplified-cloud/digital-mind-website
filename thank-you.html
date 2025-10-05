@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شكراً لك - Digital Mind Simplified</title>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYZVQRV1FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CYZVQRV1FL');
+    // تتبع زيارة صفحة الشكر
+    gtag('event', 'page_view', {
+      page_title: 'Thank You',
+      page_location: window.location.href,
+      page_path: '/thank-you.html'
+    });
+  </script>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Tajawal',sans-serif;background:#0a0a0a;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px}
+    .box{max-width:680px;width:100%;text-align:center;background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(212,175,55,.25);border-radius:20px;padding:40px 30px}
+    h1{font-size:2.2rem;margin-bottom:12px;background:linear-gradient(135deg,#fff,#D4AF37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    p{color:#ccc;line-height:1.8;margin-bottom:24px}
+    .next{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);border-radius:14px;padding:18px;text-align:right;margin:24px 0}
+    .next h3{color:#D4AF37;margin-bottom:10px}
+    .next li{margin:8px 0;color:#ddd}
+    .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+    .btn{padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid #D4AF37;transition:.25s}
+    .primary{background:linear-gradient(135deg,#D4AF37,#FFD700);color:#0a0a0a;border:none}
+    .outline{color:#D4AF37;background:transparent}
+    .outline:hover{background:rgba(212,175,55,.1)}
+    .primary:hover{filter:brightness(1.05)}
+  </style>
+</head>
+<body>
+  <main class="box">
+    <h1>تم استلام طلبك بنجاح ✅</h1>
+    <p>شكرًا لثقتك في <strong>Digital Mind Simplified</strong>. يراجع فريقنا التفاصيل الآن وسنتواصل معك خلال 24 ساعة.</p>
+
+    <section class="next">
+      <h3>الخطوات التالية:</h3>
+      <ul>
+        <li>رسالة تأكيد ستصل إلى بريدك الإلكتروني.</li>
+        <li>سنتواصل معك عبر الجوال/البريد لمناقشة المتطلبات.</li>
+        <li>استشارة أولية مجانية لتحديد أفضل حل.</li>
+      </ul>
+    </section>
+
+    <div class="btns">
+      <a class="btn primary" href="index.html" onclick="gtag('event','cta_click',{button_name:'home_from_thankyou'})">العودة للرئيسية</a>
+      <a class="btn outline" href="#services" onclick="gtag('event','cta_click',{button_name:'services_from_thankyou'})">تصفح الخدمات</a>
+    </div>
+  </main>
+</body>
+</html>
