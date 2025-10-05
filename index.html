@@ -6,30 +6,13 @@
   <title>Digital Mind Simplified - منصة التحول الرقمي العربي</title>
   <meta name="description" content="أول منصة عربية متكاملة للتحول الرقمي: أمن سيبراني، ذكاء اصطناعي، أتمتة - حلول جاهزة للشركات"/>
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) — GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYZVQRV1FL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
-
-    // init
     gtag('js', new Date());
-
-    // تفعيل الديباج وارسال page_view تلقائيًا
-    gtag('config', 'G-CYZVQRV1FL', {
-      debug_mode: true,
-      send_page_view: true
-    });
-
-    // حدث اختبار واضح يظهر في Realtime + DebugView
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        if (typeof gtag === 'function') {
-          gtag('event', 'test_ping', { source: 'homepage', ts: Date.now() });
-          console.log('[GA4] test_ping sent');
-        }
-      }, 2000);
-    });
+    gtag('config', 'G-CYZVQRV1FL'); // Measurement ID الخاص بك
   </script>
 
   <!-- خطوط -->
@@ -44,6 +27,8 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Tajawal',sans-serif;background:#050505;color:#fff;line-height:1.6;overflow-x:hidden}
     .container{max-width:1400px;margin:0 auto;padding:0 30px}
+
+    /* Navbar */
     .navbar{background:rgba(0,0,0,.95);backdrop-filter:blur(15px);padding:20px 0;position:fixed;top:0;left:0;right:0;z-index:1000;border-bottom:1px solid rgba(212,175,55,.15)}
     .navbar .container{display:flex;justify-content:space-between;align-items:center}
     .nav-links{display:flex;list-style:none}
@@ -52,11 +37,15 @@
     .nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:linear-gradient(90deg,#D4AF37,#FFD700);transition:width .3s}
     .nav-links a:hover::after{width:100%}
     .nav-links a:hover{color:#D4AF37}
+
+    /* Logo */
     .logo-container{display:flex;align-items:center;gap:12px}
     .logo-image{width:40px;height:40px;transition:.3s}
     .logo-image:hover{transform:scale(1.05);filter:drop-shadow(0 0 10px rgba(212,175,55,.7))}
     .site-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:24px;color:#D4AF37;text-decoration:none;transition:.3s;letter-spacing:-.5px}
     .site-name:hover{transform:scale(1.05);text-shadow:0 0 15px rgba(212,175,55,.5)}
+
+    /* Hero */
     .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(135deg,#050505 0%,#1a1a1a 100%);overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:
       radial-gradient(circle at 20% 50%,rgba(212,175,55,.1) 0%,transparent 50%),
@@ -67,12 +56,16 @@
     @keyframes glow{from{filter:drop-shadow(0 0 20px rgba(212,175,55,.5))}to{filter:drop-shadow(0 0 30px rgba(212,175,55,.8))}}
     .hero p{font-size:1.5rem;font-weight:300;max-width:800px;margin:0 auto 50px;color:#ccc;line-height:1.8}
     .hero-buttons{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
+
     .btn-primary{display:inline-block;background:linear-gradient(135deg,#D4AF37,#FFD700);color:#050505;padding:18px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:18px;transition:.3s;box-shadow:0 10px 30px rgba(212,175,55,.3);position:relative;overflow:hidden}
     .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s}
     .btn-primary:hover::before{left:100%}
     .btn-primary:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(212,175,55,.5)}
+
     .btn-secondary{display:inline-block;background:transparent;color:#D4AF37;padding:18px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:18px;border:2px solid #D4AF37;transition:.3s}
     .btn-secondary:hover{background:rgba(212,175,55,.1);transform:translateY(-5px);box-shadow:0 10px 30px rgba(212,175,55,.2)}
+
+    /* Services */
     .services{padding:150px 0;background:linear-gradient(180deg,#1a1a1a 0%,#050505 100%);position:relative}
     .services::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
     .section-title{text-align:center;margin-bottom:100px}
@@ -92,6 +85,8 @@
     .service-link i{margin-right:10px;transition:.3s}
     .service-link:hover i{transform:translateX(-5px)}
     .service-link:hover{color:#fff}
+
+    /* Blog */
     .blog{padding:150px 0;background:linear-gradient(180deg,#1a1a1a 0%,#050505 100%)}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:40px}
     .blog-card{background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(212,175,55,.18);border-radius:20px;overflow:hidden;transition:.5s;backdrop-filter:blur(10px)}
@@ -107,6 +102,8 @@
     .blog-link i{margin-right:10px;transition:.3s}
     .blog-link:hover i{transform:translateX(-5px)}
     .blog-link:hover{color:#fff}
+
+    /* Subscription */
     .subscription-section{padding:150px 0;background:linear-gradient(135deg,#050505,#1a1a1a);position:relative;overflow:hidden}
     .subscription-section::before{content:'';position:absolute;inset:0;background:
       radial-gradient(circle at 30% 20%,rgba(212,175,55,.05) 0%,transparent 50%),
@@ -127,10 +124,14 @@
     .btn-subscribe::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s}
     .btn-subscribe:hover::before{left:100%}
     .btn-subscribe:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(212,175,55,.4)}
+
+    /* Messages */
     .message{padding:20px;border-radius:10px;margin-top:20px;text-align:center;font-weight:600;display:none;animation:slideIn .5s}
     @keyframes slideIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
     .message.success{background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.3);color:#4caf50}
     .message.error{background:rgba(244,67,54,.1);border:1px solid rgba(244,67,54,.3);color:#f44336}
+
+    /* About */
     .about{padding:150px 0;background:linear-gradient(135deg,#050505,#1a1a1a)}
     .about-content{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
     .about-text h2{font-size:3rem;font-weight:800;margin-bottom:40px;background:linear-gradient(135deg,#D4AF37,#fff);
@@ -141,6 +142,8 @@
     .about-image:hover::before{opacity:1}
     .about-image i{transition:.5s}
     .about-image:hover i{transform:scale(1.1) rotate(5deg)}
+
+    /* Footer */
     .footer{background:#000;color:#fff;padding:80px 0 40px;position:relative;overflow:hidden}
     .footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
     .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:60px;margin-bottom:60px}
@@ -149,6 +152,8 @@
     .footer-section a:hover{color:#D4AF37}
     .footer-bottom{border-top:1px solid rgba(212,175,55,.1);padding-top:30px}
     .footer-bottom p{margin:0;text-align:center;color:#888;font-size:.9rem}
+
+    /* Responsive */
     @media (max-width:1024px){
       .hero h1{font-size:3.5rem}
       .section-title h2{font-size:2.8rem}
@@ -168,6 +173,8 @@
       .site-name{font-size:20px}
       .logo-image{width:35px;height:35px}
     }
+
+    /* Extras */
     .floating{animation:floating 3s ease-in-out infinite}
     @keyframes floating{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
     .pulse{animation:pulse 2s infinite}
@@ -431,8 +438,9 @@
           });
         }
 
-        showMessage('تم اشتراكك بنجاح! ستصلك رسالة تأكيد على بريدك الإلكتروني.', 'success');
-        document.getElementById('subscriptionForm').reset();
+        // ✅ إعادة التوجيه لصفحة الشكر بعد نجاح الإرسال
+        setTimeout(()=>{ window.location.href = 'thank-you.html'; }, 500);
+
       }catch(err){
         console.error(err);
         showMessage('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.', 'error');
