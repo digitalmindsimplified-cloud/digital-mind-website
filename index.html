@@ -12,15 +12,13 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-CYZVQRV1FL'); // Measurement ID الخاص بك
+    gtag('config', 'G-CYZVQRV1FL');
   </script>
 
-  <!-- خطوط -->
+  <!-- خطوط / أيقونات / EmailJS -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- أيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <style>
@@ -93,7 +91,6 @@
     .blog-card:hover{transform:translateY(-10px);box-shadow:0 20px 50px rgba(212,175,55,.35);border-color:rgba(212,175,55,.35)}
     .blog-image{height:250px;background:linear-gradient(135deg,#D4AF37,#FFD700);display:flex;align-items:center;justify-content:center;color:#050505;font-size:4rem;position:relative;overflow:hidden;filter:saturate(1.35) contrast(1.15) brightness(1.05)}
     .blog-image::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.16) 0%,transparent 70%);opacity:0;transition:.5s}
-    .blog-card:hover .blog-image::before{opacity:1}
     .blog-content{padding:40px}
     .blog-content h3{font-size:1.5rem;margin-bottom:20px;color:#fff;font-weight:700}
     .blog-content p{color:#ccc;margin-bottom:25px;line-height:1.8}
@@ -131,19 +128,16 @@
     .message.success{background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.3);color:#4caf50}
     .message.error{background:rgba(244,67,54,.1);border:1px solid rgba(244,67,54,.3);color:#f44336}
 
-    /* About */
+    /* About / Footer / Responsive (كما هي) */
     .about{padding:150px 0;background:linear-gradient(135deg,#050505,#1a1a1a)}
     .about-content{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    .about-text h2{font-size:3rem;font-weight:800;margin-bottom:40px;background:linear-gradient(135deg,#D4AF37,#fff);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .about-text h2{font-size:3rem;font-weight:800;margin-bottom:40px;background:linear-gradient(135deg,#D4AF37,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .about-text p{font-size:1.2rem;color:#ccc;margin-bottom:30px;line-height:1.9}
     .about-image{height:500px;background:linear-gradient(135deg,#D4AF37,#FFD700);border-radius:20px;display:flex;align-items:center;justify-content:center;color:#050505;font-size:5rem;position:relative;overflow:hidden;border:1px solid rgba(212,175,55,.2)}
     .about-image::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(212,175,55,.1) 0%,transparent 70%);opacity:0;transition:.5s}
-    .about-image:hover::before{opacity:1}
     .about-image i{transition:.5s}
     .about-image:hover i{transform:scale(1.1) rotate(5deg)}
 
-    /* Footer */
     .footer{background:#000;color:#fff;padding:80px 0 40px;position:relative;overflow:hidden}
     .footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
     .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:60px;margin-bottom:60px}
@@ -153,7 +147,6 @@
     .footer-bottom{border-top:1px solid rgba(212,175,55,.1);padding-top:30px}
     .footer-bottom p{margin:0;text-align:center;color:#888;font-size:.9rem}
 
-    /* Responsive */
     @media (max-width:1024px){
       .hero h1{font-size:3.5rem}
       .section-title h2{font-size:2.8rem}
@@ -174,7 +167,6 @@
       .logo-image{width:35px;height:35px}
     }
 
-    /* Extras */
     .floating{animation:floating 3s ease-in-out infinite}
     @keyframes floating{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
     .pulse{animation:pulse 2s infinite}
@@ -188,16 +180,14 @@
       <ul class="nav-links">
         <li><a href="#home">الرئيسية</a></li>
         <li><a href="#services">الخدمات</a></li>
-
-        <!-- ✅ الجديد: رابط صفحة الأمن السيبراني -->
+        <!-- ✅ الجديد -->
         <li><a href="cybersecurity.html">الأمن السيبراني</a></li>
-
         <li><a href="#blog">المدونة</a></li>
         <li><a href="#about">من نحن</a></li>
         <li><a href="#contact">اتصل بنا</a></li>
       </ul>
       <div class="logo-container">
-        <img src="https://z-cdn-media.chatglm.cn/files/c0da9ded-07be-4c09-8aca-bd981ada03d0_logo.png?auth_key=1790691197-267071ae1a1a416b89d485e461dea30d-0-2b87d551cfc90fcf9458eab0cc40520d" alt="Digital Mind Logo" class="logo-image">
+        <img src="https://z-cdn-media.chatglm.cn/files/c0da9ded-07be-4c09-8aca-bd981ada03d0_logo.png" alt="Digital Mind Logo" class="logo-image">
         <a href="#" class="site-name">Digital Mind</a>
       </div>
     </div>
@@ -362,10 +352,8 @@
         <div class="footer-section">
           <h3>روابط سريعة</h3>
           <p><a href="#services">الخدمات</a></p>
-
-          <!-- ✅ الجديد: رابط صفحة الأمن السيبراني -->
+          <!-- ✅ الجديد -->
           <p><a href="cybersecurity.html">الأمن السيبراني</a></p>
-
           <p><a href="#blog">المدونة</a></p>
           <p><a href="#about">من نحن</a></p>
           <p><a href="#contact">اتصل بنا</a></p>
@@ -384,33 +372,24 @@
   </footer>
 
   <script>
-    // رابط الويب آب (الأخير)
+    // Web App (Google Apps Script) — نفسه المستخدم في صفحة الأمن السيبراني
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRf2j1bhu8n1_g7k_vM2FsxhsSFQFq24944fBFQ6ioRR3FRXilhRFx7rK37TZME8K6IQ/exec';
-
-    // تهيئة EmailJS
     emailjs.init('yef1ybmulax4pT4WI');
 
-    // دالة تولّد ISO لتوقيت الرياض +03:00
     function nowInKSAIso() {
       const parts = Object.fromEntries(
-        new Intl.DateTimeFormat('en-CA', {
-          timeZone: 'Asia/Riyadh',
-          hour12: false,
-          year: 'numeric', month: '2-digit', day: '2-digit',
-          hour: '2-digit', minute: '2-digit', second: '2-digit'
-        }).formatToParts(new Date()).map(p => [p.type, p.value])
+        new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Riyadh',hour12:false,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'})
+          .formatToParts(new Date()).map(p=>[p.type,p.value])
       );
       return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+03:00`;
     }
 
-    // معالجة النموذج
     document.getElementById('subscriptionForm').addEventListener('submit', async function(e){
       e.preventDefault();
-
       const phoneInput = document.getElementById('phone');
       const phoneRegex = /^\+?[0-9]{10,15}$/;
       if(!phoneRegex.test(phoneInput.value)){
-        showMessage('يرجى إدخال رقم هاتف صحيح بصيغة دولية (مثال: +201234567890)', 'error');
+        showMessage('يرجى إدخال رقم هاتف صحيح بصيغة دولية (مثال: +201234567890 أو +9665XXXXXXX)', 'error');
         return;
       }
 
@@ -422,32 +401,17 @@
       };
 
       try{
-        // إرسال بريد
         await emailjs.send('service_i7rpq9f','template_2ul5hcg',templateParams);
 
-        // إرسال إلى Google Sheets
         fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type':'application/json' },
-          mode: 'no-cors',
-          body: JSON.stringify({
-            ...templateParams,
-            source: 'website',
-            timestamp: new Date().toISOString(), // UTC
-            ksa_time: nowInKSAIso()              // وقت الرياض
-          })
-        }).catch(err => console.error('Google Sheets fetch error:', err));
+          method:'POST', headers:{'Content-Type':'application/json'}, mode:'no-cors',
+          body: JSON.stringify({...templateParams, source:'website', timestamp:new Date().toISOString(), ksa_time:nowInKSAIso()})
+        }).catch(()=>{});
 
-        // حدث GA4 لقياس تحويل Lead
         if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', {
-            method: 'subscription_form',
-            service: templateParams.service
-          });
+          gtag('event','generate_lead',{method:'subscription_form', service:templateParams.service});
         }
-
-        // ✅ إعادة التوجيه لصفحة الشكر بعد نجاح الإرسال
-        setTimeout(()=>{ window.location.href = 'thank-you.html'; }, 500);
+        setTimeout(()=>{ window.location.href='thank-you.html'; }, 500);
 
       }catch(err){
         console.error(err);
