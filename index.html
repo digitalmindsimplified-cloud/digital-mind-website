@@ -12,14 +12,14 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-CYZVQRV1FL');
+    gtag('config', 'G-CYZVQRV1FL'); // Measurement ID الخاص بك
   </script>
 
-  <!-- خطوط وأيقونات -->
+  <!-- خطوط -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- أيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
@@ -28,7 +28,7 @@
     body{font-family:'Tajawal',sans-serif;background:#050505;color:#fff;line-height:1.6;overflow-x:hidden}
     .container{max-width:1400px;margin:0 auto;padding:0 30px}
 
-    /* Navbar */
+    /* Navbar (مُحدّث مع لوجو SVG) */
     .navbar{background:rgba(0,0,0,.95);backdrop-filter:blur(15px);padding:20px 0;position:fixed;top:0;left:0;right:0;z-index:1000;border-bottom:1px solid rgba(212,175,55,.15)}
     .navbar .container{display:flex;justify-content:space-between;align-items:center}
     .nav-links{display:flex;list-style:none}
@@ -38,18 +38,17 @@
     .nav-links a:hover::after{width:100%}
     .nav-links a:hover{color:#D4AF37}
 
-    /* Logo */
-    .logo-container{display:flex;align-items:center;gap:12px}
-    .logo-image{width:40px;height:40px;display:block}
-    .site-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:24px;color:#D4AF37;text-decoration:none;transition:.3s;letter-spacing:-.5px}
-    .site-name:hover{transform:scale(1.05);text-shadow:0 0 15px rgba(212,175,55,.5)}
+    /* Brand (نص + SVG مضمّن) */
+    .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+    .brand-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:28px;color:#D4AF37;letter-spacing:-.3px}
+    .brand-icon svg{display:block;filter:drop-shadow(0 0 6px rgba(0,181,216,.25))}
 
     /* Hero */
     .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(135deg,#050505 0%,#1a1a1a 100%);overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:
       radial-gradient(circle at 20% 50%,rgba(212,175,55,.1) 0%,transparent 50%),
       radial-gradient(circle at 80% 80%,rgba(80,227,194,.1) 0%,transparent 50%)}
-    .hero-content{position:relative;z-index:2;text-align:center;padding:100px 0}
+    .hero-content{position:relative;z-index:2;text-align:center;padding:120px 0 100px}
     .hero h1{font-size:4.5rem;font-weight:900;margin-bottom:30px;background:linear-gradient(135deg,#fff,#D4AF37);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 0 30px rgba(212,175,55,.3);animation:glow 2s ease-in-out infinite alternate}
     @keyframes glow{from{filter:drop-shadow(0 0 20px rgba(212,175,55,.5))}to{filter:drop-shadow(0 0 30px rgba(212,175,55,.8))}}
@@ -64,7 +63,7 @@
     .btn-secondary{display:inline-block;background:transparent;color:#D4AF37;padding:18px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:18px;border:2px solid #D4AF37;transition:.3s}
     .btn-secondary:hover{background:rgba(212,175,55,.1);transform:translateY(-5px);box-shadow:0 10px 30px rgba(212,175,55,.2)}
 
-    /* Sections (services/blog/about/subscription/footer) — نفس تنسيقك السابق */
+    /* Services */
     .services{padding:150px 0;background:linear-gradient(180deg,#1a1a1a 0%,#050505 100%);position:relative}
     .services::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
     .section-title{text-align:center;margin-bottom:100px}
@@ -77,6 +76,7 @@
     .service-card:hover::before{opacity:1}
     .service-card:hover{transform:translateY(-15px) scale(1.02);border-color:rgba(212,175,55,.4);box-shadow:0 20px 50px rgba(212,175,55,.3)}
     .service-icon{width:100px;height:100px;background:linear-gradient(135deg,#D4AF37,#FFD700);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 30px;color:#050505;font-size:2.5rem;box-shadow:0 10px 30px rgba(212,175,55,.3);transition:.3s}
+    .service-card:hover .service-icon{transform:scale(1.1) rotate(5deg);box-shadow:0 15px 40px rgba(212,175,55,.5)}
     .service-card h3{font-size:1.8rem;margin-bottom:20px;color:#fff;font-weight:700}
     .service-card p{color:#ccc;margin-bottom:30px;font-size:1.1rem;line-height:1.8}
     .service-link{color:#D4AF37;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;font-size:1.1rem;transition:.3s}
@@ -84,6 +84,7 @@
     .service-link:hover i{transform:translateX(-5px)}
     .service-link:hover{color:#fff}
 
+    /* Blog */
     .blog{padding:150px 0;background:linear-gradient(180deg,#1a1a1a 0%,#050505 100%)}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:40px}
     .blog-card{background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(212,175,55,.18);border-radius:20px;overflow:hidden;transition:.5s;backdrop-filter:blur(10px)}
@@ -100,17 +101,7 @@
     .blog-link:hover i{transform:translateX(-5px)}
     .blog-link:hover{color:#fff}
 
-    .about{padding:150px 0;background:linear-gradient(135deg,#050505,#1a1a1a)}
-    .about-content{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    .about-text h2{font-size:3rem;font-weight:800;margin-bottom:40px;background:linear-gradient(135deg,#D4AF37,#fff);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .about-text p{font-size:1.2rem;color:#ccc;margin-bottom:30px;line-height:1.9}
-    .about-image{height:500px;background:linear-gradient(135deg,#D4AF37,#FFD700);border-radius:20px;display:flex;align-items:center;justify-content:center;color:#050505;font-size:5rem;position:relative;overflow:hidden;border:1px solid rgba(212,175,55,.2)}
-    .about-image::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(212,175,55,.1) 0%,transparent 70%);opacity:0;transition:.5s}
-    .about-image:hover::before{opacity:1}
-    .about-image i{transition:.5s}
-    .about-image:hover i{transform:scale(1.1) rotate(5deg)}
-
+    /* Subscription */
     .subscription-section{padding:150px 0;background:linear-gradient(135deg,#050505,#1a1a1a);position:relative;overflow:hidden}
     .subscription-section::before{content:'';position:absolute;inset:0;background:
       radial-gradient(circle at 30% 20%,rgba(212,175,55,.05) 0%,transparent 50%),
@@ -132,11 +123,25 @@
     .btn-subscribe:hover::before{left:100%}
     .btn-subscribe:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(212,175,55,.4)}
 
+    /* Messages */
     .message{padding:20px;border-radius:10px;margin-top:20px;text-align:center;font-weight:600;display:none;animation:slideIn .5s}
     @keyframes slideIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
     .message.success{background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.3);color:#4caf50}
     .message.error{background:rgba(244,67,54,.1);border:1px solid rgba(244,67,54,.3);color:#f44336}
 
+    /* About */
+    .about{padding:150px 0;background:linear-gradient(135deg,#050505,#1a1a1a)}
+    .about-content{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .about-text h2{font-size:3rem;font-weight:800;margin-bottom:40px;background:linear-gradient(135deg,#D4AF37,#fff);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .about-text p{font-size:1.2rem;color:#ccc;margin-bottom:30px;line-height:1.9}
+    .about-image{height:500px;background:linear-gradient(135deg,#D4AF37,#FFD700);border-radius:20px;display:flex;align-items:center;justify-content:center;color:#050505;font-size:5rem;position:relative;overflow:hidden;border:1px solid rgba(212,175,55,.2)}
+    .about-image::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(212,175,55,.1) 0%,transparent 70%);opacity:0;transition:.5s}
+    .about-image:hover::before{opacity:1}
+    .about-image i{transition:.5s}
+    .about-image:hover i{transform:scale(1.1) rotate(5deg)}
+
+    /* Footer */
     .footer{background:#000;color:#fff;padding:80px 0 40px;position:relative;overflow:hidden}
     .footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
     .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:60px;margin-bottom:60px}
@@ -153,19 +158,20 @@
       .services-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
     }
     @media (max-width:768px){
-      .navbar .container{flex-direction:row-reverse;gap:20px;justify-content:space-between}
-      .nav-links{flex-wrap:wrap;gap:15px}
+      .navbar .container{flex-direction:column;gap:20px}
+      .nav-links{flex-direction:column;text-align:center;gap:15px}
       .nav-links li{margin:0}
-      .hero h1{font-size:2.5rem}
+      .hero h1{font-size:2.6rem}
       .hero p{font-size:1.2rem}
       .hero-buttons{flex-direction:column;align-items:center;gap:20px}
       .btn-primary,.btn-secondary{width:100%;max-width:300px}
       .about-content{grid-template-columns:1fr;gap:50px}
       .about-image{height:300px}
       .subscription-form{padding:30px 20px}
-      .site-name{font-size:20px}
+      .brand-text{font-size:24px}
     }
 
+    /* Extras */
     .floating{animation:floating 3s ease-in-out infinite}
     @keyframes floating{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
     .pulse{animation:pulse 2s infinite}
@@ -173,30 +179,33 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar (كامل) -->
   <nav class="navbar">
     <div class="container">
+      <a href="index.html" class="brand" aria-label="Digital Mind Home">
+        <span class="brand-text">Digital Mind</span>
+        <span class="brand-icon" aria-hidden="true">
+          <!-- Brain SVG inline -->
+          <svg viewBox="0 0 64 64" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#00B5D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M32 6c-5 0-9 4-9 9v1c-4 0-7 3-7 7 0 1 .1 2 .4 3C13 27 10 30 10 34c0 5 4 9 9 9h5"/>
+              <path d="M23 16c-3 2-5 5-5 9 0 2 .6 4 1.6 6M19 43c1.5 2.5 4.3 4 7.3 4H32"/>
+              <path d="M32 6c5 0 9 4 9 9v1c4 0 7 3 7 7 0 1-.1 2-.4 3 3.4 1 6.4 4 6.4 8 0 5-4 9-9 9h-5"/>
+              <path d="M41 16c3 2 5 5 5 9 0 2-.6 4-1.6 6M45 43c-1.5 2.5-4.3 4-7.3 4H32"/>
+              <path d="M32 12v40"/>
+            </g>
+          </svg>
+        </span>
+      </a>
+
       <ul class="nav-links">
         <li><a href="#home">الرئيسية</a></li>
         <li><a href="#services">الخدمات</a></li>
+        <li><a href="cybersecurity.html">الأمن السيبراني</a></li>
         <li><a href="#blog">المدونة</a></li>
         <li><a href="#about">من نحن</a></li>
         <li><a href="#contact">اتصل بنا</a></li>
-        <li><a href="cybersecurity.html">الأمن السيبراني</a></li>
       </ul>
-
-      <div class="logo-container">
-        <!-- شعار SVG مضمّن (مش هيتكسر) -->
-        <svg class="logo-image" width="40" height="40" viewBox="0 0 24 24" aria-label="Digital Mind Logo" role="img">
-          <defs>
-            <linearGradient id="gm" x1="0" x2="1">
-              <stop offset="0" stop-color="#D4AF37"/><stop offset="1" stop-color="#FFD700"/>
-            </linearGradient>
-          </defs>
-          <path fill="url(#gm)" d="M12 2a7 7 0 0 0-7 7v2a5 5 0 0 0 5 5h1v2a2 2 0 1 0 4 0v-2h1a5 5 0 0 0 5-5V9a7 7 0 0 0-7-7h-2Z"/>
-        </svg>
-        <a href="index.html" class="site-name">Digital Mind</a>
-      </div>
     </div>
   </nav>
 
@@ -224,24 +233,24 @@
 
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
           <h3>الأمن السيبراني</h3>
-          <p>استشارات وتقييم وثغرات وآليات حماية عملية متوافقة مع السوق المحلي.</p>
-          <a href="cybersecurity.html" class="service-link">انتقل للصفحة <i class="fas fa-arrow-left"></i></a>
+          <p>تشخيص سريع، تدقيق أساسي وخطة معالجة — حلول عملية للمؤسسات.</p>
+          <a href="cybersecurity.html" class="service-link">اذهب لصفحة الخدمة <i class="fas fa-arrow-left"></i></a>
         </div>
 
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-brain"></i></div>
           <h3>حلول الذكاء الاصطناعي</h3>
-          <p>نماذج ومساعدين ذكيين لرفع كفاءة التشغيل وتحسين تجربة العميل.</p>
-          <a href="#contact" class="service-link">اطلب استشارة <i class="fas fa-arrow-left"></i></a>
+          <p>أتمتة ذكية ونماذج توليدية لرفع الكفاءة وتقليل التكاليف.</p>
+          <a href="#" class="service-link">تواصل لمعرفة المزيد <i class="fas fa-arrow-left"></i></a>
         </div>
 
         <div class="service-card">
-          <div class="service-icon"><i class="fas fa-cogs"></i></div>
-          <h3>الأتمتة والتكامل</h3>
-          <p>أتمتة الأعمال ودمج الأنظمة لتقليل التكاليف ورفع الإنتاجية.</p>
-          <a href="#contact" class="service-link">اطلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+          <div class="service-icon"><i class="fas fa-gears"></i></div>
+          <h3>أتمتة العمليات</h3>
+          <p>أتمتة متكاملة للمهام المتكررة وربط الأنظمة لتحقيق سرعة ودقة.</p>
+          <a href="#" class="service-link">اطلب جلسة تشخيص <i class="fas fa-arrow-left"></i></a>
         </div>
       </div>
     </div>
@@ -277,7 +286,7 @@
         </div>
 
         <div class="blog-card">
-          <div class="blog-image"><i class="fas fa-cubes"></i></div>
+          <div class="blog-image"><i class="fas fa-cogs"></i></div>
           <div class="blog-content">
             <h3>دليل الأتمتة الكامل</h3>
             <p>أفضل الأدوات والاستراتيجيات لأتمتة العمليات في شركتك</p>
@@ -312,7 +321,7 @@
         <h2>انضم إلى مجتمعنا المميز</h2>
         <p>اشترك الآن واحصل على أحدث التحديثات والمحتوى الحصري مباشرة في بريدك الإلكتروني</p>
 
-        <form class="subscription-form" id="subscriptionForm" autocomplete="off">
+        <form class="subscription-form" id="subscriptionForm">
           <div class="form-group">
             <label for="name">الاسم الكامل</label>
             <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required />
@@ -325,10 +334,10 @@
 
           <div class="form-group">
             <label for="phone">رقم الجوال</label>
-            <!-- نفس النمط السابق لكنه متساهل مع + وبدونها -->
-            <input type="tel" id="phone" name="phone" inputmode="tel"
-                   placeholder="مثال: +966501234567 أو 0501234567"
-                   pattern="^(\+?\d{10,15}|0\d{9})$" required />
+            <input type="tel" id="phone" name="phone"
+                   placeholder="مثال: +966501234567"
+                   pattern="^\+?[0-9]{10,15}$"
+                   required />
           </div>
 
           <div class="form-group">
@@ -384,7 +393,7 @@
     // تهيئة EmailJS
     emailjs.init('yef1ybmulax4pT4WI');
 
-    // توقيت الرياض ISO
+    // دالة تولّد ISO لتوقيت الرياض +03:00
     function nowInKSAIso() {
       const parts = Object.fromEntries(
         new Intl.DateTimeFormat('en-CA', {
@@ -397,16 +406,12 @@
       return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+03:00`;
     }
 
-    // معالجة نموذج الاشتراك (يبقى كما هو)
+    // معالجة نموذج الاشتراك
     document.getElementById('subscriptionForm').addEventListener('submit', async function(e){
       e.preventDefault();
 
       const phoneInput = document.getElementById('phone');
-      const phoneRegex = /^(\+?\d{10,15}|0\d{9})$/;
-      if(!phoneRegex.test(phoneInput.value)){
-        showMessage('يرجى إدخال رقم هاتف صحيح بصيغة دولية أو محلية.', 'error');
-        return;
-      }
+      const messageEl = document.getElementById('message');
 
       const templateParams = {
         name: document.getElementById('name').value.trim(),
@@ -416,7 +421,7 @@
       };
 
       try{
-        // إرسال بريد
+        // إرسال بريد (EmailJS)
         await emailjs.send('service_i7rpq9f','template_2ul5hcg',templateParams);
 
         // إرسال إلى Google Sheets
@@ -432,7 +437,7 @@
           })
         }).catch(err => console.error('Google Sheets fetch error:', err));
 
-        // حدث GA4
+        // حدث GA4 لقياس تحويل Lead
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', {
             method: 'subscription_form',
@@ -440,22 +445,17 @@
           });
         }
 
-        // إعادة توجيه لصفحة الشكر
+        // إعادة التوجيه لصفحة الشكر بعد نجاح الإرسال
         setTimeout(()=>{ window.location.href = 'thank-you.html'; }, 500);
 
       }catch(err){
         console.error(err);
-        showMessage('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.', 'error');
+        messageEl.textContent = 'حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.';
+        messageEl.className = 'message error';
+        messageEl.style.display = 'block';
+        setTimeout(()=>{ messageEl.style.display='none'; }, 5000);
       }
     });
-
-    function showMessage(text,type){
-      const el = document.getElementById('message');
-      el.textContent = text;
-      el.className = 'message ' + type;
-      el.style.display = 'block';
-      setTimeout(()=>{ el.style.display='none'; }, 5000);
-    }
   </script>
 </body>
 </html>
