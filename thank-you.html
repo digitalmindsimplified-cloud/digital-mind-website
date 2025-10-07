@@ -1,60 +1,56 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>شكراً لك - Digital Mind Simplified</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تم استلام طلبك بنجاح | Digital Mind Simplified</title>
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYZVQRV1FL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-CYZVQRV1FL');
-    // تتبع زيارة صفحة الشكر
-    gtag('event', 'page_view', {
-      page_title: 'Thank You',
-      page_location: window.location.href,
-      page_path: '/thank-you.html'
-    });
+    gtag('config','G-CYZVQRV1FL');
+    gtag('event','thank_you_page_view',{page:'thank-you'});
   </script>
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Tajawal',sans-serif;background:#0a0a0a;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px}
-    .box{max-width:680px;width:100%;text-align:center;background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(212,175,55,.25);border-radius:20px;padding:40px 30px}
-    h1{font-size:2.2rem;margin-bottom:12px;background:linear-gradient(135deg,#fff,#D4AF37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    p{color:#ccc;line-height:1.8;margin-bottom:24px}
-    .next{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);border-radius:14px;padding:18px;text-align:right;margin:24px 0}
-    .next h3{color:#D4AF37;margin-bottom:10px}
-    .next li{margin:8px 0;color:#ddd}
-    .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}
-    .btn{padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid #D4AF37;transition:.25s}
-    .primary{background:linear-gradient(135deg,#D4AF37,#FFD700);color:#0a0a0a;border:none}
-    .outline{color:#D4AF37;background:transparent}
-    .outline:hover{background:rgba(212,175,55,.1)}
-    .primary:hover{filter:brightness(1.05)}
+    body{margin:0;background:#0b0b0b;color:#eee;font-family:'Tajawal',Arial,sans-serif}
+    .wrap{max-width:900px;margin:60px auto;padding:24px}
+    .card{background:#111;border:1px solid rgba(212,175,55,.2);border-radius:16px;padding:28px 24px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    h1{color:#fff;font-size:2rem;margin:0 0 8px}
+    .lead{color:#cfcfcf;margin-bottom:18px}
+    .box{background:#141414;border:1px solid rgba(212,175,55,.15);border-radius:12px;padding:18px;margin:16px 0;color:#ddd}
+    .actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 20px;border-radius:10px;border:none;font-weight:800;cursor:pointer;text-decoration:none}
+    .primary{background:linear-gradient(135deg,#D4AF37,#FFD700);color:#000}
+    .ghost{background:transparent;color:#D4AF37;border:2px solid #D4AF37}
   </style>
 </head>
 <body>
-  <main class="box">
-    <h1>تم استلام طلبك بنجاح ✅</h1>
-    <p>شكرًا لثقتك في <strong>Digital Mind Simplified</strong>. يراجع فريقنا التفاصيل الآن وسنتواصل معك خلال 24 ساعة.</p>
+  <div class="wrap">
+    <div class="card">
+      <h1>تم استلام طلبك بنجاح</h1>
+      <p class="lead">شكرًا لثقتك في <b>Digital Mind Simplified</b>. راجع فريقنا التفاصيل الآن وسنتواصل معك خلال 24 ساعة.</p>
 
-    <section class="next">
-      <h3>الخطوات التالية:</h3>
-      <ul>
-        <li>رسالة تأكيد ستصل إلى بريدك الإلكتروني.</li>
-        <li>سنتواصل معك عبر الجوال/البريد لمناقشة المتطلبات.</li>
-        <li>استشارة أولية مجانية لتحديد أفضل حل.</li>
-      </ul>
-    </section>
+      <div class="box">
+        <h3 style="color:#D4AF37;margin-top:0">الخطوات التالية:</h3>
+        <ul>
+          <li>ستصلك رسالة تأكيد إلى بريدك الإلكتروني.</li>
+          <li>سنتواصل معك عبر الجوال/البريد لمناقشة المتطلبات.</li>
+          <li>استشارة أوليّة مجانية لتحديد أفضل حل.</li>
+        </ul>
+      </div>
 
-    <div class="btns">
-      <a class="btn primary" href="index.html" onclick="gtag('event','cta_click',{button_name:'home_from_thankyou'})">العودة للرئيسية</a>
-      <a class="btn outline" href="#services" onclick="gtag('event','cta_click',{button_name:'services_from_thankyou'})">تصفح الخدمات</a>
+      <div class="actions">
+        <!-- ✅ يعمل: يرجع لقسم الخدمات في الصفحة الرئيسية -->
+        <a href="index.html#services" class="btn primary">تصفح الخدمات</a>
+        <a href="index.html" class="btn ghost">العودة للرئيسية</a>
+        <!-- رابط مباشر لصفحة الأمن السيبراني (اختياري) -->
+        <a href="cybersecurity.html" class="btn ghost">خدمة الأمن السيبراني</a>
+      </div>
     </div>
-  </main>
+  </div>
 </body>
 </html>
