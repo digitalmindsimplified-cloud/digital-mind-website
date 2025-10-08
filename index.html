@@ -12,13 +12,12 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-CYZVQRV1FL'); // Measurement ID الخاص بك
+    gtag('config', 'G-CYZVQRV1FL');
   </script>
 
-  <!-- خطوط -->
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- أيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -28,7 +27,7 @@
     body{font-family:'Tajawal',sans-serif;background:#050505;color:#fff;line-height:1.6;overflow-x:hidden}
     .container{max-width:1400px;margin:0 auto;padding:0 30px}
 
-    /* Navbar */
+    /* ===== Navbar ===== */
     .navbar{
       background:rgba(0,0,0,.95);
       backdrop-filter:blur(15px);
@@ -38,13 +37,26 @@
     }
     .navbar .container{
       display:flex;align-items:center;
-      /* نحافظ على ترتيب الهيدر القديم: اللوجو يسار، الروابط يمين */
     }
-    /* الروابط يمين (في RTL: نستخدم margin-inline-start:auto لدفعها لليمين) */
+    /* اللوجو يسار (في RTL نستخدم margin-right:auto لدفعه لأقصى اليسار) */
+    .logo-wrap{
+      display:flex;align-items:center;gap:10px;
+      margin-right:auto;
+      text-decoration:none;
+    }
+    .site-name{
+      font-family:'Montserrat',sans-serif;
+      font-weight:700;font-size:26px;line-height:1;white-space:nowrap;
+      color:#D4AF37;letter-spacing:-.3px
+    }
+    .brand-mark{
+      width:26px;height:26px;object-fit:contain;display:block;
+      filter: drop-shadow(0 0 6px rgba(0,180,255,.35));
+    }
+
+    /* الروابط يمين */
     .nav-links{
-      display:flex;list-style:none;
-      margin-inline-start:auto; /* يزق القائمة لليمين */
-      gap:40px;
+      display:flex;list-style:none;gap:40px;
     }
     .nav-links a{
       color:#fff;text-decoration:none;font-weight:600;font-size:16px;
@@ -57,23 +69,7 @@
     .nav-links a:hover::after{width:100%}
     .nav-links a:hover{color:#D4AF37}
 
-    /* Logo (نفس الشكل القديم: نص + أيقونة دماغ صغيرة على يمينه) */
-    .logo-wrap{
-      display:flex;align-items:center;gap:10px;
-      /* ثابت يسار الهيدر */
-    }
-    .site-name{
-      font-family:'Montserrat',sans-serif;
-      font-weight:700;font-size:26px;
-      color:#D4AF37;text-decoration:none;line-height:1;
-      letter-spacing:-.3px; white-space:nowrap;
-    }
-    .brand-mark{
-      width:26px;height:26px;object-fit:contain;display:block;
-      filter: drop-shadow(0 0 6px rgba(0,180,255,.35));
-    }
-
-    /* Hero */
+    /* ===== Hero ===== */
     .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(135deg,#050505 0%,#1a1a1a 100%);overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:
       radial-gradient(circle at 20% 50%,rgba(212,175,55,.1) 0%,transparent 50%),
@@ -84,16 +80,14 @@
     @keyframes glow{from{filter:drop-shadow(0 0 20px rgba(212,175,55,.5))}to{filter:drop-shadow(0 0 30px rgba(212,175,55,.8))}}
     .hero p{font-size:1.5rem;font-weight:300;max-width:800px;margin:0 auto 50px;color:#ccc;line-height:1.8}
     .hero-buttons{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
-
     .btn-primary{display:inline-block;background:linear-gradient(135deg,#D4AF37,#FFD700);color:#050505;padding:18px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:18px;transition:.3s;box-shadow:0 10px 30px rgba(212,175,55,.3);position:relative;overflow:hidden}
     .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s}
     .btn-primary:hover::before{left:100%}
     .btn-primary:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(212,175,55,.5)}
-
     .btn-secondary{display:inline-block;background:transparent;color:#D4AF37;padding:18px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:18px;border:2px solid #D4AF37;transition:.3s}
     .btn-secondary:hover{background:rgba(212,175,55,.1);transform:translateY(-5px);box-shadow:0 10px 30px rgba(212,175,55,.2)}
 
-    /* Services */
+    /* ===== Sections (services/blog/about/subscription/footer) ===== */
     .services{padding:150px 0;background:linear-gradient(180deg,#1a1a1a 0%,#050505 100%);position:relative}
     .services::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
     .section-title{text-align:center;margin-bottom:100px}
@@ -114,7 +108,6 @@
     .service-link:hover i{transform:translateX(-5px)}
     .service-link:hover{color:#fff}
 
-    /* Blog */
     .blog{padding:150px 0;background:linear-gradient(180deg,#1a1a1a 0%,#050505 100%)}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:40px}
     .blog-card{background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(212,175,55,.18);border-radius:20px;overflow:hidden;transition:.5s;backdrop-filter:blur(10px)}
@@ -131,7 +124,6 @@
     .blog-link:hover i{transform:translateX(-5px)}
     .blog-link:hover{color:#fff}
 
-    /* Subscription */
     .subscription-section{padding:150px 0;background:linear-gradient(135deg,#050505,#1a1a1a);position:relative;overflow:hidden}
     .subscription-section::before{content:'';position:absolute;inset:0;background:
       radial-gradient(circle at 30% 20%,rgba(212,175,55,.05) 0%,transparent 50%),
@@ -153,13 +145,11 @@
     .btn-subscribe:hover::before{left:100%}
     .btn-subscribe:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(212,175,55,.4)}
 
-    /* Messages */
     .message{padding:20px;border-radius:10px;margin-top:20px;text-align:center;font-weight:600;display:none;animation:slideIn .5s}
     @keyframes slideIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
     .message.success{background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.3);color:#4caf50}
     .message.error{background:rgba(244,67,54,.1);border:1px solid rgba(244,67,54,.3);color:#f44336}
 
-    /* About */
     .about{padding:150px 0;background:linear-gradient(135deg,#050505,#1a1a1a)}
     .about-content{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
     .about-text h2{font-size:3rem;font-weight:800;margin-bottom:40px;background:linear-gradient(135deg,#D4AF37,#fff);
@@ -171,7 +161,6 @@
     .about-image i{transition:.5s}
     .about-image:hover i{transform:scale(1.1) rotate(5deg)}
 
-    /* Footer */
     .footer{background:#000;color:#fff;padding:80px 0 40px;position:relative;overflow:hidden}
     .footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
     .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:60px;margin-bottom:60px}
@@ -181,14 +170,12 @@
     .footer-bottom{border-top:1px solid rgba(212,175,55,.1);padding-top:30px}
     .footer-bottom p{margin:0;text-align:center;color:#888;font-size:.9rem}
 
-    /* Responsive */
     @media (max-width:1024px){
       .hero h1{font-size:3.5rem}
       .section-title h2{font-size:2.8rem}
       .services-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
     }
     @media (max-width:768px){
-      .navbar .container{flex-direction:row;gap:16px}
       .nav-links{gap:20px}
       .hero h1{font-size:2.5rem}
       .hero p{font-size:1.2rem}
@@ -197,22 +184,15 @@
       .about-content{grid-template-columns:1fr;gap:50px}
       .about-image{height:300px}
       .subscription-form{padding:30px 20px}
-      .site-name{font-size:22px}
-      .brand-mark{width:24px;height:24px}
+      .site-name{font-size:22px}.brand-mark{width:24px;height:24px}
     }
-
-    /* Extras */
-    .floating{animation:floating 3s ease-in-out infinite}
-    @keyframes floating{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
-    .pulse{animation:pulse 2s infinite}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,175,55,.7)}70%{box-shadow:0 0 0 10px rgba(212,175,55,0)}100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- ===== Navbar ===== -->
   <nav class="navbar">
     <div class="container">
-      <!-- يسار: اللوجو بنفس الشكل القديم -->
+      <!-- يسار: اللوجو + الاسم (اللوجو الأصلي) -->
       <a href="#" class="logo-wrap" aria-label="Digital Mind">
         <span class="site-name">Digital Mind</span>
         <img src="logo.png" alt="Digital Mind Logo" class="brand-mark">
@@ -230,11 +210,11 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- ===== Hero ===== -->
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 class="floating">منصة التحول الرقمي العربي</h1>
+        <h1>منصة التحول الرقمي العربي</h1>
         <p>أول منصة عربية متكاملة تجمع بين الأمن السيبراني والذكاء الاصطناعي والأتمتة - حلول ذكية للشركات والمؤسسات</p>
         <div class="hero-buttons">
           <a href="#services" class="btn-primary">اكتشف الخدمات</a>
@@ -244,7 +224,7 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- ===== Services ===== -->
   <section id="services" class="services">
     <div class="container">
       <div class="section-title">
@@ -259,14 +239,12 @@
           <p>أداة ذكاء اصطناعي تقيس جاهزية شركتك للتحول الرقمي وتصدر شهادة معتمدة</p>
           <a href="#" class="service-link">جرب الآن مجاناً <i class="fas fa-arrow-left"></i></a>
         </div>
-
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-handshake"></i></div>
           <h3>سوق الخدمات التقنية</h3>
           <p>منصة ذكية تربط بين الشركات والخبراء التقنيين بنظام مطابقة متقدم</p>
           <a href="#" class="service-link">تصفح الخبراء <i class="fas fa-arrow-left"></i></a>
         </div>
-
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-cubes"></i></div>
           <h3>مكتبة الحلول الجاهزة</h3>
@@ -277,7 +255,7 @@
     </div>
   </section>
 
-  <!-- Blog -->
+  <!-- ===== Blog ===== -->
   <section id="blog" class="blog">
     <div class="container">
       <div class="section-title">
@@ -319,7 +297,7 @@
     </div>
   </section>
 
-  <!-- About -->
+  <!-- ===== About ===== -->
   <section id="about" class="about">
     <div class="container">
       <div class="about-content">
@@ -335,7 +313,7 @@
     </div>
   </section>
 
-  <!-- Subscription -->
+  <!-- ===== Subscription ===== -->
   <section id="subscription" class="subscription-section">
     <div class="container">
       <div class="subscription-content">
@@ -371,14 +349,14 @@
             </select>
           </div>
 
-          <button type="submit" class="btn-subscribe pulse">اشترك الآن</button>
+          <button type="submit" class="btn-subscribe">اشترك الآن</button>
           <div id="message" class="message"></div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== Footer ===== -->
   <footer id="contact" class="footer">
     <div class="container">
       <div class="footer-content">
@@ -408,13 +386,9 @@
   </footer>
 
   <script>
-    // رابط الويب آب (الأخير)
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRf2j1bhu8n1_g7k_vM2FsxhsSFQFq24944fBFQ6ioRR3FRXilhRFx7rK37TZME8K6IQ/exec';
-
-    // تهيئة EmailJS
     emailjs.init('yef1ybmulax4pT4WI');
 
-    // دالة تولّد ISO لتوقيت الرياض +03:00
     function nowInKSAIso() {
       const parts = Object.fromEntries(
         new Intl.DateTimeFormat('en-CA', {
@@ -426,64 +400,39 @@
       return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+03:00`;
     }
 
-    // معالجة النموذج
     document.getElementById('subscriptionForm').addEventListener('submit', async function(e){
       e.preventDefault();
-
       const phoneInput = document.getElementById('phone');
       const phoneRegex = /^\+?[0-9]{10,15}$/;
       if(!phoneRegex.test(phoneInput.value)){
         showMessage('يرجى إدخال رقم هاتف صحيح بصيغة دولية (مثال: +201234567890)', 'error');
         return;
       }
-
-      const templateParams = {
+      const data = {
         name: document.getElementById('name').value.trim(),
         email: document.getElementById('email').value.trim(),
         phone: phoneInput.value.trim(),
         service: document.getElementById('service').value
       };
-
       try{
-        // إرسال بريد
-        await emailjs.send('service_i7rpq9f','template_2ul5hcg',templateParams);
-
-        // إرسال إلى Google Sheets
+        await emailjs.send('service_i7rpq9f','template_2ul5hcg',data);
         fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type':'application/json' },
-          mode: 'no-cors',
-          body: JSON.stringify({
-            ...templateParams,
-            source: 'website',
-            timestamp: new Date().toISOString(), // UTC
-            ksa_time: nowInKSAIso()              // وقت الرياض
-          })
-        }).catch(err => console.error('Google Sheets fetch error:', err));
-
-        // حدث GA4 لقياس تحويل Lead
-        if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', {
-            method: 'subscription_form',
-            service: templateParams.service
-          });
+          method:'POST', headers:{'Content-Type':'application/json'}, mode:'no-cors',
+          body: JSON.stringify({ ...data, source:'website', timestamp:new Date().toISOString(), ksa_time:nowInKSAIso() })
+        }).catch(()=>{});
+        if (typeof gtag==='function'){
+          gtag('event','generate_lead',{ method:'subscription_form', service:data.service });
         }
-
-        // إعادة التوجيه لصفحة الشكر بعد نجاح الإرسال
-        setTimeout(()=>{ window.location.href = 'thank-you.html'; }, 500);
-
-      }catch(err){
-        console.error(err);
-        showMessage('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.', 'error');
+        setTimeout(()=>{ window.location.href='thank-you.html'; }, 500);
+      }catch{
+        showMessage('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.','error');
       }
     });
 
     function showMessage(text,type){
-      const el = document.getElementById('message');
-      el.textContent = text;
-      el.className = 'message ' + type;
-      el.style.display = 'block';
-      setTimeout(()=>{ el.style.display='none'; }, 5000);
+      const el=document.getElementById('message');
+      el.textContent=text; el.className='message '+type; el.style.display='block';
+      setTimeout(()=>{ el.style.display='none'; },5000);
     }
   </script>
 </body>
