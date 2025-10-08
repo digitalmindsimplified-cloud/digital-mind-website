@@ -12,7 +12,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-CYZVQRV1FL'); // Measurement ID الخاص بك
+    gtag('config', 'G-CYZVQRV1FL');
   </script>
 
   <!-- خطوط -->
@@ -28,10 +28,9 @@
     body{font-family:'Tajawal',sans-serif;background:#050505;color:#fff;line-height:1.6;overflow-x:hidden}
     .container{max-width:1400px;margin:0 auto;padding:0 30px}
 
-    /* Navbar */
+    /* Navbar (نفس الهيكل القديم) */
     .navbar{background:rgba(0,0,0,.95);backdrop-filter:blur(15px);padding:20px 0;position:fixed;top:0;left:0;right:0;z-index:1000;border-bottom:1px solid rgba(212,175,55,.15)}
     .navbar .container{display:flex;justify-content:space-between;align-items:center}
-    /* نخلي الروابط على اليمين واللوجو على اليسار بوضع اللوجو أولا في الـ DOM */
     .nav-links{display:flex;list-style:none}
     .nav-links li{margin-left:40px}
     .nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:16px;transition:.3s;position:relative}
@@ -39,12 +38,11 @@
     .nav-links a:hover::after{width:100%}
     .nav-links a:hover{color:#D4AF37}
 
-    /* Logo (اسم ثم أيقونة دماغ زرقاء على يمين الاسم مثل الشكل القديم) */
+    /* Logo (SVG داخلي ثابت) */
     .logo-container{display:flex;align-items:center;gap:12px}
-    .site-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:24px;color:#D4AF37;text-decoration:none;transition:.3s;letter-spacing:-.5px;white-space:nowrap}
-    .site-name:hover{transform:scale(1.05);text-shadow:0 0 15px rgba(212,175,55,.5)}
-    .logo-brain{width:28px;height:28px;display:inline-block}
-    .logo-brain svg{display:block;width:28px;height:28px;filter:drop-shadow(0 0 6px rgba(0,200,255,.35))}
+    .logo-svg{width:28px;height:28px;display:block;filter:drop-shadow(0 0 6px rgba(0,200,255,.35))}
+    .site-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:24px;color:#D4AF37;text-decoration:none;transition:.3s;letter-spacing:-.5px}
+    .site-name:hover{transform:scale(1.03);text-shadow:0 0 12px rgba(212,175,55,.45)}
 
     /* Hero */
     .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(135deg,#050505 0%,#1a1a1a 100%);overflow:hidden}
@@ -171,8 +169,7 @@
       .about-image{height:300px}
       .subscription-form{padding:30px 20px}
       .site-name{font-size:20px}
-      .logo-brain{width:26px;height:26px}
-      .logo-brain svg{width:26px;height:26px}
+      .logo-svg{width:26px;height:26px}
     }
 
     /* Extras */
@@ -183,31 +180,32 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar (روابط يسار / لوجو يمين) -->
   <nav class="navbar">
     <div class="container">
-      <!-- ✅ اللوجو أولا (يسار) — اسم ثم أيقونة دماغ زرقاء -->
-      <div class="logo-container">
-        <a href="#" class="site-name">Digital Mind</a>
-        <span class="logo-brain" aria-hidden="true">
-          <!-- دماغ أزرق (SVG خفيف) -->
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 10c-6 0-10 5-10 11 0 1 .1 2 .4 3C9 25 7 28 7 31c0 5 4 9 9 9h4v-2c0-2 1-4 2-5l3-3-2-2c-2-2-3-4-3-7 0-6 5-11 11-11" fill="none" stroke="#19c0ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M42 10c6 0 10 5 10 11 0 1-.1 2-.4 3C55 25 57 28 57 31c0 5-4 9-9 9h-4v-2c0-2-1-4-2-5l-3-3 2-2c2-2 3-4 3-7 0-6-5-11-11-11" fill="none" stroke="#00a8ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </div>
-
-      <!-- روابط النافبار (يمين) -->
       <ul class="nav-links">
         <li><a href="#home">الرئيسية</a></li>
         <li><a href="#services">الخدمات</a></li>
-        <!-- رابط صفحة الأمن السيبراني -->
-        <li><a href="cybersecurity.html">الأمن السيبراني</a></li>
+        <li><a href="cybersecurity.html">الأمن السيبراني</a></li><!-- جديد -->
         <li><a href="#blog">المدونة</a></li>
         <li><a href="#about">من نحن</a></li>
         <li><a href="#contact">اتصل بنا</a></li>
       </ul>
+
+      <!-- لوجو أصلي ثابت -->
+      <div class="logo-container">
+        <!-- دماغ أزرق (SVG داخلي) -->
+        <svg class="logo-svg" viewBox="0 0 24 24" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#00E5FF"/>
+              <stop offset="1" stop-color="#00B3FF"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#g)" d="M10.5 2.5a3 3 0 0 0-3 3v.3a3.8 3.8 0 0 0-2.4 6.1 4.2 4.2 0 0 0 3.4 6.6h2V7.5h-1a1 1 0 0 1 0-2h1v-1a3 3 0 0 1 3-3h.5a3 3 0 0 1 3 3v.3a3.8 3.8 0 0 1 2.4 6.1 4.2 4.2 0 0 1-3.4 6.6h-2V7.5h1a1 1 0 0 0 0-2h-1v-1a3 3 0 0 0-3-3h-.5z"/>
+        </svg>
+        <a href="#" class="site-name">Digital Mind</a>
+      </div>
     </div>
   </nav>
 
@@ -218,8 +216,8 @@
         <h1 class="floating">منصة التحول الرقمي العربي</h1>
         <p>أول منصة عربية متكاملة تجمع بين الأمن السيبراني والذكاء الاصطناعي والأتمتة - حلول ذكية للشركات والمؤسسات</p>
         <div class="hero-buttons">
-          <a href="#services" class="btn-primary">اكتشف الخدمات</a>
-          <a href="#subscription" class="btn-secondary">اشترك الآن</a>
+          <a href="#services" class="btn-primary" onclick="gtag&&gtag('event','cta_click',{button_name:'discover_services'})">اكتشف الخدمات</a>
+          <a href="#subscription" class="btn-secondary" onclick="gtag&&gtag('event','cta_click',{button_name:'subscribe_hero'})">اشترك الآن</a>
         </div>
       </div>
     </div>
@@ -370,7 +368,7 @@
         <div class="footer-section">
           <h3>روابط سريعة</h3>
           <p><a href="#services">الخدمات</a></p>
-          <p><a href="cybersecurity.html">الأمن السيبراني</a></p>
+          <p><a href="cybersecurity.html">الأمن السيبراني</a></p><!-- جديد -->
           <p><a href="#blog">المدونة</a></p>
           <p><a href="#about">من نحن</a></p>
           <p><a href="#contact">اتصل بنا</a></p>
@@ -389,13 +387,13 @@
   </footer>
 
   <script>
-    // رابط الويب آب
+    // رابط الويب آب (الأخير)
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRf2j1bhu8n1_g7k_vM2FsxhsSFQFq24944fBFQ6ioRR3FRXilhRFx7rK37TZME8K6IQ/exec';
 
-    // تهيئة EmailJS (Public Key)
+    // تهيئة EmailJS
     emailjs.init('yef1ybmulax4pT4WI');
 
-    // دالة تولّد ISO لتوقيت الرياض +03:00
+    // وقت الرياض +03:00
     function nowInKSAIso() {
       const parts = Object.fromEntries(
         new Intl.DateTimeFormat('en-CA', {
@@ -408,7 +406,7 @@
       return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+03:00`;
     }
 
-    // معالجة النموذج
+    // معالجة نموذج الاشتراك
     document.getElementById('subscriptionForm').addEventListener('submit', async function(e){
       e.preventDefault();
 
@@ -443,7 +441,7 @@
           })
         }).catch(err => console.error('Google Sheets fetch error:', err));
 
-        // حدث GA4 لقياس تحويل Lead
+        // تتبّع GA4
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', {
             method: 'subscription_form',
