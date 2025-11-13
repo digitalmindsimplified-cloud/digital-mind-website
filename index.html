@@ -12,7 +12,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-CYZVQRV1FL'); // Measurement ID الخاص بك
+    gtag('config', 'G-CYZVQRV1FL');
   </script>
 
   <!-- خطوط -->
@@ -188,17 +188,14 @@
       <ul class="nav-links">
         <li><a href="#home">الرئيسية</a></li>
         <li><a href="#services">الخدمات</a></li>
-
-        <!-- ✅ الجديد: رابط صفحة الأمن السيبراني -->
-        <li><a href="cybersecurity.html">الأمن السيبراني</a></li>
-
+        <li><a href="#products">المتجر الرقمي</a></li>
         <li><a href="#blog">المدونة</a></li>
         <li><a href="#about">من نحن</a></li>
         <li><a href="#contact">اتصل بنا</a></li>
       </ul>
       <div class="logo-container">
         <img src="https://z-cdn-media.chatglm.cn/files/c0da9ded-07be-4c09-8aca-bd981ada03d0_logo.png?auth_key=1790691197-267071ae1a1a416b89d485e461dea30d-0-2b87d551cfc90fcf9458eab0cc40520d" alt="Digital Mind Logo" class="logo-image">
-        <a href="#" class="site-name">Digital Mind</a>
+        <a href="index.html" class="site-name">Digital Mind</a>
       </div>
     </div>
   </nav>
@@ -210,7 +207,7 @@
         <h1 class="floating">منصة التحول الرقمي العربي</h1>
         <p>أول منصة عربية متكاملة تجمع بين الأمن السيبراني والذكاء الاصطناعي والأتمتة - حلول ذكية للشركات والمؤسسات</p>
         <div class="hero-buttons">
-          <a href="#services" class="btn-primary">اكتشف الخدمات</a>
+          <a href="#products" class="btn-primary">تصفح المنتجات</a>
           <a href="#subscription" class="btn-secondary">اشترك الآن</a>
         </div>
       </div>
@@ -227,24 +224,117 @@
 
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="service-icon"><i class="fas fa-rocket"></i></div>
+          <h3>التحول الرقمي الذكي</h3>
+          <p>تقييم شامل لجاهزية شركتك الرقمية مع خطة تنفيذية واضحة ومخصصة</p>
+          <a href="#products" class="service-link">استكشف المنتجات <i class="fas fa-arrow-left"></i></a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>الأمن السيبراني</h3>
+          <p>حماية شاملة لبياناتك وأنظمتك مع حلول متوافقة مع معايير NCA</p>
+          <a href="nca-starter-kit.html" class="service-link">ابدأ الآن <i class="fas fa-arrow-left"></i></a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-robot"></i></div>
+          <h3>الذكاء الاصطناعي والأتمتة</h3>
+          <p>أتمتة ذكية لعملياتك التجارية - وفر الوقت وزد الإنتاجية</p>
+          <a href="#subscription" class="service-link">تواصل معنا <i class="fas fa-arrow-left"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Products Store -->
+  <section id="products" class="services" style="background: linear-gradient(180deg, #050505 0%, #1a1a1a 100%);">
+    <div class="container">
+      <div class="section-title">
+        <h2>المتجر الرقمي</h2>
+        <p>منتجات رقمية احترافية جاهزة للتحميل الفوري</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- NCA Starter Kit -->
+        <div class="service-card">
+          <div class="service-icon" style="background: linear-gradient(135deg, #fbbf24, #fcd34d);">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>NCA Starter Kit</h3>
+          <p>حزمة الامتثال السيبراني الشاملة - 9 ملفات جاهزة للتطبيق الفوري متوافقة مع معايير NCA</p>
+          
+          <!-- Price Section -->
+          <div style="margin: 20px 0;">
+            <span style="font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, #fbbf24, #fcd34d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$19</span>
+            <span style="text-decoration: line-through; color: #888; margin-right: 10px;">$59</span>
+            <span style="background: #10b981; color: #000; padding: 4px 10px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;">وفّر 68%</span>
+          </div>
+          
+          <!-- Countdown Timer -->
+          <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05)); border: 2px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 15px; margin: 15px 0;">
+            <div style="color: #ef4444; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; text-align: center;">
+              ⏰ العرض ينتهي خلال:
+            </div>
+            <div id="countdown-index" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; font-size: 0.75rem;">
+              <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 8px 4px;">
+                <span id="days-index" style="font-size: 1.3rem; font-weight: 900; color: #ef4444; display: block;">00</span>
+                <span style="color: #888; font-size: 0.7rem;">يوم</span>
+              </div>
+              <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 8px 4px;">
+                <span id="hours-index" style="font-size: 1.3rem; font-weight: 900; color: #ef4444; display: block;">00</span>
+                <span style="color: #888; font-size: 0.7rem;">ساعة</span>
+              </div>
+              <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 8px 4px;">
+                <span id="minutes-index" style="font-size: 1.3rem; font-weight: 900; color: #ef4444; display: block;">00</span>
+                <span style="color: #888; font-size: 0.7rem;">دقيقة</span>
+              </div>
+              <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 8px 4px;">
+                <span id="seconds-index" style="font-size: 1.3rem; font-weight: 900; color: #ef4444; display: block;">00</span>
+                <span style="color: #888; font-size: 0.7rem;">ثانية</span>
+              </div>
+            </div>
+            <div style="color: #fbbf24; font-size: 0.8rem; margin-top: 8px; text-align: center; font-weight: 600;">
+              بعدها السعر يرجع لـ $59 ⚠️
+            </div>
+          </div>
+          
+          <!-- CTA Button - WORKING NOW -->
+          <a href="nca-starter-kit.html" class="btn-primary" style="display:inline-block;margin-top:15px;">
+            <i class="fas fa-shopping-cart" style="margin-left: 8px;"></i>
+            عرض التفاصيل والشراء
+            <i class="fas fa-arrow-left" style="margin-right: 8px;"></i>
+          </a>
+        </div>
+
+        <!-- Digital Readiness Assessment -->
+        <div class="service-card">
+          <div class="service-icon" style="background: linear-gradient(135deg, #6366f1, #818cf8);">
+            <i class="fas fa-chart-line"></i>
+          </div>
           <h3>مقياس الجاهزية الرقمية</h3>
-          <p>أداة ذكاء اصطناعي تقيس جاهزية شركتك للتحول الرقمي وتصدر شهادة معتمدة</p>
-          <a href="#" class="service-link">جرب الآن مجاناً <i class="fas fa-arrow-left"></i></a>
+          <p>قيّم مستوى التحول الرقمي لشركتك في 5 دقائق واحصل على تقرير مفصل مع توصيات مخصصة</p>
+          <div style="margin: 20px 0;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: #10b981;">مجاناً</span>
+          </div>
+          <a href="#subscription" class="service-link">
+            ابدأ التقييم المجاني <i class="fas fa-arrow-left"></i>
+          </a>
         </div>
 
+        <!-- Cybersecurity Awareness Guide -->
         <div class="service-card">
-          <div class="service-icon"><i class="fas fa-handshake"></i></div>
-          <h3>سوق الخدمات التقنية</h3>
-          <p>منصة ذكية تربط بين الشركات والخبراء التقنيين بنظام مطابقة متقدم</p>
-          <a href="#" class="service-link">تصفح الخبراء <i class="fas fa-arrow-left"></i></a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-cubes"></i></div>
-          <h3>مكتبة الحلول الجاهزة</h3>
-          <p>قوالب متخصصة للسوق العربي مع شهادة "توافق عربي" معتمدة</p>
-          <a href="#" class="service-link">استكشف الحلول <i class="fas fa-arrow-left"></i></a>
+          <div class="service-icon" style="background: linear-gradient(135deg, #ef4444, #f87171);">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3>دليل التوعية بالأمن السيبراني</h3>
+          <p>دليل شامل للموظفين والإدارة - حماية شركتك من التهديدات الإلكترونية</p>
+          <div style="margin: 20px 0;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: #fbbf24;">قريباً</span>
+          </div>
+          <a href="#subscription" class="service-link">
+            اشترك للحصول على إشعار <i class="fas fa-arrow-left"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -264,8 +354,8 @@
           <div class="blog-content">
             <h3>دليل الأمن السيبراني للمبتدئين</h3>
             <p>كل ما تحتاج لمعرفته عن حماية بياناتك وأنظمتك من التهديدات السيبرانية</p>
-            <div class="blog-meta"><span>أكتوبر 28, 2025</span><span>5 دقائق قراءة</span></div>
-            <a href="#" class="blog-link">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+            <div class="blog-meta"><span>نوفمبر 13, 2025</span><span>5 دقائق قراءة</span></div>
+            <a href="#subscription" class="blog-link">قريباً <i class="fas fa-arrow-left"></i></a>
           </div>
         </div>
 
@@ -274,8 +364,8 @@
           <div class="blog-content">
             <h3>تطبيقات الذكاء الاصطناعي في الأعمال</h3>
             <p>كيف تستخدم الذكاء الاصطناعي لزيادة كفاءة أعمالك وتطوير خدماتك</p>
-            <div class="blog-meta"><span>أكتوبر 27, 2025</span><span>7 دقائق قراءة</span></div>
-            <a href="#" class="blog-link">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+            <div class="blog-meta"><span>قريباً</span><span>7 دقائق قراءة</span></div>
+            <a href="#subscription" class="blog-link">قريباً <i class="fas fa-arrow-left"></i></a>
           </div>
         </div>
 
@@ -284,8 +374,8 @@
           <div class="blog-content">
             <h3>دليل الأتمتة الكامل</h3>
             <p>أفضل الأدوات والاستراتيجيات لأتمتة العمليات في شركتك</p>
-            <div class="blog-meta"><span>أكتوبر 26, 2025</span><span>10 دقائق قراءة</span></div>
-            <a href="#" class="blog-link">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+            <div class="blog-meta"><span>قريباً</span><span>10 دقائق قراءة</span></div>
+            <a href="#subscription" class="blog-link">قريباً <i class="fas fa-arrow-left"></i></a>
           </div>
         </div>
       </div>
@@ -338,8 +428,9 @@
             <select id="service" name="service" required>
               <option value="">اختر الخدمة</option>
               <option value="مقياس الجاهزية الرقمية">مقياس الجاهزية الرقمية</option>
-              <option value="سوق الخدمات التقنية">سوق الخدمات التقنية</option>
-              <option value="مكتبة الحلول الجاهزة">مكتبة الحلول الجاهزة</option>
+              <option value="NCA Starter Kit">NCA Starter Kit</option>
+              <option value="الأمن السيبراني">الأمن السيبراني</option>
+              <option value="الذكاء الاصطناعي">الذكاء الاصطناعي والأتمتة</option>
               <option value="الاستشارات المتخصصة">الاستشارات المتخصصة</option>
             </select>
           </div>
@@ -358,25 +449,75 @@
         <div class="footer-section">
           <h3>عن المنصة</h3>
           <p>أول منصة عربية متكاملة للتحول الرقمي الذكي تجمع بين الأمن السيبراني والذكاء الاصطناعي والأتمتة</p>
+          
+          <!-- YouTube Section -->
+          <div style="margin-top: 20px; padding: 15px; background: rgba(255,0,0,.1); border: 1px solid rgba(255,0,0,.3); border-radius: 10px;">
+            <h4 style="color: #ff0000; font-size: 1.1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+              <i class="fab fa-youtube" style="font-size: 1.3rem;"></i>
+              تابعنا على YouTube
+            </h4>
+            <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 10px;">محتوى تعليمي حصري عن التحول الرقمي والأمن السيبراني</p>
+            <a href="https://www.youtube.com/@DigitalMind-Simplified" target="_blank" rel="noopener noreferrer" 
+               style="display: inline-block; background: linear-gradient(135deg, #ff0000, #cc0000); color: #fff; padding: 8px 20px; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: all 0.3s;">
+              اشترك في القناة →
+            </a>
+          </div>
         </div>
+        
         <div class="footer-section">
           <h3>روابط سريعة</h3>
           <p><a href="#services">الخدمات</a></p>
-
-          <!-- ✅ الجديد: رابط صفحة الأمن السيبراني -->
-          <p><a href="cybersecurity.html">الأمن السيبراني</a></p>
-
+          <p><a href="#products">المتجر الرقمي</a></p>
+          <p><a href="nca-starter-kit.html">NCA Starter Kit</a></p>
           <p><a href="#blog">المدونة</a></p>
           <p><a href="#about">من نحن</a></p>
-          <p><a href="#contact">اتصل بنا</a></p>
         </div>
+        
         <div class="footer-section">
           <h3>تواصل معنا</h3>
           <p>البريد الإلكتروني: info@digitalmindsimplified.com</p>
           <p>الهاتف: 00966581871332</p>
           <p>الرياض، المملكة العربية السعودية</p>
+          
+          <!-- Social Media Icons -->
+          <div style="margin-top: 20px;">
+            <h4 style="color: #D4AF37; margin-bottom: 10px;">تابعنا</h4>
+            <div style="display: flex; gap: 15px; font-size: 1.5rem;">
+              <a href="https://www.linkedin.com/in/digital-mind-simplified-35575b387/" target="_blank" rel="noopener noreferrer" 
+                 style="color: #0077b5; transition: all 0.3s;" 
+                 onmouseover="this.style.transform='scale(1.2)'" 
+                 onmouseout="this.style.transform='scale(1)'">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://www.youtube.com/@DigitalMind-Simplified" target="_blank" rel="noopener noreferrer" 
+                 style="color: #ff0000; transition: all 0.3s;" 
+                 onmouseover="this.style.transform='scale(1.2)'" 
+                 onmouseout="this.style.transform='scale(1)'">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a href="#" onclick="alert('قريباً على Facebook! 🚀'); return false;" 
+                 style="color: #1877f2; transition: all 0.3s;" 
+                 onmouseover="this.style.transform='scale(1.2)'" 
+                 onmouseout="this.style.transform='scale(1)'">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#" onclick="alert('قريباً على Twitter! 🚀'); return false;" 
+                 style="color: #1da1f2; transition: all 0.3s;" 
+                 onmouseover="this.style.transform='scale(1.2)'" 
+                 onmouseout="this.style.transform='scale(1)'">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" onclick="alert('قريباً على Instagram! 🚀'); return false;" 
+                 style="color: #e4405f; transition: all 0.3s;" 
+                 onmouseover="this.style.transform='scale(1.2)'" 
+                 onmouseout="this.style.transform='scale(1)'">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+      
       <div class="footer-bottom">
         <p>&copy; 2025 Digital Mind Simplified. جميع الحقوق محفوظة.</p>
       </div>
@@ -384,13 +525,9 @@
   </footer>
 
   <script>
-    // رابط الويب آب (الأخير)
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRf2j1bhu8n1_g7k_vM2FsxhsSFQFq24944fBFQ6ioRR3FRXilhRFx7rK37TZME8K6IQ/exec';
-
-    // تهيئة EmailJS
     emailjs.init('yef1ybmulax4pT4WI');
 
-    // دالة تولّد ISO لتوقيت الرياض +03:00
     function nowInKSAIso() {
       const parts = Object.fromEntries(
         new Intl.DateTimeFormat('en-CA', {
@@ -403,7 +540,41 @@
       return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+03:00`;
     }
 
-    // معالجة النموذج
+    // Countdown Timer for Index Page
+    (function() {
+      const countdownDate = new Date();
+      countdownDate.setDate(countdownDate.getDate() + 50);
+      
+      const countdownTimer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countdownDate.getTime() - now;
+        
+        if (distance < 0) {
+          clearInterval(countdownTimer);
+          const countdownEl = document.getElementById('countdown-index');
+          if (countdownEl) {
+            countdownEl.innerHTML = '<div style="color: #ef4444; font-size: 1rem; font-weight: 900; text-align: center;">انتهى العرض - السعر الآن $59</div>';
+          }
+          return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        const daysEl = document.getElementById('days-index');
+        const hoursEl = document.getElementById('hours-index');
+        const minutesEl = document.getElementById('minutes-index');
+        const secondsEl = document.getElementById('seconds-index');
+        
+        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+      }, 1000);
+    })();
+
     document.getElementById('subscriptionForm').addEventListener('submit', async function(e){
       e.preventDefault();
 
@@ -422,10 +593,8 @@
       };
 
       try{
-        // إرسال بريد
         await emailjs.send('service_i7rpq9f','template_2ul5hcg',templateParams);
 
-        // إرسال إلى Google Sheets
         fetch(APPS_SCRIPT_URL, {
           method: 'POST',
           headers: { 'Content-Type':'application/json' },
@@ -433,12 +602,11 @@
           body: JSON.stringify({
             ...templateParams,
             source: 'website',
-            timestamp: new Date().toISOString(), // UTC
-            ksa_time: nowInKSAIso()              // وقت الرياض
+            timestamp: new Date().toISOString(),
+            ksa_time: nowInKSAIso()
           })
         }).catch(err => console.error('Google Sheets fetch error:', err));
 
-        // حدث GA4 لقياس تحويل Lead
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', {
             method: 'subscription_form',
@@ -446,7 +614,6 @@
           });
         }
 
-        // ✅ إعادة التوجيه لصفحة الشكر بعد نجاح الإرسال
         setTimeout(()=>{ window.location.href = 'thank-you.html'; }, 500);
 
       }catch(err){
