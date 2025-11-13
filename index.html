@@ -65,29 +65,29 @@
     .btn-secondary{display:inline-block;background:transparent;color:#D4AF37;padding:18px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:18px;border:2px solid #D4AF37;transition:.3s}
     .btn-secondary:hover{background:rgba(212,175,55,.1);transform:translateY(-5px);box-shadow:0 10px 30px rgba(212,175,55,.2)}
 
-    /* Services */
-    .services{padding:150px 0;background:linear-gradient(180deg,#1a1a1a 0%,#050505 100%);position:relative}
-    .services::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
+    /* Products Section */
+    .products{padding:150px 0;background:linear-gradient(180deg,#1a1a1a 0%,#050505 100%);position:relative}
+    .products::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
     .section-title{text-align:center;margin-bottom:100px}
     .section-title h2{font-size:3.5rem;font-weight:800;margin-bottom:20px;background:linear-gradient(135deg,#D4AF37,#fff);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .section-title p{font-size:1.3rem;color:#ccc;max-width:700px;margin:0 auto;font-weight:300}
-    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:50px}
-    .service-card{background:linear-gradient(135deg,rgba(30,30,30,.8),rgba(20,20,20,.8));border:1px solid rgba(212,175,55,.2);border-radius:20px;padding:50px 40px;text-align:center;transition:.5s;position:relative;overflow:hidden;backdrop-filter:blur(10px)}
-    .service-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(212,175,55,.1) 0%,transparent 70%);opacity:0;transition:.5s}
-    .service-card:hover::before{opacity:1}
-    .service-card:hover{transform:translateY(-15px) scale(1.02);border-color:rgba(212,175,55,.4);box-shadow:0 20px 50px rgba(212,175,55,.3)}
-    .service-icon{width:100px;height:100px;background:linear-gradient(135deg,#D4AF37,#FFD700);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 30px;color:#050505;font-size:2.5rem;box-shadow:0 10px 30px rgba(212,175,55,.3);transition:.3s}
-    .service-card:hover .service-icon{transform:scale(1.1) rotate(5deg);box-shadow:0 15px 40px rgba(212,175,55,.5)}
-    .service-card h3{font-size:1.8rem;margin-bottom:20px;color:#fff;font-weight:700}
-    .service-card p{color:#ccc;margin-bottom:30px;font-size:1.1rem;line-height:1.8}
-    .service-link{color:#D4AF37;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;font-size:1.1rem;transition:.3s}
-    .service-link i{margin-right:10px;transition:.3s}
-    .service-link:hover i{transform:translateX(-5px)}
-    .service-link:hover{color:#fff}
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:50px}
+    .product-card{background:linear-gradient(135deg,rgba(30,30,30,.8),rgba(20,20,20,.8));border:1px solid rgba(212,175,55,.2);border-radius:20px;padding:50px 40px;text-align:center;transition:.5s;position:relative;overflow:hidden;backdrop-filter:blur(10px)}
+    .product-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(212,175,55,.1) 0%,transparent 70%);opacity:0;transition:.5s}
+    .product-card:hover::before{opacity:1}
+    .product-card:hover{transform:translateY(-15px) scale(1.02);border-color:rgba(212,175,55,.4);box-shadow:0 20px 50px rgba(212,175,55,.3)}
+    .product-icon{width:100px;height:100px;background:linear-gradient(135deg,#D4AF37,#FFD700);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 30px;color:#050505;font-size:2.5rem;box-shadow:0 10px 30px rgba(212,175,55,.3);transition:.3s}
+    .product-card:hover .product-icon{transform:scale(1.1) rotate(5deg);box-shadow:0 15px 40px rgba(212,175,55,.5)}
+    .product-card h3{font-size:1.8rem;margin-bottom:20px;color:#fff;font-weight:700}
+    .product-card p{color:#ccc;margin-bottom:30px;font-size:1.1rem;line-height:1.8}
+    .product-link{color:#D4AF37;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;font-size:1.1rem;transition:.3s}
+    .product-link i{margin-right:10px;transition:.3s}
+    .product-link:hover i{transform:translateX(-5px)}
+    .product-link:hover{color:#fff}
 
     /* Blog */
-    .blog{padding:150px 0;background:linear-gradient(180deg,#1a1a1a 0%,#050505 100%)}
+    .blog{padding:150px 0;background:linear-gradient(180deg,#050505 0%,#1a1a1a 100%)}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:40px}
     .blog-card{background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(212,175,55,.18);border-radius:20px;overflow:hidden;transition:.5s;backdrop-filter:blur(10px)}
     .blog-card:hover{transform:translateY(-10px);box-shadow:0 20px 50px rgba(212,175,55,.35);border-color:rgba(212,175,55,.35)}
@@ -132,7 +132,7 @@
     .message.error{background:rgba(244,67,54,.1);border:1px solid rgba(244,67,54,.3);color:#f44336}
 
     /* About */
-    .about{padding:150px 0;background:linear-gradient(135deg,#050505,#1a1a1a)}
+    .about{padding:150px 0;background:linear-gradient(135deg,#1a1a1a,#050505)}
     .about-content{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
     .about-text h2{font-size:3rem;font-weight:800;margin-bottom:40px;background:linear-gradient(135deg,#D4AF37,#fff);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -157,7 +157,7 @@
     @media (max-width:1024px){
       .hero h1{font-size:3.5rem}
       .section-title h2{font-size:2.8rem}
-      .services-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+      .products-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
     }
     @media (max-width:768px){
       .navbar .container{flex-direction:column;gap:20px}
@@ -187,8 +187,7 @@
     <div class="container">
       <ul class="nav-links">
         <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#services">الخدمات</a></li>
-        <li><a href="#products">المتجر الرقمي</a></li>
+        <li><a href="#products">المنتجات</a></li>
         <li><a href="#blog">المدونة</a></li>
         <li><a href="#about">من نحن</a></li>
         <li><a href="#contact">اتصل بنا</a></li>
@@ -205,73 +204,55 @@
     <div class="container">
       <div class="hero-content">
         <h1 class="floating">منصة التحول الرقمي العربي</h1>
-        <p>أول منصة عربية متكاملة تجمع بين الأمن السيبراني والذكاء الاصطناعي والأتمتة - حلول ذكية للشركات والمؤسسات</p>
+        <p>أول منصة عربية متكاملة تجمع بين الأمن السيبراني والذكاء الاصطناعي والأتمتة - حلول ذكية جاهزة للتطبيق الفوري</p>
         <div class="hero-buttons">
-          <a href="#products" class="btn-primary">تصفح المنتجات</a>
-          <a href="#subscription" class="btn-secondary">اشترك الآن</a>
+          <a href="digital-readiness.html" class="btn-primary">ابدأ التقييم المجاني</a>
+          <a href="#products" class="btn-secondary">تصفح المنتجات</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="services">
+  <!-- Products Section - UNIFIED -->
+  <section id="products" class="products">
     <div class="container">
       <div class="section-title">
-        <h2>خدماتنا الثورية</h2>
-        <p>حلول ذكية مصممة خصيصاً للسوق العربي</p>
+        <h2>منتجاتنا الرقمية</h2>
+        <p>حلول جاهزة للتحميل الفوري - وفّر آلاف الدولارات وأشهر من العمل</p>
       </div>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-rocket"></i></div>
-          <h3>التحول الرقمي الذكي</h3>
-          <p>تقييم شامل لجاهزية شركتك الرقمية مع خطة تنفيذية واضحة ومخصصة</p>
-          <a href="#products" class="service-link">استكشف المنتجات <i class="fas fa-arrow-left"></i></a>
+      <div class="products-grid">
+        <!-- 1. Lead Magnet - FREE -->
+        <div class="product-card">
+          <div class="product-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">
+            <i class="fas fa-gift"></i>
+          </div>
+          <h3>مقياس الجاهزية الرقمية</h3>
+          <p>قيّم مستوى التحول الرقمي لشركتك مجاناً واحصل على تقرير مفصل + خصم 10% على جميع المنتجات</p>
+          <div style="margin: 20px 0;">
+            <span style="font-size: 2rem; font-weight: 900; color: #10b981;">مجاناً 100%</span>
+          </div>
+          <a href="digital-readiness.html" class="btn-primary" style="display:inline-block;margin-top:15px; background: linear-gradient(135deg, #10b981, #34d399);">
+            <i class="fas fa-clipboard-check" style="margin-left: 8px;"></i>
+            ابدأ التقييم الآن
+            <i class="fas fa-arrow-left" style="margin-right: 8px;"></i>
+          </a>
         </div>
 
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-          <h3>الأمن السيبراني</h3>
-          <p>حماية شاملة لبياناتك وأنظمتك مع حلول متوافقة مع معايير NCA</p>
-          <a href="nca-starter-kit.html" class="service-link">ابدأ الآن <i class="fas fa-arrow-left"></i></a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-robot"></i></div>
-          <h3>الذكاء الاصطناعي والأتمتة</h3>
-          <p>أتمتة ذكية لعملياتك التجارية - وفر الوقت وزد الإنتاجية</p>
-          <a href="#subscription" class="service-link">تواصل معنا <i class="fas fa-arrow-left"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Digital Products Store -->
-  <section id="products" class="services" style="background: linear-gradient(180deg, #050505 0%, #1a1a1a 100%);">
-    <div class="container">
-      <div class="section-title">
-        <h2>المتجر الرقمي</h2>
-        <p>منتجات رقمية احترافية جاهزة للتحميل الفوري</p>
-      </div>
-
-      <div class="services-grid">
-        <!-- NCA Starter Kit -->
-        <div class="service-card">
-          <div class="service-icon" style="background: linear-gradient(135deg, #fbbf24, #fcd34d);">
+        <!-- 2. Tripwire - $19 -->
+        <div class="product-card">
+          <div class="product-icon" style="background: linear-gradient(135deg, #fbbf24, #fcd34d);">
             <i class="fas fa-shield-alt"></i>
           </div>
           <h3>NCA Starter Kit</h3>
           <p>حزمة الامتثال السيبراني الشاملة - 9 ملفات جاهزة للتطبيق الفوري متوافقة مع معايير NCA</p>
           
-          <!-- Price Section -->
           <div style="margin: 20px 0;">
             <span style="font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, #fbbf24, #fcd34d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$19</span>
             <span style="text-decoration: line-through; color: #888; margin-right: 10px;">$59</span>
             <span style="background: #10b981; color: #000; padding: 4px 10px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;">وفّر 68%</span>
           </div>
           
-          <!-- Countdown Timer -->
           <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05)); border: 2px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 15px; margin: 15px 0;">
             <div style="color: #ef4444; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; text-align: center;">
               ⏰ العرض ينتهي خلال:
@@ -299,44 +280,42 @@
             </div>
           </div>
           
-          <!-- CTA Button -->
           <a href="nca-starter-kit.html" class="btn-primary" style="display:inline-block;margin-top:15px;">
             <i class="fas fa-shopping-cart" style="margin-left: 8px;"></i>
-            عرض التفاصيل والشراء
+            اشترِ الآن
             <i class="fas fa-arrow-left" style="margin-right: 8px;"></i>
           </a>
         </div>
 
-        <!-- Digital Readiness Assessment - FIXED BUTTON -->
-        <div class="service-card">
-          <div class="service-icon" style="background: linear-gradient(135deg, #6366f1, #818cf8);">
-            <i class="fas fa-chart-line"></i>
+        <!-- 3. Core Product 1 - $49 -->
+        <div class="product-card">
+          <div class="product-icon" style="background: linear-gradient(135deg, #ef4444, #f87171);">
+            <i class="fas fa-lock"></i>
           </div>
-          <h3>مقياس الجاهزية الرقمية</h3>
-          <p>قيّم مستوى التحول الرقمي لشركتك في 5 دقائق واحصل على تقرير مفصل مع توصيات مخصصة</p>
+          <h3>حزمة الأمن السيبراني الشاملة</h3>
+          <p>سياسات وإجراءات وقوالب جاهزة - كل ما تحتاجه لحماية شركتك من التهديدات السيبرانية</p>
           <div style="margin: 20px 0;">
-            <span style="font-size: 1.5rem; font-weight: 700; color: #10b981;">مجاناً</span>
+            <span style="font-size: 1.8rem; font-weight: 900; color: #ef4444;">$49</span>
+            <span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 6px 15px; border-radius: 20px; font-size: 0.95rem; font-weight: 700; margin-right: 10px;">قريباً</span>
           </div>
-          <!-- FIXED: Changed href from #subscription to digital-readiness.html -->
-          <a href="digital-readiness.html" class="btn-primary" style="display:inline-block;margin-top:15px;">
-            <i class="fas fa-clipboard-check" style="margin-left: 8px;"></i>
-            ابدأ التقييم المجاني
-            <i class="fas fa-arrow-left" style="margin-right: 8px;"></i>
+          <a href="#subscription" class="product-link">
+            اشترك للإشعار عند الإطلاق <i class="fas fa-bell"></i>
           </a>
         </div>
 
-        <!-- Cybersecurity Awareness Guide -->
-        <div class="service-card">
-          <div class="service-icon" style="background: linear-gradient(135deg, #ef4444, #f87171);">
-            <i class="fas fa-book"></i>
+        <!-- 4. Core Product 2 - $39 -->
+        <div class="product-card">
+          <div class="product-icon" style="background: linear-gradient(135deg, #6366f1, #818cf8);">
+            <i class="fas fa-robot"></i>
           </div>
-          <h3>دليل التوعية بالأمن السيبراني</h3>
-          <p>دليل شامل للموظفين والإدارة - حماية شركتك من التهديدات الإلكترونية</p>
+          <h3>حزمة الأتمتة الذكية</h3>
+          <p>أدوات وسكريبتات وقوالب جاهزة لأتمتة عملياتك وزيادة إنتاجيتك باستخدام الذكاء الاصطناعي</p>
           <div style="margin: 20px 0;">
-            <span style="font-size: 1.5rem; font-weight: 700; color: #fbbf24;">قريباً</span>
+            <span style="font-size: 1.8rem; font-weight: 900; color: #6366f1;">$39</span>
+            <span style="background: rgba(99, 102, 241, 0.2); color: #6366f1; padding: 6px 15px; border-radius: 20px; font-size: 0.95rem; font-weight: 700; margin-right: 10px;">قريباً</span>
           </div>
-          <a href="#subscription" class="service-link">
-            اشترك للحصول على إشعار <i class="fas fa-arrow-left"></i>
+          <a href="#subscription" class="product-link">
+            اشترك للإشعار عند الإطلاق <i class="fas fa-bell"></i>
           </a>
         </div>
       </div>
@@ -406,7 +385,7 @@
     <div class="container">
       <div class="subscription-content">
         <h2>انضم إلى مجتمعنا المميز</h2>
-        <p>اشترك الآن واحصل على أحدث التحديثات والمحتوى الحصري مباشرة في بريدك الإلكتروني</p>
+        <p>اشترك الآن واحصل على إشعار عند إطلاق منتجاتنا الجديدة + محتوى حصري</p>
 
         <form class="subscription-form" id="subscriptionForm">
           <div class="form-group">
@@ -427,14 +406,14 @@
           </div>
 
           <div class="form-group">
-            <label for="service">الخدمة المطلوبة</label>
+            <label for="service">المنتج المهتم به</label>
             <select id="service" name="service" required>
-              <option value="">اختر الخدمة</option>
-              <option value="مقياس الجاهزية الرقمية">مقياس الجاهزية الرقمية</option>
-              <option value="NCA Starter Kit">NCA Starter Kit</option>
-              <option value="الأمن السيبراني">الأمن السيبراني</option>
-              <option value="الذكاء الاصطناعي">الذكاء الاصطناعي والأتمتة</option>
-              <option value="الاستشارات المتخصصة">الاستشارات المتخصصة</option>
+              <option value="">اختر المنتج</option>
+              <option value="مقياس الجاهزية الرقمية">مقياس الجاهزية الرقمية (مجاني)</option>
+              <option value="NCA Starter Kit">NCA Starter Kit ($19)</option>
+              <option value="حزمة الأمن السيبراني">حزمة الأمن السيبراني ($49)</option>
+              <option value="حزمة الأتمتة الذكية">حزمة الأتمتة الذكية ($39)</option>
+              <option value="جميع المنتجات">جميع المنتجات</option>
             </select>
           </div>
 
@@ -453,7 +432,6 @@
           <h3>عن المنصة</h3>
           <p>أول منصة عربية متكاملة للتحول الرقمي الذكي تجمع بين الأمن السيبراني والذكاء الاصطناعي والأتمتة</p>
           
-          <!-- YouTube Section -->
           <div style="margin-top: 20px; padding: 15px; background: rgba(255,0,0,.1); border: 1px solid rgba(255,0,0,.3); border-radius: 10px;">
             <h4 style="color: #ff0000; font-size: 1.1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
               <i class="fab fa-youtube" style="font-size: 1.3rem;"></i>
@@ -469,8 +447,7 @@
         
         <div class="footer-section">
           <h3>روابط سريعة</h3>
-          <p><a href="#services">الخدمات</a></p>
-          <p><a href="#products">المتجر الرقمي</a></p>
+          <p><a href="#products">المنتجات</a></p>
           <p><a href="nca-starter-kit.html">NCA Starter Kit</a></p>
           <p><a href="digital-readiness.html">مقياس الجاهزية الرقمية</a></p>
           <p><a href="#blog">المدونة</a></p>
@@ -483,7 +460,6 @@
           <p>الهاتف: 00966581871332</p>
           <p>الرياض، المملكة العربية السعودية</p>
           
-          <!-- Social Media Icons -->
           <div style="margin-top: 20px;">
             <h4 style="color: #D4AF37; margin-bottom: 10px;">تابعنا</h4>
             <div style="display: flex; gap: 15px; font-size: 1.5rem;">
@@ -544,7 +520,7 @@
       return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+03:00`;
     }
 
-    // Countdown Timer for Index Page
+    // Countdown Timer
     (function() {
       const countdownDate = new Date();
       countdownDate.setDate(countdownDate.getDate() + 50);
