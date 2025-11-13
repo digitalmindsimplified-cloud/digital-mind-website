@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تقرير الجاهزية الرقمية - Digital Mind Simplified</title>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYZVQRV1FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CYZVQRV1FL');
+  </script>
+
+  <!-- خطوط -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- أيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: linear-gradient(135deg, #050505, #1a1a1a);
+      color: #fff;
+      line-height: 1.8;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(212,175,55,.2);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      color: #000;
+      padding: 50px 40px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+    
+    .company-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    
+    .score-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px auto;
+      font-size: 3rem;
+      font-weight: 900;
+      border: 8px solid;
+      box-shadow: 0 10px 40px rgba(0,0,0,.3);
+      animation: scaleIn 0.5s ease-out;
+    }
+    
+    @keyframes scaleIn {
+      from {transform: scale(0); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+    
+    .level-badge {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: #000;
+      color: #fff;
+      margin-top: 20px;
+    }
+    
+    .content {
+      padding: 50px 40px;
+    }
+    
+    .section {
+      margin-bottom: 50px;
+    }
+    
+    .section h2 {
+      font-size: 1.8rem;
+      color: #D4AF37;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid rgba(212,175,55,.3);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .section h2 i {
+      font-size: 1.5rem;
+    }
+    
+    .list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .list li {
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(212,175,55,.15);
+      border-radius: 12px;
+      color: #ccc;
+      font-size: 1.1rem;
+      transition: .3s;
+      position: relative;
+      padding-right: 50px;
+    }
+    
+    .list li:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(212,175,55,.3);
+      transform: translateX(-5px);
+    }
+    
+    .list li::before {
+      content: '✓';
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #10b981;
+      font-weight: 900;
+      font-size: 1.5rem;
+    }
+    
+    .cta-box {
+      background: linear-gradient(135deg, rgba(212,175,55,.15), rgba(255,215,0,.08));
+      border: 2px solid #D4AF37;
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    .cta-box h3 {
+      font-size: 2rem;
+      color: #fbbf24;
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+    
+    .cta-box p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+    
+    .discount-code {
+      display: inline-block;
+      font-size: 2rem;
+      color: #D4AF37;
+      font-weight: 900;
+      background: rgba(0,0,0,.3);
+      padding: 15px 40px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border: 2px dashed #D4AF37;
+    }
+    
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      color: #000;
+      padding: 18px 50px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin-top: 25px;
+      transition: .3s;
+      box-shadow: 0 10px 30px rgba(212,175,55,.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212,175,55,.5);
+    }
+    
+    .footer {
+      background: rgba(0,0,0,.3);
+      padding: 40px;
+      text-align: center;
+      color: #888;
+      border-top: 1px solid rgba(212,175,55,.2);
+    }
+    
+    .footer p {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+    
+    .footer a {
+      color: #D4AF37;
+      text-decoration: none;
+      transition: .3s;
+    }
+    
+    .footer a:hover {
+      color: #fff;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 100px 20px;
+      font-size: 1.5rem;
+      color: #D4AF37;
+    }
+    
+    .error {
+      text-align: center;
+      padding: 100px 20px;
+      color: #ef4444;
+    }
+    
+    .error h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(212,175,55,.2);
+      color: #D4AF37;
+      border: 2px solid #D4AF37;
+      padding: 12px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: .3s;
+      z-index: 1000;
+    }
+    
+    .print-btn:hover {
+      background: rgba(212,175,55,.3);
+      transform: scale(1.05);
+    }
+    
+    @media print {
+      body {background: #fff; color: #000;}
+      .container {box-shadow: none; border: none;}
+      .print-btn, .cta-box {display: none;}
+    }
+    
+    @media (max-width: 768px) {
+      .header {padding: 40px 20px;}
+      .header h1 {font-size: 2rem;}
+      .content {padding: 30px 20px;}
+      .score-circle {width: 120px; height: 120px; font-size: 2.5rem;}
+      .cta-box {padding: 30px 20px;}
+      .discount-code {font-size: 1.5rem; padding: 12px 30px;}
+    }
+  </style>
+</head>
+<body>
+  <button class="print-btn" onclick="window.print()">
+    <i class="fas fa-print"></i> طباعة التقرير
+  </button>
+
+  <div id="loading" class="loading">
+    <i class="fas fa-spinner fa-spin" style="font-size: 3rem; margin-bottom: 20px;"></i>
+    <p>جاري تحميل تقريرك...</p>
+  </div>
+
+  <div id="error" class="error" style="display: none;">
+    <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #ef4444; margin-bottom: 20px;"></i>
+    <h2>عذراً، لم نتمكن من العثور على التقرير</h2>
+    <p style="color: #ccc; margin-top: 20px;">يرجى التأكد من الرابط أو التواصل معنا</p>
+    <a href="index.html" class="btn-primary" style="margin-top: 30px;">العودة للرئيسية</a>
+  </div>
+
+  <div id="reportContainer" class="container" style="display: none;">
+    <!-- Report content will be inserted here -->
+  </div>
+
+  <script>
+    // Get report ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const reportID = urlParams.get('id');
+
+    if (!reportID) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error').style.display = 'block';
+    } else {
+      // For now, we'll use mock data since Google Sheets read requires setup
+      // In production, fetch from Google Sheets using reportID
+      loadReportData(reportID);
+    }
+
+    function loadReportData(id) {
+      // MOCK DATA - Replace with Google Sheets fetch in production
+      // This simulates what would come from Google Sheets
+      
+      setTimeout(() => {
+        const mockData = {
+          companyName: 'شركة النموذج التقني',
+          contactName: 'أحمد محمد',
+          score: 65,
+          level: 'متوسط',
+          color: '#fbbf24',
+          strengths: [
+            'وجود بعض المبادرات الرقمية',
+            'إجراءات أمنية أساسية',
+            'وعي بأهمية التطور'
+          ],
+          improvements: [
+            'تحسين الأمن السيبراني',
+            'أتمتة العمليات اليدوية',
+            'تبني الذكاء الاصطناعي'
+          ],
+          recommendations: [
+            'NCA Starter Kit للامتثال الكامل',
+            'حزمة الأتمتة الذكية',
+            'خطة تطوير مرحلية'
+          ]
+        };
+
+        displayReport(mockData);
+      }, 1000);
+    }
+
+    function displayReport(data) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('reportContainer').style.display = 'block';
+
+      const reportHTML = `
+        <div class="header">
+          <h1>تقرير الجاهزية الرقمية</h1>
+          <p class="company-name">${data.companyName}</p>
+          <div class="score-circle" style="border-color: ${data.color}; color: ${data.color};">
+            ${data.score}%
+          </div>
+          <span class="level-badge" style="background: ${data.color}; color: #000;">
+            مستوى: ${data.level}
+          </span>
+        </div>
+
+        <div class="content">
+          <div class="section">
+            <h2><i class="fas fa-trophy"></i> نقاط القوة</h2>
+            <ul class="list">
+              ${data.strengths.map(s => `<li>${s}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2><i class="fas fa-chart-line"></i> مجالات التحسين</h2>
+            <ul class="list">
+              ${data.improvements.map(i => `<li>${i}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2><i class="fas fa-lightbulb"></i> توصياتنا المخصصة</h2>
+            <ul class="list">
+              ${data.recommendations.map(r => `<li>${r}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="cta-box">
+            <h3>🎁 عرض حصري لك!</h3>
+            <p>احصل على <strong>خصم 10% إضافي</strong> على جميع منتجاتنا الرقمية</p>
+            <div class="discount-code">ASSESS10</div>
+            <p style="font-size: 1rem; color: #888;">انسخ الكود واستخدمه عند الشراء</p>
+            <a href="index.html#products" class="btn-primary">
+              <i class="fas fa-shopping-bag" style="margin-left: 8px;"></i>
+              تصفح المنتجات الآن
+            </a>
+          </div>
+        </div>
+
+        <div class="footer">
+          <p><strong>Digital Mind Simplified</strong> - منصة التحول الرقمي العربي</p>
+          <p>للاستفسارات: <a href="mailto:info@digitalmindsimplified.com">info@digitalmindsimplified.com</a></p>
+          <p>هاتف: <a href="tel:00966581871332">00966581871332</a></p>
+          <p style="margin-top: 20px; font-size: 0.9rem;">© 2025 Digital Mind Simplified. جميع الحقوق محفوظة.</p>
+        </div>
+      `;
+
+      document.getElementById('reportContainer').innerHTML = reportHTML;
+
+      // Google Analytics
+      if (typeof gtag === 'function') {
+        gtag('event', 'report_viewed', {
+          report_id: reportID,
+          score: data.score,
+          level: data.level
+        });
+      }
+    }
+  </script>
+</body>
+</html>
