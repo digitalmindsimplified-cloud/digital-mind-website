@@ -122,7 +122,7 @@
     .form-group textarea::placeholder {color: #888;}
     .form-group select option {background: #1a1a1a; color: #fff; padding: 10px;}
     
-    /* Radio Options - IMPROVED DESIGN */
+    /* Radio Options */
     .radio-group {
       display: flex; 
       flex-direction: column; 
@@ -496,8 +496,80 @@
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRf2j1bhu8n1_g7k_vM2FsxhsSFQFq24944fBFQ6ioRR3FRXilhRFx7rK37TZME8K6IQ/exec';
     emailjs.init('yef1ybmulax4pT4WI');
 
-    // تاريخ الإطلاق - عدّله حسب تاريخ الإطلاق الفعلي
-    const LAUNCH_DATE = new Date('2025-11-13');
+    // Generate unique ID
+    function generateID() {
+      return 'report-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+    }
+
+    // Calculate score
+    function calculateScore(answers) {
+      const scores = {
+        'question1': {
+          'بدائي - نستخدم طرق يدوية بشكل أساسي': 25,
+          'متوسط - بدأنا بعض المبادرات الرقمية': 50,
+          'متقدم - نستخدم أنظمة رقمية متكاملة': 75,
+          'رائد - لدينا استراتيجية رقمية شاملة': 100
+        },
+        'question2': {
+          'لا يوجد خطة حالياً': 25,
+          'قيد الإعداد': 50,
+          'نعم، ونعمل على تنفيذها': 75,
+          'نعم، ونراجعها بشكل دوري': 100
+        },
+        'question3': {
+          'محدود جداً - لا يوجد إجراءات رسمية': 25,
+          'متوسط - لدينا بعض الإجراءات الأساسية': 50,
+          'جيد - نطبق معايير أمنية معتمدة': 75,
+          'متقدم - ملتزمون بمعايير NCA والمعايير الدولية': 100
+        },
+        'question4': {
+          'لا نستخدمها حالياً': 25,
+          'نخطط للبدء قريباً': 50,
+          'نستخدمها في بعض العمليات': 75,
+          'جزء أساسي من عملياتنا': 100
+        }
+      };
+
+      let totalScore = 0;
+      let maxScore = 0;
+
+      for (let q in scores) {
+        if (answers[q]) {
+          totalScore += scores[q][answers[q]] || 0;
+          maxScore += 100;
+        }
+      }
+
+      return Math.round((totalScore / maxScore) * 100);
+    }
+
+    function getRecommendations(score) {
+      if (score < 40) {
+        return {
+          level: 'مبتدئ',
+          color: '#ef4444',
+          strengths: ['وعي بأهمية التحول الرقمي', 'استعداد للتطور', 'فرصة كبيرة للنمو'],
+          improvements: ['وضع خطة استراتيجية للتحول الرقمي', 'تطبيق الحد الأدنى من الأمن السيبراني', 'بناء فريق تقني مؤهل'],
+          recommendations: ['ابدأ بـ NCA Starter Kit لحماية شركتك', 'استشارة مجانية لوضع خطة التحول', 'دورات تدريبية للفريق']
+        };
+      } else if (score < 70) {
+        return {
+          level: 'متوسط',
+          color: '#fbbf24',
+          strengths: ['وجود بعض المبادرات الرقمية', 'إجراءات أمنية أساسية', 'وعي بأهمية التطور'],
+          improvements: ['تحسين الأمن السيبراني', 'أتمتة العمليات اليدوية', 'تبني الذكاء الاصطناعي'],
+          recommendations: ['NCA Starter Kit للامتثال الكامل', 'حزمة الأتمتة الذكية', 'خطة تطوير مرحلية']
+        };
+      } else {
+        return {
+          level: 'متقدم',
+          color: '#10b981',
+          strengths: ['استراتيجية رقمية واضحة', 'أنظمة أمنية متطورة', 'استخدام فعال للتقنيات الحديثة'],
+          improvements: ['تحسين مستمر للعمليات', 'مراجعة دورية للأمن السيبراني', 'ابتكار في استخدام الذكاء الاصطناعي'],
+          recommendations: ['استشارات متقدمة للتحسين المستمر', 'تدقيق أمني شامل', 'حلول مخصصة متقدمة']
+        };
+      }
+    }
 
     document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -506,7 +578,7 @@
       const messageEl = document.getElementById('message');
       
       submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحليل وإنشاء تقريرك...';
       
       const formData = {
         companyName: document.getElementById('companyName').value,
@@ -524,47 +596,71 @@
         timestamp: new Date().toISOString()
       };
 
+      // Generate unique report ID
+      const reportID = generateID();
+      
+      // Calculate score and recommendations
+      const score = calculateScore(formData);
+      const report = getRecommendations(score);
+
+      // Build report URL
+      const reportURL = `${window.location.origin}/report.html?id=${reportID}`;
+
       try {
-        // إرسال عبر EmailJS
-        await emailjs.send('service_i7rpq9f', 'template_2ul5hcg', {
-          name: formData.contactName,
-          email: formData.email,
-          phone: formData.phone,
-          service: 'Digital Readiness Assessment',
-          message: `
-الشركة: ${formData.companyName}
-القطاع: ${formData.industry}
-الحجم: ${formData.companySize}
-المسمى: ${formData.position}
-
-=== إجابات التقييم ===
-1. مستوى التحول الرقمي: ${formData.question1}
-2. الخطة الاستراتيجية: ${formData.question2}
-3. الأمن السيبراني: ${formData.question3}
-4. الذكاء الاصطناعي: ${formData.question4}
-5. أكبر تحدي: ${formData.question5}
-          `
-        });
-
-        // حفظ في Google Sheets
-        fetch(APPS_SCRIPT_URL, {
+        // Save to Google Sheets with report ID
+        await fetch(APPS_SCRIPT_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           mode: 'no-cors',
           body: JSON.stringify({
             ...formData,
+            reportID: reportID,
+            score: score,
+            level: report.level,
+            strengths: report.strengths.join(' | '),
+            improvements: report.improvements.join(' | '),
+            recommendations: report.recommendations.join(' | '),
             source: 'Digital Readiness Assessment'
           })
-        }).catch(err => console.error('Sheets error:', err));
+        });
+
+        // Send email with report link
+        await emailjs.send('service_i7rpq9f', 'template_2ul5hcg', {
+          name: formData.contactName,
+          email: formData.email,
+          phone: formData.phone,
+          service: 'تقرير الجاهزية الرقمية',
+          message: `
+مرحباً ${formData.contactName}،
+
+شكراً لإتمام تقييم الجاهزية الرقمية لشركة ${formData.companyName}!
+
+📊 نتيجتك: ${score}% - مستوى ${report.level}
+
+🔗 اطلع على تقريرك الكامل المفصل:
+${reportURL}
+
+🎁 عرض خاص: خصم 10% إضافي على جميع منتجاتنا
+استخدم الكود: ASSESS10
+
+نحن متحمسون لمساعدتك في رحلة التحول الرقمي!
+
+تحياتنا،
+فريق Digital Mind Simplified
+          `
+        });
 
         // Google Analytics
         if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', {
-            method: 'digital_readiness_assessment'
+          gtag('event', 'assessment_completed', {
+            score: score,
+            level: report.level,
+            company_size: formData.companySize,
+            industry: formData.industry
           });
         }
 
-        // التوجيه لصفحة الشكر
+        // Redirect to thank you page
         setTimeout(() => {
           window.location.href = 'thank-you.html?source=assessment';
         }, 500);
