@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مقياس الجاهزية الرقمية - Digital Mind Simplified</title>
+  <meta name="description" content="قيّم مستوى التحول الرقمي لشركتك في 5 دقائق - تقرير مفصل مجاني">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYZVQRV1FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CYZVQRV1FL');
+  </script>
+
+  <!-- خطوط -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- أيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Tajawal', sans-serif; 
+      background: linear-gradient(135deg, #050505, #1a1a1a); 
+      color: #fff; 
+      line-height: 1.6; 
+      min-height: 100vh;
+    }
+    .container {max-width: 900px; margin: 0 auto; padding: 40px 30px;}
+    
+    /* Header */
+    .header {text-align: center; margin-bottom: 60px; padding-top: 40px;}
+    .logo {width: 60px; height: 60px; margin-bottom: 20px;}
+    h1 {
+      font-size: 3rem; 
+      font-weight: 900; 
+      margin-bottom: 20px; 
+      background: linear-gradient(135deg, #D4AF37, #fff); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      background-clip: text;
+    }
+    .subtitle {font-size: 1.3rem; color: #ccc; margin-bottom: 30px; font-weight: 300;}
+    
+    /* Benefits */
+    .benefits {
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 30px; 
+      margin-bottom: 60px;
+    }
+    .benefit-card {
+      background: rgba(255,255,255,.05); 
+      border: 1px solid rgba(212,175,55,.2); 
+      border-radius: 15px; 
+      padding: 30px; 
+      text-align: center; 
+      transition: .3s;
+    }
+    .benefit-card:hover {
+      transform: translateY(-5px); 
+      border-color: rgba(212,175,55,.4); 
+      box-shadow: 0 10px 30px rgba(212,175,55,.2);
+    }
+    .benefit-icon {font-size: 2.5rem; color: #D4AF37; margin-bottom: 15px;}
+    .benefit-card h3 {font-size: 1.2rem; margin-bottom: 10px; color: #fff;}
+    .benefit-card p {font-size: 0.95rem; color: #ccc;}
+    
+    /* Form */
+    .assessment-form {
+      background: rgba(255,255,255,.03); 
+      border: 1px solid rgba(212,175,55,.2); 
+      border-radius: 20px; 
+      padding: 50px; 
+      backdrop-filter: blur(10px);
+    }
+    .form-section {margin-bottom: 50px;}
+    .form-section h2 {
+      font-size: 1.5rem; 
+      color: #D4AF37; 
+      margin-bottom: 25px; 
+      padding-bottom: 10px; 
+      border-bottom: 2px solid rgba(212,175,55,.2);
+    }
+    
+    .form-group {margin-bottom: 30px;}
+    .form-group label {
+      display: block; 
+      margin-bottom: 12px; 
+      color: #fff; 
+      font-weight: 600; 
+      font-size: 1.05rem;
+    }
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%; 
+      padding: 15px 20px; 
+      background: rgba(255,255,255,.05); 
+      border: 1px solid rgba(212,175,55,.2); 
+      border-radius: 10px; 
+      color: #fff; 
+      font-size: 1rem; 
+      font-family: 'Tajawal', sans-serif; 
+      transition: .3s;
+    }
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      outline: none; 
+      border-color: #D4AF37; 
+      background: rgba(255,255,255,.08); 
+      box-shadow: 0 0 20px rgba(212,175,55,.2);
+    }
+    .form-group input::placeholder, 
+    .form-group textarea::placeholder {color: #888;}
+    .form-group select option {background: #1a1a1a; color: #fff; padding: 10px;}
+    
+    /* Radio Options - IMPROVED DESIGN */
+    .radio-group {
+      display: flex; 
+      flex-direction: column; 
+      gap: 15px;
+    }
+    
+    .radio-option {
+      position: relative;
+      display: flex; 
+      align-items: center; 
+      padding: 20px 25px; 
+      background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 2px solid rgba(212,175,55,.15); 
+      border-radius: 12px; 
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      min-height: 65px;
+    }
+    
+    .radio-option:hover {
+      background: linear-gradient(135deg, rgba(212,175,55,.08), rgba(212,175,55,.04));
+      border-color: rgba(212,175,55,.4);
+      transform: translateX(-5px);
+      box-shadow: 0 5px 20px rgba(212,175,55,.15);
+    }
+    
+    .radio-option input[type="radio"] {
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border: 2px solid rgba(212,175,55,.5);
+      border-radius: 50%;
+      margin-left: 15px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    
+    .radio-option input[type="radio"]:checked {
+      border-color: #D4AF37;
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      box-shadow: 0 0 15px rgba(212,175,55,.6);
+    }
+    
+    .radio-option input[type="radio"]:checked::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #000;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    
+    .radio-option input[type="radio"]:checked ~ label {
+      color: #fff;
+      font-weight: 600;
+    }
+    
+    .radio-option label {
+      cursor: pointer; 
+      flex: 1; 
+      color: #ccc; 
+      font-size: 1rem;
+      line-height: 1.5;
+      transition: all 0.3s ease;
+    }
+    
+    .radio-option:has(input:checked) {
+      background: linear-gradient(135deg, rgba(212,175,55,.15), rgba(212,175,55,.08));
+      border-color: #D4AF37;
+      box-shadow: 0 8px 25px rgba(212,175,55,.25);
+    }
+    
+    .btn-submit {
+      width: 100%; 
+      background: linear-gradient(135deg, #D4AF37, #FFD700); 
+      color: #050505; 
+      padding: 22px; 
+      border: none; 
+      border-radius: 12px; 
+      font-size: 1.3rem; 
+      font-weight: 900; 
+      cursor: pointer; 
+      transition: .3s; 
+      font-family: 'Tajawal', sans-serif; 
+      margin-top: 30px;
+      box-shadow: 0 10px 30px rgba(212,175,55,.3);
+    }
+    .btn-submit:hover {
+      transform: translateY(-3px); 
+      box-shadow: 0 15px 40px rgba(212,175,55,.5);
+    }
+    .btn-submit:disabled {opacity: 0.6; cursor: not-allowed;}
+    
+    /* Message */
+    .message {
+      padding: 20px; 
+      border-radius: 10px; 
+      margin-top: 20px; 
+      text-align: center; 
+      font-weight: 600; 
+      display: none;
+    }
+    .message.success {
+      background: rgba(76,175,80,.1); 
+      border: 1px solid rgba(76,175,80,.3); 
+      color: #4caf50;
+    }
+    .message.error {
+      background: rgba(244,67,54,.1); 
+      border: 1px solid rgba(244,67,54,.3); 
+      color: #f44336;
+    }
+    
+    /* Back Link */
+    .back-link {
+      display: inline-flex; 
+      align-items: center; 
+      color: #D4AF37; 
+      text-decoration: none; 
+      font-weight: 600; 
+      margin-bottom: 30px; 
+      transition: .3s;
+    }
+    .back-link:hover {color: #fff;}
+    .back-link i {margin-left: 8px;}
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {font-size: 2rem;}
+      .subtitle {font-size: 1.1rem;}
+      .assessment-form {padding: 30px 20px;}
+      .benefits {grid-template-columns: 1fr;}
+      .radio-option {padding: 18px 20px;}
+      .radio-option label {font-size: 0.95rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">
+      <i class="fas fa-arrow-right"></i>
+      العودة للرئيسية
+    </a>
+    
+    <div class="header">
+      <img src="https://z-cdn-media.chatglm.cn/files/c0da9ded-07be-4c09-8aca-bd981ada03d0_logo.png?auth_key=1790691197-267071ae1a1a416b89d485e461dea30d-0-2b87d551cfc90fcf9458eab0cc40520d" alt="Digital Mind Logo" class="logo">
+      <h1>مقياس الجاهزية الرقمية</h1>
+      <p class="subtitle">قيّم مستوى التحول الرقمي لشركتك في 5 دقائق واحصل على تقرير مفصل مجاني</p>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>تقييم شامل</h3>
+        <p>تحليل دقيق لوضعك الرقمي الحالي</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>توصيات مخصصة</h3>
+        <p>خطة عمل واضحة للتحسين</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-gift"></i></div>
+        <h3>مجاناً 100%</h3>
+        <p>بدون أي تكاليف خفية</p>
+      </div>
+    </div>
+
+    <form class="assessment-form" id="assessmentForm">
+      <!-- معلومات الشركة -->
+      <div class="form-section">
+        <h2><i class="fas fa-building"></i> معلومات الشركة</h2>
+        
+        <div class="form-group">
+          <label for="companyName">اسم الشركة *</label>
+          <input type="text" id="companyName" name="companyName" placeholder="اسم شركتك" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="industry">القطاع *</label>
+          <select id="industry" name="industry" required>
+            <option value="">اختر القطاع</option>
+            <option value="حكومي">حكومي</option>
+            <option value="مالي">مالي ومصرفي</option>
+            <option value="صحي">صحي</option>
+            <option value="تعليمي">تعليمي</option>
+            <option value="تجزئة">تجزئة وتجارة</option>
+            <option value="صناعي">صناعي</option>
+            <option value="تقني">تقني</option>
+            <option value="خدمات">خدمات</option>
+            <option value="آخر">آخر</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="companySize">حجم الشركة *</label>
+          <select id="companySize" name="companySize" required>
+            <option value="">اختر حجم الشركة</option>
+            <option value="1-10">1-10 موظفين</option>
+            <option value="11-50">11-50 موظف</option>
+            <option value="51-200">51-200 موظف</option>
+            <option value="201-500">201-500 موظف</option>
+            <option value="500+">أكثر من 500 موظف</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- معلومات المسؤول -->
+      <div class="form-section">
+        <h2><i class="fas fa-user"></i> معلومات الاتصال</h2>
+        
+        <div class="form-group">
+          <label for="contactName">الاسم الكامل *</label>
+          <input type="text" id="contactName" name="contactName" placeholder="اسمك الكامل" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="position">المسمى الوظيفي *</label>
+          <input type="text" id="position" name="position" placeholder="مثال: مدير تقنية المعلومات" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني *</label>
+          <input type="email" id="email" name="email" placeholder="email@company.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">رقم الجوال *</label>
+          <input type="tel" id="phone" name="phone" placeholder="+966501234567" required>
+        </div>
+      </div>
+
+      <!-- أسئلة التقييم -->
+      <div class="form-section">
+        <h2><i class="fas fa-clipboard-list"></i> أسئلة التقييم</h2>
+        
+        <!-- السؤال 1 -->
+        <div class="form-group">
+          <label>1. ما مستوى التحول الرقمي الحالي لشركتك؟ *</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="q1a" name="question1" value="بدائي - نستخدم طرق يدوية بشكل أساسي" required>
+              <label for="q1a">بدائي - نستخدم طرق يدوية بشكل أساسي</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q1b" name="question1" value="متوسط - بدأنا بعض المبادرات الرقمية">
+              <label for="q1b">متوسط - بدأنا بعض المبادرات الرقمية</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q1c" name="question1" value="متقدم - نستخدم أنظمة رقمية متكاملة">
+              <label for="q1c">متقدم - نستخدم أنظمة رقمية متكاملة</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q1d" name="question1" value="رائد - لدينا استراتيجية رقمية شاملة">
+              <label for="q1d">رائد - لدينا استراتيجية رقمية شاملة</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- السؤال 2 -->
+        <div class="form-group">
+          <label>2. هل لديكم خطة استراتيجية للتحول الرقمي؟ *</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="q2a" name="question2" value="لا يوجد خطة حالياً" required>
+              <label for="q2a">لا يوجد خطة حالياً</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q2b" name="question2" value="قيد الإعداد">
+              <label for="q2b">قيد الإعداد</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q2c" name="question2" value="نعم، ونعمل على تنفيذها">
+              <label for="q2c">نعم، ونعمل على تنفيذها</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q2d" name="question2" value="نعم، ونراجعها بشكل دوري">
+              <label for="q2d">نعم، ونراجعها بشكل دوري</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- السؤال 3 -->
+        <div class="form-group">
+          <label>3. ما مدى اهتمامكم بالأمن السيبراني؟ *</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="q3a" name="question3" value="محدود جداً - لا يوجد إجراءات رسمية" required>
+              <label for="q3a">محدود جداً - لا يوجد إجراءات رسمية</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q3b" name="question3" value="متوسط - لدينا بعض الإجراءات الأساسية">
+              <label for="q3b">متوسط - لدينا بعض الإجراءات الأساسية</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q3c" name="question3" value="جيد - نطبق معايير أمنية معتمدة">
+              <label for="q3c">جيد - نطبق معايير أمنية معتمدة</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q3d" name="question3" value="متقدم - ملتزمون بمعايير NCA والمعايير الدولية">
+              <label for="q3d">متقدم - ملتزمون بمعايير NCA والمعايير الدولية</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- السؤال 4 -->
+        <div class="form-group">
+          <label>4. هل تستخدمون الذكاء الاصطناعي أو الأتمتة في عملياتكم؟ *</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="q4a" name="question4" value="لا نستخدمها حالياً" required>
+              <label for="q4a">لا نستخدمها حالياً</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q4b" name="question4" value="نخطط للبدء قريباً">
+              <label for="q4b">نخطط للبدء قريباً</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q4c" name="question4" value="نستخدمها في بعض العمليات">
+              <label for="q4c">نستخدمها في بعض العمليات</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q4d" name="question4" value="جزء أساسي من عملياتنا">
+              <label for="q4d">جزء أساسي من عملياتنا</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- السؤال 5 -->
+        <div class="form-group">
+          <label>5. ما أكبر تحدي يواجهكم في التحول الرقمي؟ *</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="q5a" name="question5" value="نقص الميزانية" required>
+              <label for="q5a">نقص الميزانية</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q5b" name="question5" value="نقص الكفاءات">
+              <label for="q5b">نقص الكفاءات</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q5c" name="question5" value="مقاومة التغيير من الفريق">
+              <label for="q5c">مقاومة التغيير من الفريق</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q5d" name="question5" value="عدم وضوح الرؤية">
+              <label for="q5d">عدم وضوح الرؤية</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="q5e" name="question5" value="الأنظمة القديمة">
+              <label for="q5e">الأنظمة القديمة (Legacy Systems)</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">
+        <i class="fas fa-paper-plane"></i>
+        احصل على تقريرك المجاني الآن
+      </button>
+      
+      <div id="message" class="message"></div>
+    </form>
+  </div>
+
+  <script>
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRf2j1bhu8n1_g7k_vM2FsxhsSFQFq24944fBFQ6ioRR3FRXilhRFx7rK37TZME8K6IQ/exec';
+    emailjs.init('yef1ybmulax4pT4WI');
+
+    // تاريخ الإطلاق - عدّله حسب تاريخ الإطلاق الفعلي
+    const LAUNCH_DATE = new Date('2025-11-13');
+
+    document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const messageEl = document.getElementById('message');
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+      
+      const formData = {
+        companyName: document.getElementById('companyName').value,
+        industry: document.getElementById('industry').value,
+        companySize: document.getElementById('companySize').value,
+        contactName: document.getElementById('contactName').value,
+        position: document.getElementById('position').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        question1: document.querySelector('input[name="question1"]:checked').value,
+        question2: document.querySelector('input[name="question2"]:checked').value,
+        question3: document.querySelector('input[name="question3"]:checked').value,
+        question4: document.querySelector('input[name="question4"]:checked').value,
+        question5: document.querySelector('input[name="question5"]:checked').value,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        // إرسال عبر EmailJS
+        await emailjs.send('service_i7rpq9f', 'template_2ul5hcg', {
+          name: formData.contactName,
+          email: formData.email,
+          phone: formData.phone,
+          service: 'Digital Readiness Assessment',
+          message: `
+الشركة: ${formData.companyName}
+القطاع: ${formData.industry}
+الحجم: ${formData.companySize}
+المسمى: ${formData.position}
+
+=== إجابات التقييم ===
+1. مستوى التحول الرقمي: ${formData.question1}
+2. الخطة الاستراتيجية: ${formData.question2}
+3. الأمن السيبراني: ${formData.question3}
+4. الذكاء الاصطناعي: ${formData.question4}
+5. أكبر تحدي: ${formData.question5}
+          `
+        });
+
+        // حفظ في Google Sheets
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          mode: 'no-cors',
+          body: JSON.stringify({
+            ...formData,
+            source: 'Digital Readiness Assessment'
+          })
+        }).catch(err => console.error('Sheets error:', err));
+
+        // Google Analytics
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            method: 'digital_readiness_assessment'
+          });
+        }
+
+        // التوجيه لصفحة الشكر
+        setTimeout(() => {
+          window.location.href = 'thank-you.html?source=assessment';
+        }, 500);
+
+      } catch (err) {
+        console.error(err);
+        messageEl.textContent = 'حدث خطأ. يرجى المحاولة مرة أخرى.';
+        messageEl.className = 'message error';
+        messageEl.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> احصل على تقريرك المجاني الآن';
+      }
+    });
+  </script>
+</body>
+</html>
