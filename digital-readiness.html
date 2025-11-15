@@ -493,7 +493,7 @@
   </div>
 
   <script>
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRf2j1bhu8n1_g7k_vM2FsxhsSFQFq24944fBFQ6ioRR3FRXilhRFx7rK37TZME8K6IQ/exec';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyjvCMunDxO7JsOBZWV7o2pMEP2TfZWE3TrkFmCukcIx-SQYH4SnHBmiSPglW-SftKQ/exec';
     emailjs.init('yef1ybmulax4pT4WI');
 
     // Generate unique ID
@@ -571,6 +571,19 @@
       }
     }
 
+    // KSA Time Function
+    function nowInKSAIso() {
+      const parts = Object.fromEntries(
+        new Intl.DateTimeFormat('en-CA', {
+          timeZone: 'Asia/Riyadh',
+          hour12: false,
+          year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', second: '2-digit'
+        }).formatToParts(new Date()).map(p => [p.type, p.value])
+      );
+      return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+03:00`;
+    }
+
     document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       
@@ -613,14 +626,25 @@
           headers: { 'Content-Type': 'application/json' },
           mode: 'no-cors',
           body: JSON.stringify({
-            ...formData,
+            timestamp: new Date().toISOString(),
+            ksa_time: nowInKSAIso(),
+            name: formData.contactName,
+            email: formData.email,
+            phone: formData.phone,
+            service: 'Digital Readiness Assessment',
+            source: 'website',
+            companyName: formData.companyName,
+            industry: formData.industry,
+            companySize: formData.companySize,
+            position: formData.position,
             reportID: reportID,
             score: score,
             level: report.level,
-            strengths: report.strengths.join(' | '),
-            improvements: report.improvements.join(' | '),
-            recommendations: report.recommendations.join(' | '),
-            source: 'Digital Readiness Assessment'
+            question1: formData.question1,
+            question2: formData.question2,
+            question3: formData.question3,
+            question4: formData.question4,
+            question5: formData.question5
           })
         });
 
@@ -628,26 +652,10 @@
         await emailjs.send('service_i7rpq9f', 'template_2ul5hcg', {
           name: formData.contactName,
           email: formData.email,
-          phone: formData.phone,
-          service: 'تقرير الجاهزية الرقمية',
-          message: `
-مرحباً ${formData.contactName}،
-
-شكراً لإتمام تقييم الجاهزية الرقمية لشركة ${formData.companyName}!
-
-📊 نتيجتك: ${score}% - مستوى ${report.level}
-
-🔗 اطلع على تقريرك الكامل المفصل:
-${reportURL}
-
-🎁 عرض خاص: خصم 10% إضافي على جميع منتجاتنا
-استخدم الكود: ASSESS10
-
-نحن متحمسون لمساعدتك في رحلة التحول الرقمي!
-
-تحياتنا،
-فريق Digital Mind Simplified
-          `
+          companyName: formData.companyName,
+          score: score,
+          level: report.level,
+          report_url: reportURL
         });
 
         // Google Analytics
