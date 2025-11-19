@@ -31,12 +31,16 @@
     /* Navbar */
     .navbar{background:rgba(0,0,0,.95);backdrop-filter:blur(15px);padding:20px 0;position:fixed;top:0;left:0;right:0;z-index:1000;border-bottom:1px solid rgba(212,175,55,.15)}
     .navbar .container{display:flex;justify-content:space-between;align-items:center}
-    .nav-links{display:flex;list-style:none}
+    .nav-links{display:flex;list-style:none;align-items:center;}
     .nav-links li{margin-left:40px}
     .nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:16px;transition:.3s;position:relative}
     .nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:linear-gradient(90deg,#D4AF37,#FFD700);transition:width .3s}
     .nav-links a:hover::after{width:100%}
     .nav-links a:hover{color:#D4AF37}
+
+    /* WhatsApp Button in Nav */
+    .whatsapp-nav{background:linear-gradient(135deg,#25D366,#20BA5C);color:#fff;padding:10px 20px;border-radius:50px;text-decoration:none;font-weight:700;transition:.3s;display:flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(37,211,102,.3)}
+    .whatsapp-nav:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(37,211,102,.5)}
 
     /* Logo */
     .logo-container{display:flex;align-items:center;gap:12px}
@@ -191,6 +195,11 @@
         <li><a href="#blog">المدونة</a></li>
         <li><a href="#about">من نحن</a></li>
         <li><a href="#contact">اتصل بنا</a></li>
+        <li>
+          <a href="https://wa.me/966581871332?text=السلام%20عليكم%20أريد%20الاستفسار%20عن%20منتجات%20Digital%20Mind%20Simplified" class="whatsapp-nav" target="_blank">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+        </li>
       </ul>
       <div class="logo-container">
         <img src="https://z-cdn-media.chatglm.cn/files/c0da9ded-07be-4c09-8aca-bd981ada03d0_logo.png?auth_key=1790691197-267071ae1a1a416b89d485e461dea30d-0-2b87d551cfc90fcf9458eab0cc40520d" alt="Digital Mind Logo" class="logo-image">
@@ -213,7 +222,7 @@
     </div>
   </section>
 
-  <!-- Products Section - UNIFIED -->
+  <!-- Products Section -->
   <section id="products" class="products">
     <div class="container">
       <div class="section-title">
@@ -239,48 +248,38 @@
           </a>
         </div>
 
-        <!-- 2. Tripwire - $19 -->
+        <!-- 2. NCA Dashboard Pro - $49 -->
         <div class="product-card">
           <div class="product-icon" style="background: linear-gradient(135deg, #fbbf24, #fcd34d);">
-            <i class="fas fa-shield-alt"></i>
+            <i class="fas fa-tachometer-alt"></i>
           </div>
-          <h3>NCA Starter Kit</h3>
-          <p>حزمة الامتثال السيبراني الشاملة - 9 ملفات جاهزة للتطبيق الفوري متوافقة مع معايير NCA</p>
+          <h3>NCA Dashboard Pro</h3>
+          <p>لوحة تحكم تفاعلية للامتثال السيبراني - تقارير PDF تلقائية، تقييم شامل، وخطة عمل واضحة 100% متوافقة مع NCA</p>
           
           <div style="margin: 20px 0;">
-            <span style="font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, #fbbf24, #fcd34d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$19</span>
-            <span style="text-decoration: line-through; color: #888; margin-right: 10px;">$59</span>
-            <span style="background: #10b981; color: #000; padding: 4px 10px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;">وفّر 68%</span>
+            <span style="font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, #fbbf24, #fcd34d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$49</span>
+            <span style="text-decoration: line-through; color: #888; margin-right: 10px;">$99</span>
+            <span style="background: #10b981; color: #000; padding: 4px 10px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;">وفّر 50%</span>
           </div>
           
-          <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05)); border: 2px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 15px; margin: 15px 0;">
-            <div style="color: #ef4444; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; text-align: center;">
-              ⏰ العرض ينتهي خلال:
+          <!-- النص الاحترافي الجديد بدلاً من العداد -->
+          <div style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(252, 211, 77, 0.1)); border: 2px solid rgba(251, 191, 36, 0.3); border-radius: 15px; padding: 20px; margin: 20px 0;">
+            <div style="text-align: center; margin-bottom: 15px;">
+              <span style="font-size: 1.3rem; font-weight: 900; background: linear-gradient(135deg, #fbbf24, #fcd34d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                🔥 عرض حصري محدود
+              </span>
             </div>
-            <div id="countdown-index" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; font-size: 0.75rem;">
-              <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 8px 4px;">
-                <span id="days-index" style="font-size: 1.3rem; font-weight: 900; color: #ef4444; display: block;">00</span>
-                <span style="color: #888; font-size: 0.7rem;">يوم</span>
-              </div>
-              <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 8px 4px;">
-                <span id="hours-index" style="font-size: 1.3rem; font-weight: 900; color: #ef4444; display: block;">00</span>
-                <span style="color: #888; font-size: 0.7rem;">ساعة</span>
-              </div>
-              <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 8px 4px;">
-                <span id="minutes-index" style="font-size: 1.3rem; font-weight: 900; color: #ef4444; display: block;">00</span>
-                <span style="color: #888; font-size: 0.7rem;">دقيقة</span>
-              </div>
-              <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 8px 4px;">
-                <span id="seconds-index" style="font-size: 1.3rem; font-weight: 900; color: #ef4444; display: block;">00</span>
-                <span style="color: #888; font-size: 0.7rem;">ثانية</span>
-              </div>
+            <div style="color: #fff; font-size: 1rem; line-height: 1.8; margin-bottom: 12px;">
+              ✨ <strong>وفّر 50%</strong> على السعر الأصلي<br>
+              ⚡ <strong>احصل عليه الآن</strong> قبل رفع السعر<br>
+              🛡️ <strong>ضمان 30 يوم</strong> استرداد كامل
             </div>
-            <div style="color: #fbbf24; font-size: 0.8rem; margin-top: 8px; text-align: center; font-weight: 600;">
-              بعدها السعر يرجع لـ $59 ⚠️
+            <div style="text-align: center; color: #fbbf24; font-size: 0.95rem; font-weight: 700; margin-top: 15px;">
+              💎 عرض خاص للعملاء الأوائل فقط
             </div>
           </div>
           
-          <a href="nca-starter-kit.html" class="btn-primary" style="display:inline-block;margin-top:15px;">
+          <a href="https://payhip.com/b/WSmQl" class="btn-primary" style="display:inline-block;margin-top:15px;" target="_blank">
             <i class="fas fa-shopping-cart" style="margin-left: 8px;"></i>
             اشترِ الآن
             <i class="fas fa-arrow-left" style="margin-right: 8px;"></i>
@@ -410,7 +409,7 @@
             <select id="service" name="service" required>
               <option value="">اختر المنتج</option>
               <option value="مقياس الجاهزية الرقمية">مقياس الجاهزية الرقمية (مجاني)</option>
-              <option value="NCA Starter Kit">NCA Starter Kit ($19)</option>
+              <option value="NCA Dashboard Pro">NCA Dashboard Pro ($49)</option>
               <option value="حزمة الأمن السيبراني">حزمة الأمن السيبراني ($49)</option>
               <option value="حزمة الأتمتة الذكية">حزمة الأتمتة الذكية ($39)</option>
               <option value="جميع المنتجات">جميع المنتجات</option>
@@ -448,7 +447,7 @@
         <div class="footer-section">
           <h3>روابط سريعة</h3>
           <p><a href="#products">المنتجات</a></p>
-          <p><a href="nca-starter-kit.html">NCA Starter Kit</a></p>
+          <p><a href="https://payhip.com/b/WSmQl" target="_blank">NCA Dashboard Pro</a></p>
           <p><a href="digital-readiness.html">مقياس الجاهزية الرقمية</a></p>
           <p><a href="#blog">المدونة</a></p>
           <p><a href="#about">من نحن</a></p>
@@ -519,41 +518,6 @@
       );
       return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+03:00`;
     }
-
-    // Countdown Timer
-    (function() {
-      const countdownDate = new Date();
-      countdownDate.setDate(countdownDate.getDate() + 50);
-      
-      const countdownTimer = setInterval(function() {
-        const now = new Date().getTime();
-        const distance = countdownDate.getTime() - now;
-        
-        if (distance < 0) {
-          clearInterval(countdownTimer);
-          const countdownEl = document.getElementById('countdown-index');
-          if (countdownEl) {
-            countdownEl.innerHTML = '<div style="color: #ef4444; font-size: 1rem; font-weight: 900; text-align: center;">انتهى العرض - السعر الآن $59</div>';
-          }
-          return;
-        }
-        
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        const daysEl = document.getElementById('days-index');
-        const hoursEl = document.getElementById('hours-index');
-        const minutesEl = document.getElementById('minutes-index');
-        const secondsEl = document.getElementById('seconds-index');
-        
-        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
-        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
-        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
-      }, 1000);
-    })();
 
     document.getElementById('subscriptionForm').addEventListener('submit', async function(e){
       e.preventDefault();
