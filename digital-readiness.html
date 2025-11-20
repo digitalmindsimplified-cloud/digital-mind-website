@@ -1,685 +1,559 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مقياس الجاهزية الرقمية - Digital Mind Simplified</title>
-  <meta name="description" content="قيّم مستوى التحول الرقمي لشركتك في 5 دقائق - تقرير مفصل مجاني">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>قيّم مستوى التحول الرقمي - Digital Mind Simplified</title>
+  <meta name="description" content="قم بتقييم مستوى التحول الرقمي لشركتك مجاناً واحصل على تقرير مفصل وخصم 10% على جميع منتجاتنا." />
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYZVQRV1FL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-CYZVQRV1FL');
   </script>
 
-  <!-- خطوط -->
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- أيقونات -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {
-      font-family: 'Tajawal', sans-serif; 
-      background: linear-gradient(135deg, #050505, #1a1a1a); 
-      color: #fff; 
-      line-height: 1.6; 
-      min-height: 100vh;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .container {max-width: 900px; margin: 0 auto; padding: 40px 30px;}
-    
-    /* Header */
-    .header {text-align: center; margin-bottom: 60px; padding-top: 40px;}
-    .logo {width: 60px; height: 60px; margin-bottom: 20px;}
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: #050505;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
     h1 {
-      font-size: 3rem; 
-      font-weight: 900; 
-      margin-bottom: 20px; 
-      background: linear-gradient(135deg, #D4AF37, #fff); 
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent; 
+      font-size: 3rem;
+      font-weight: 900;
+      text-align: center;
+      margin: 40px 0 20px;
+      background: linear-gradient(135deg, #fff, #D4AF37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .subtitle {font-size: 1.3rem; color: #ccc; margin-bottom: 30px; font-weight: 300;}
-    
-    /* Benefits */
-    .benefits {
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 30px; 
-      margin-bottom: 60px;
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 20px 0 10px;
+      color: #D4AF37;
     }
-    .benefit-card {
-      background: rgba(255,255,255,.05); 
-      border: 1px solid rgba(212,175,55,.2); 
-      border-radius: 15px; 
-      padding: 30px; 
-      text-align: center; 
-      transition: .3s;
+    p.subtitle {
+      text-align: center;
+      font-weight: 500;
+      color: #ccc;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
     }
-    .benefit-card:hover {
-      transform: translateY(-5px); 
-      border-color: rgba(212,175,55,.4); 
-      box-shadow: 0 10px 30px rgba(212,175,55,.2);
+    form {
+      background: #1a1a1a;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #D4AF36aa;
     }
-    .benefit-icon {font-size: 2.5rem; color: #D4AF37; margin-bottom: 15px;}
-    .benefit-card h3 {font-size: 1.2rem; margin-bottom: 10px; color: #fff;}
-    .benefit-card p {font-size: 0.95rem; color: #ccc;}
-    
-    /* Form */
-    .assessment-form {
-      background: rgba(255,255,255,.03); 
-      border: 1px solid rgba(212,175,55,.2); 
-      border-radius: 20px; 
-      padding: 50px; 
-      backdrop-filter: blur(10px);
-    }
-    .form-section {margin-bottom: 50px;}
-    .form-section h2 {
-      font-size: 1.5rem; 
-      color: #D4AF37; 
-      margin-bottom: 25px; 
-      padding-bottom: 10px; 
-      border-bottom: 2px solid rgba(212,175,55,.2);
-    }
-    
-    .form-group {margin-bottom: 30px;}
-    .form-group label {
-      display: block; 
-      margin-bottom: 12px; 
-      color: #fff; 
-      font-weight: 600; 
-      font-size: 1.05rem;
-    }
-    .form-group input, 
-    .form-group select, 
-    .form-group textarea {
-      width: 100%; 
-      padding: 15px 20px; 
-      background: rgba(255,255,255,.05); 
-      border: 1px solid rgba(212,175,55,.2); 
-      border-radius: 10px; 
-      color: #fff; 
-      font-size: 1rem; 
-      font-family: 'Tajawal', sans-serif; 
-      transition: .3s;
-    }
-    .form-group input:focus, 
-    .form-group select:focus, 
-    .form-group textarea:focus {
-      outline: none; 
-      border-color: #D4AF37; 
-      background: rgba(255,255,255,.08); 
-      box-shadow: 0 0 20px rgba(212,175,55,.2);
-    }
-    .form-group input::placeholder, 
-    .form-group textarea::placeholder {color: #888;}
-    .form-group select option {background: #1a1a1a; color: #fff; padding: 10px;}
-    
-    /* Radio Options */
-    .radio-group {
-      display: flex; 
-      flex-direction: column; 
-      gap: 15px;
-    }
-    
-    .radio-option {
-      position: relative;
-      display: flex; 
-      align-items: center; 
-      padding: 20px 25px; 
-      background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border: 2px solid rgba(212,175,55,.15); 
-      border-radius: 12px; 
-      cursor: pointer; 
-      transition: all 0.3s ease;
-      min-height: 65px;
-    }
-    
-    .radio-option:hover {
-      background: linear-gradient(135deg, rgba(212,175,55,.08), rgba(212,175,55,.04));
-      border-color: rgba(212,175,55,.4);
-      transform: translateX(-5px);
-      box-shadow: 0 5px 20px rgba(212,175,55,.15);
-    }
-    
-    .radio-option input[type="radio"] {
-      appearance: none;
-      width: 24px;
-      height: 24px;
-      border: 2px solid rgba(212,175,55,.5);
-      border-radius: 50%;
-      margin-left: 15px;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.3s ease;
-      flex-shrink: 0;
-    }
-    
-    .radio-option input[type="radio"]:checked {
-      border-color: #D4AF37;
-      background: linear-gradient(135deg, #D4AF37, #FFD700);
-      box-shadow: 0 0 15px rgba(212,175,55,.6);
-    }
-    
-    .radio-option input[type="radio"]:checked::after {
-      content: '✓';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #000;
-      font-size: 14px;
-      font-weight: 900;
-    }
-    
-    .radio-option input[type="radio"]:checked ~ label {
-      color: #fff;
+    label {
+      display: block;
+      margin-bottom: 6px;
       font-weight: 600;
+      color: #D4AF37;
     }
-    
-    .radio-option label {
-      cursor: pointer; 
-      flex: 1; 
-      color: #ccc; 
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid #D4AF37;
+      border-radius: 8px;
+      background: #050505;
+      color: #f0f0f0;
       font-size: 1rem;
-      line-height: 1.5;
-      transition: all 0.3s ease;
+      font-family: 'Tajawal', sans-serif;
+      transition: border-color 0.3s ease;
     }
-    
-    .radio-option:has(input:checked) {
-      background: linear-gradient(135deg, rgba(212,175,55,.15), rgba(212,175,55,.08));
-      border-color: #D4AF37;
-      box-shadow: 0 8px 25px rgba(212,175,55,.25);
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #10b981;
+      box-shadow: 0 0 10px #10b981aa;
+      background: #0a0a0a;
     }
-    
-    .btn-submit {
-      width: 100%; 
-      background: linear-gradient(135deg, #D4AF37, #FFD700); 
-      color: #050505; 
-      padding: 22px; 
-      border: none; 
-      border-radius: 12px; 
-      font-size: 1.3rem; 
-      font-weight: 900; 
-      cursor: pointer; 
-      transition: .3s; 
-      font-family: 'Tajawal', sans-serif; 
-      margin-top: 30px;
-      box-shadow: 0 10px 30px rgba(212,175,55,.3);
+    .question {
+      margin-bottom: 25px;
     }
-    .btn-submit:hover {
-      transform: translateY(-3px); 
-      box-shadow: 0 15px 40px rgba(212,175,55,.5);
+    .question label {
+      font-size: 1.1rem;
     }
-    .btn-submit:disabled {opacity: 0.6; cursor: not-allowed;}
-    
-    /* Message */
-    .message {
-      padding: 20px; 
-      border-radius: 10px; 
-      margin-top: 20px; 
-      text-align: center; 
-      font-weight: 600; 
+    .answers {
+      margin-top: 10px;
+    }
+    .answers label {
+      display: block;
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #D4AF37;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      transition: background-color 0.25s;
+      font-weight: 400;
+    }
+    .answers label:hover {
+      background-color: #D4AF37;
+      color: #050505;
+    }
+    input[type="radio"] {
       display: none;
     }
-    .message.success {
-      background: rgba(76,175,80,.1); 
-      border: 1px solid rgba(76,175,80,.3); 
-      color: #4caf50;
+    input[type="radio"]:checked + label {
+      background-color: #10b981;
+      color: #050505;
+      border-color: #10b981;
+      font-weight: 700;
     }
-    .message.error {
-      background: rgba(244,67,54,.1); 
-      border: 1px solid rgba(244,67,54,.3); 
-      color: #f44336;
+    .progress-bar {
+      height: 10px;
+      background: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 30px 0;
     }
-    
-    /* Back Link */
-    .back-link {
-      display: inline-flex; 
-      align-items: center; 
-      color: #D4AF37; 
-      text-decoration: none; 
-      font-weight: 600; 
-      margin-bottom: 30px; 
-      transition: .3s;
+    .progress-bar .progress {
+      height: 100%;
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      width: 0%;
+      transition: width 0.3s ease;
     }
-    .back-link:hover {color: #fff;}
-    .back-link i {margin-left: 8px;}
-    
+    .score-circle-container {
+      text-align: center;
+      margin: 30px 0 20px;
+    }
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: conic-gradient(#10b981 calc(var(--score) * 1%), #ddd 0);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #10b981;
+      position: relative;
+    }
+    .score-circle::after {
+      content: '%';
+      font-size: 1.75rem;
+      color: #10b981;
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .score-text {
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-top: 12px;
+    }
+    .level-beginner {
+      color: #ef4444;
+    }
+    .level-intermediate {
+      color: #fbbf24;
+    }
+    .level-advanced {
+      color: #10b981;
+    }
+    .recommendations {
+      margin-top: 20px;
+      border: 1px solid #D4AF37;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #1a1a1a;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #f0f0f0;
+    }
+    .btn-submit {
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      color: #050505;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 20px #FFD700aa;
+      transition: filter 0.2s ease;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-submit:hover {
+      filter: brightness(1.15);
+    }
+    .discount-box {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(255,215,0,0.1));
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #FFD700;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+    .cta-buttons a {
+      background: #10b981;
+      color: #050505;
+      text-decoration: none;
+      padding: 14px 30px;
+      font-weight: 700;
+      border-radius: 50px;
+      box-shadow: 0 3px 12px #10b981aa;
+      transition: background-color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cta-buttons a:hover {
+      background-color: #0d8f6e;
+    }
+    .cta-buttons i {
+      font-size: 1.1rem;
+    }
     /* Responsive */
-    @media (max-width: 768px) {
-      h1 {font-size: 2rem;}
-      .subtitle {font-size: 1.1rem;}
-      .assessment-form {padding: 30px 20px;}
-      .benefits {grid-template-columns: 1fr;}
-      .radio-option {padding: 18px 20px;}
-      .radio-option label {font-size: 0.95rem;}
+    @media (max-width: 600px) {
+      form {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .cta-buttons {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <a href="index.html" class="back-link">
-      <i class="fas fa-arrow-right"></i>
-      العودة للرئيسية
-    </a>
-    
-    <div class="header">
-      <img src="https://z-cdn-media.chatglm.cn/files/c0da9ded-07be-4c09-8aca-bd981ada03d0_logo.png?auth_key=1790691197-267071ae1a1a416b89d485e461dea30d-0-2b87d551cfc90fcf9458eab0cc40520d" alt="Digital Mind Logo" class="logo">
-      <h1>مقياس الجاهزية الرقمية</h1>
-      <p class="subtitle">قيّم مستوى التحول الرقمي لشركتك في 5 دقائق واحصل على تقرير مفصل مجاني</p>
-    </div>
+    <h1>قيّم مستوى التحول الرقمي لشركتك</h1>
+    <p class="subtitle">في 5 دقائق فقط - احصل على تقرير مفصل مجاني + خصم 10%</p>
 
-    <div class="benefits">
-      <div class="benefit-card">
-        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>تقييم شامل</h3>
-        <p>تحليل دقيق لوضعك الرقمي الحالي</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon"><i class="fas fa-lightbulb"></i></div>
-        <h3>توصيات مخصصة</h3>
-        <p>خطة عمل واضحة للتحسين</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon"><i class="fas fa-gift"></i></div>
-        <h3>مجاناً 100%</h3>
-        <p>بدون أي تكاليف خفية</p>
-      </div>
-    </div>
-
-    <form class="assessment-form" id="assessmentForm">
-      <!-- معلومات الشركة -->
-      <div class="form-section">
-        <h2><i class="fas fa-building"></i> معلومات الشركة</h2>
-        
-        <div class="form-group">
-          <label for="companyName">اسم الشركة *</label>
-          <input type="text" id="companyName" name="companyName" placeholder="اسم شركتك" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="industry">القطاع *</label>
-          <select id="industry" name="industry" required>
-            <option value="">اختر القطاع</option>
-            <option value="حكومي">حكومي</option>
-            <option value="مالي">مالي ومصرفي</option>
-            <option value="صحي">صحي</option>
-            <option value="تعليمي">تعليمي</option>
-            <option value="تجزئة">تجزئة وتجارة</option>
-            <option value="صناعي">صناعي</option>
-            <option value="تقني">تقني</option>
-            <option value="خدمات">خدمات</option>
-            <option value="آخر">آخر</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="companySize">حجم الشركة *</label>
-          <select id="companySize" name="companySize" required>
-            <option value="">اختر حجم الشركة</option>
-            <option value="1-10">1-10 موظفين</option>
-            <option value="11-50">11-50 موظف</option>
-            <option value="51-200">51-200 موظف</option>
-            <option value="201-500">201-500 موظف</option>
-            <option value="500+">أكثر من 500 موظف</option>
-          </select>
+    <form id="digitalReadinessForm" novalidate>
+      <div class="question">
+        <h2>1. هل لديك سياسات أمن سيبراني موثقة؟</h2>
+        <div class="answers">
+          <input type="radio" id="q1a1" name="q1" value="3" required>
+          <label for="q1a1">نعم، شاملة ومحدثة</label>
+          <input type="radio" id="q1a2" name="q1" value="2">
+          <label for="q1a2">موجودة لكن قديمة</label>
+          <input type="radio" id="q1a3" name="q1" value="0">
+          <label for="q1a3">لا توجد</label>
         </div>
       </div>
 
-      <!-- معلومات المسؤول -->
-      <div class="form-section">
-        <h2><i class="fas fa-user"></i> معلومات الاتصال</h2>
-        
-        <div class="form-group">
-          <label for="contactName">الاسم الكامل *</label>
-          <input type="text" id="contactName" name="contactName" placeholder="اسمك الكامل" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="position">المسمى الوظيفي *</label>
-          <input type="text" id="position" name="position" placeholder="مثال: مدير تقنية المعلومات" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="email">البريد الإلكتروني *</label>
-          <input type="email" id="email" name="email" placeholder="email@company.com" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="phone">رقم الجوال *</label>
-          <input type="tel" id="phone" name="phone" placeholder="+966501234567" required>
+      <div class="question">
+        <h2>2. هل تستخدم المصادقة الثنائية (MFA)؟</h2>
+        <div class="answers">
+          <input type="radio" id="q2a1" name="q2" value="3" required>
+          <label for="q2a1">نعم، للجميع</label>
+          <input type="radio" id="q2a2" name="q2" value="2">
+          <label for="q2a2">للبعض فقط</label>
+          <input type="radio" id="q2a3" name="q2" value="0">
+          <label for="q2a3">لا</label>
         </div>
       </div>
 
-      <!-- أسئلة التقييم -->
-      <div class="form-section">
-        <h2><i class="fas fa-clipboard-list"></i> أسئلة التقييم</h2>
-        
-        <!-- السؤال 1 -->
-        <div class="form-group">
-          <label>1. ما مستوى التحول الرقمي الحالي لشركتك؟ *</label>
-          <div class="radio-group">
-            <div class="radio-option">
-              <input type="radio" id="q1a" name="question1" value="بدائي - نستخدم طرق يدوية بشكل أساسي" required>
-              <label for="q1a">بدائي - نستخدم طرق يدوية بشكل أساسي</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q1b" name="question1" value="متوسط - بدأنا بعض المبادرات الرقمية">
-              <label for="q1b">متوسط - بدأنا بعض المبادرات الرقمية</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q1c" name="question1" value="متقدم - نستخدم أنظمة رقمية متكاملة">
-              <label for="q1c">متقدم - نستخدم أنظمة رقمية متكاملة</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q1d" name="question1" value="رائد - لدينا استراتيجية رقمية شاملة">
-              <label for="q1d">رائد - لدينا استراتيجية رقمية شاملة</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- السؤال 2 -->
-        <div class="form-group">
-          <label>2. هل لديكم خطة استراتيجية للتحول الرقمي؟ *</label>
-          <div class="radio-group">
-            <div class="radio-option">
-              <input type="radio" id="q2a" name="question2" value="لا يوجد خطة حالياً" required>
-              <label for="q2a">لا يوجد خطة حالياً</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q2b" name="question2" value="قيد الإعداد">
-              <label for="q2b">قيد الإعداد</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q2c" name="question2" value="نعم، ونعمل على تنفيذها">
-              <label for="q2c">نعم، ونعمل على تنفيذها</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q2d" name="question2" value="نعم، ونراجعها بشكل دوري">
-              <label for="q2d">نعم، ونراجعها بشكل دوري</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- السؤال 3 -->
-        <div class="form-group">
-          <label>3. ما مدى اهتمامكم بالأمن السيبراني؟ *</label>
-          <div class="radio-group">
-            <div class="radio-option">
-              <input type="radio" id="q3a" name="question3" value="محدود جداً - لا يوجد إجراءات رسمية" required>
-              <label for="q3a">محدود جداً - لا يوجد إجراءات رسمية</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q3b" name="question3" value="متوسط - لدينا بعض الإجراءات الأساسية">
-              <label for="q3b">متوسط - لدينا بعض الإجراءات الأساسية</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q3c" name="question3" value="جيد - نطبق معايير أمنية معتمدة">
-              <label for="q3c">جيد - نطبق معايير أمنية معتمدة</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q3d" name="question3" value="متقدم - ملتزمون بمعايير NCA والمعايير الدولية">
-              <label for="q3d">متقدم - ملتزمون بمعايير NCA والمعايير الدولية</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- السؤال 4 -->
-        <div class="form-group">
-          <label>4. هل تستخدمون الذكاء الاصطناعي أو الأتمتة في عملياتكم؟ *</label>
-          <div class="radio-group">
-            <div class="radio-option">
-              <input type="radio" id="q4a" name="question4" value="لا نستخدمها حالياً" required>
-              <label for="q4a">لا نستخدمها حالياً</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q4b" name="question4" value="نخطط للبدء قريباً">
-              <label for="q4b">نخطط للبدء قريباً</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q4c" name="question4" value="نستخدمها في بعض العمليات">
-              <label for="q4c">نستخدمها في بعض العمليات</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q4d" name="question4" value="جزء أساسي من عملياتنا">
-              <label for="q4d">جزء أساسي من عملياتنا</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- السؤال 5 -->
-        <div class="form-group">
-          <label>5. ما أكبر تحدي يواجهكم في التحول الرقمي؟ *</label>
-          <div class="radio-group">
-            <div class="radio-option">
-              <input type="radio" id="q5a" name="question5" value="نقص الميزانية" required>
-              <label for="q5a">نقص الميزانية</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q5b" name="question5" value="نقص الكفاءات">
-              <label for="q5b">نقص الكفاءات</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q5c" name="question5" value="مقاومة التغيير من الفريق">
-              <label for="q5c">مقاومة التغيير من الفريق</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q5d" name="question5" value="عدم وضوح الرؤية">
-              <label for="q5d">عدم وضوح الرؤية</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="q5e" name="question5" value="الأنظمة القديمة">
-              <label for="q5e">الأنظمة القديمة (Legacy Systems)</label>
-            </div>
-          </div>
+      <div class="question">
+        <h2>3. هل يتم إجراء نسخ احتياطي يومي؟</h2>
+        <div class="answers">
+          <input type="radio" id="q3a1" name="q3" value="3" required>
+          <label for="q3a1">نعم، واختباره</label>
+          <input type="radio" id="q3a2" name="q3" value="2">
+          <label for="q3a2">أحياناً</label>
+          <input type="radio" id="q3a3" name="q3" value="0">
+          <label for="q3a3">لا</label>
         </div>
       </div>
 
-      <button type="submit" class="btn-submit" id="submitBtn">
-        <i class="fas fa-paper-plane"></i>
-        احصل على تقريرك المجاني الآن
-      </button>
-      
-      <div id="message" class="message"></div>
+      <div class="question">
+        <h2>4. هل يتم تحديث مضاد الفيروسات بانتظام؟</h2>
+        <div class="answers">
+          <input type="radio" id="q4a1" name="q4" value="3" required>
+          <label for="q4a1">نعم، بشكل تلقائي</label>
+          <input type="radio" id="q4a2" name="q4" value="2">
+          <label for="q4a2">يدوياً</label>
+          <input type="radio" id="q4a3" name="q4" value="0">
+          <label for="q4a3">لا</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>5. هل جميع الموظفين مدربون على الأمن السيبراني؟</h2>
+        <div class="answers">
+          <input type="radio" id="q5a1" name="q5" value="3" required>
+          <label for="q5a1">نعم، تدريب دوري</label>
+          <input type="radio" id="q5a2" name="q5" value="2">
+          <label for="q5a2">تدريب لمرة واحدة</label>
+          <input type="radio" id="q5a3" name="q5" value="0">
+          <label for="q5a3">لا</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>6. هل تستخدم أنظمة مراقبة الشبكة؟</h2>
+        <div class="answers">
+          <input type="radio" id="q6a1" name="q6" value="3" required>
+          <label for="q6a1">نعم، بأنظمة متطورة</label>
+          <input type="radio" id="q6a2" name="q6" value="2">
+          <label for="q6a2">أنظمة بسيطة</label>
+          <input type="radio" id="q6a3" name="q6" value="0">
+          <label for="q6a3">لا</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>7. هل توجد خطة طوارئ وتعافي من الكوارث؟</h2>
+        <div class="answers">
+          <input type="radio" id="q7a1" name="q7" value="3" required>
+          <label for="q7a1">نعم، موثقة ومختبرة</label>
+          <input type="radio" id="q7a2" name="q7" value="2">
+          <label for="q7a2">مخطط غير مكتمل</label>
+          <input type="radio" id="q7a3" name="q7" value="0">
+          <label for="q7a3">لا</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>8. هل يتم تحديث الأنظمة والبرمجيات بانتظام؟</h2>
+        <div class="answers">
+          <input type="radio" id="q8a1" name="q8" value="3" required>
+          <label for="q8a1">نعم، تلقائياً</label>
+          <input type="radio" id="q8a2" name="q8" value="2">
+          <label for="q8a2">بشكل يدوي وبعض التحديثات فقط</label>
+          <input type="radio" id="q8a3" name="q8" value="0">
+          <label for="q8a3">لا</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>9. هل تستخدم تشفير البيانات الحساسة؟</h2>
+        <div class="answers">
+          <input type="radio" id="q9a1" name="q9" value="3" required>
+          <label for="q9a1">نعم، بشكل شامل</label>
+          <input type="radio" id="q9a2" name="q9" value="2">
+          <label for="q9a2">تشفير جزئي</label>
+          <input type="radio" id="q9a3" name="q9" value="0">
+          <label for="q9a3">لا</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>10. هل تقوم بتقييم دوري للمخاطر الأمنية؟</h2>
+        <div class="answers">
+          <input type="radio" id="q10a1" name="q10" value="3" required>
+          <label for="q10a1">نعم، شهرياً</label>
+          <input type="radio" id="q10a2" name="q10" value="2">
+          <label for="q10a2">نصف سنوي</label>
+          <input type="radio" id="q10a3" name="q10" value="0">
+          <label for="q10a3">لا</label>
+        </div>
+      </div>
+
+      <div class="progress-bar" aria-label="شريط تقدم التقييم">
+        <div class="progress" id="progressBar" style="width: 0%;"></div>
+      </div>
+
+      <button type="submit" class="btn-submit">احصل على تقريرك</button>
     </form>
+
+    <div class="score-circle-container" id="resultContainer" style="display:none;">
+      <div class="score-circle" id="scoreCircle" style="--score: 0;">0</div>
+      <div class="score-text" id="scoreText"></div>
+      <div class="recommendations" id="recommendations"></div>
+
+      <div class="discount-box" style="margin-top:30px;">
+        🎁 مكافأة خاصة لك<br />
+        خصم 10% على جميع المنتجات<br />
+        الكود: DIGITAL10
+      </div>
+      <div class="cta-buttons" style="margin-top:25px;">
+        <a href="#products" id="browseProductsBtn">تصفح المنتجات <i class="fas fa-arrow-left"></i></a>
+        <a href="https://wa.me/966581871332" target="_blank" id="bookConsultationBtn">احجز استشارة عبر WhatsApp <i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
   </div>
 
   <script>
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyjvCMunDxO7JsOBZWV7o2pMEP2TfZWE3TrkFmCukcIx-SQYH4SnHBmiSPglW-SftKQ/exec';
     emailjs.init('yef1ybmulax4pT4WI');
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRf2j1bhu8n1_g7k_vM2FsxhsSFQFq24944fBFQ6ioRR3FRXilhRFx7rK37TZME8K6IQ/exec';
 
-    // Generate unique ID
-    function generateID() {
-      return 'report-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
-    }
+    const form = document.getElementById('digitalReadinessForm');
+    const progressBar = document.getElementById('progressBar');
+    const resultContainer = document.getElementById('resultContainer');
+    const scoreCircle = document.getElementById('scoreCircle');
+    const scoreText = document.getElementById('scoreText');
+    const recommendationsDiv = document.getElementById('recommendations');
 
-    // Calculate score
-    function calculateScore(answers) {
-      const scores = {
-        'question1': {
-          'بدائي - نستخدم طرق يدوية بشكل أساسي': 25,
-          'متوسط - بدأنا بعض المبادرات الرقمية': 50,
-          'متقدم - نستخدم أنظمة رقمية متكاملة': 75,
-          'رائد - لدينا استراتيجية رقمية شاملة': 100
-        },
-        'question2': {
-          'لا يوجد خطة حالياً': 25,
-          'قيد الإعداد': 50,
-          'نعم، ونعمل على تنفيذها': 75,
-          'نعم، ونراجعها بشكل دوري': 100
-        },
-        'question3': {
-          'محدود جداً - لا يوجد إجراءات رسمية': 25,
-          'متوسط - لدينا بعض الإجراءات الأساسية': 50,
-          'جيد - نطبق معايير أمنية معتمدة': 75,
-          'متقدم - ملتزمون بمعايير NCA والمعايير الدولية': 100
-        },
-        'question4': {
-          'لا نستخدمها حالياً': 25,
-          'نخطط للبدء قريباً': 50,
-          'نستخدمها في بعض العمليات': 75,
-          'جزء أساسي من عملياتنا': 100
-        }
-      };
+    const maxScore = 30; // 10 questions * max 3 points
 
-      let totalScore = 0;
-      let maxScore = 0;
+    // Recommendations mapping based on score range
+    const recommendations = [
+      {
+        range: [0, 12],
+        text: `<ul>
+          <li>ابدأ بتوثيق سياسات الأمن السيبراني وتحسينها.</li>
+          <li>قم بتفعيل المصادقة الثنائية لجميع المستخدمين.</li>
+          <li>اعمل نسخ احتياطي دوري ومنتظم لنظمك.</li>
+          <li>درب موظفيك على الوعي الأمني بشكل مستمر.</li>
+        </ul>`
+      },
+      {
+        range: [13, 20],
+        text: `<ul>
+          <li>راجع خطة الطوارئ والتعافي من الكوارث وحدثها.</li>
+          <li>قم بتحسين أنظمة تحديث البرمجيات لتكون آلية.</li>
+          <li>تأكد من تشفير البيانات الحساسة بشكل شامل.</li>
+          <li>ابدأ بتقييم دوري ومنتظم للمخاطر الأمنية.</li>
+        </ul>`
+      },
+      {
+        range: [21, maxScore],
+        text: `<ul>
+          <li>استمر في تحسين نظم الأمن والسياسة باستمرار.</li>
+          <li>راجع أحدث تقنيات الأمن السيبراني وطبّقها.</li>
+          <li>خصص ميزانية لصيانة وتحديث نظم الحماية.</li>
+          <li>شارك في برامج تدريب وتوعية لموظفيك.</li>
+        </ul>`
+      }
+    ];
 
-      for (let q in scores) {
-        if (answers[q]) {
-          totalScore += scores[q][answers[q]] || 0;
-          maxScore += 100;
+    function calculateScore() {
+      let score = 0;
+      for (let i = 1; i <= 10; i++) {
+        const selected = form.querySelector(`input[name="q${i}"]:checked`);
+        if (selected) {
+          score += parseInt(selected.value);
         }
       }
+      return score;
+    }
 
-      return Math.round((totalScore / maxScore) * 100);
+    function getLevel(score) {
+      if (score <= 12) return { text: "مبتدئ", className: "level-beginner" };
+      else if (score <= 20) return { text: "متوسط", className: "level-intermediate" };
+      else return { text: "متقدم", className: "level-advanced" };
     }
 
     function getRecommendations(score) {
-      if (score < 40) {
-        return {
-          level: 'مبتدئ',
-          color: '#ef4444',
-          strengths: ['وعي بأهمية التحول الرقمي', 'استعداد للتطور', 'فرصة كبيرة للنمو'],
-          improvements: ['وضع خطة استراتيجية للتحول الرقمي', 'تطبيق الحد الأدنى من الأمن السيبراني', 'بناء فريق تقني مؤهل'],
-          recommendations: ['ابدأ بـ NCA Starter Kit لحماية شركتك', 'استشارة مجانية لوضع خطة التحول', 'دورات تدريبية للفريق']
-        };
-      } else if (score < 70) {
-        return {
-          level: 'متوسط',
-          color: '#fbbf24',
-          strengths: ['وجود بعض المبادرات الرقمية', 'إجراءات أمنية أساسية', 'وعي بأهمية التطور'],
-          improvements: ['تحسين الأمن السيبراني', 'أتمتة العمليات اليدوية', 'تبني الذكاء الاصطناعي'],
-          recommendations: ['NCA Starter Kit للامتثال الكامل', 'حزمة الأتمتة الذكية', 'خطة تطوير مرحلية']
-        };
-      } else {
-        return {
-          level: 'متقدم',
-          color: '#10b981',
-          strengths: ['استراتيجية رقمية واضحة', 'أنظمة أمنية متطورة', 'استخدام فعال للتقنيات الحديثة'],
-          improvements: ['تحسين مستمر للعمليات', 'مراجعة دورية للأمن السيبراني', 'ابتكار في استخدام الذكاء الاصطناعي'],
-          recommendations: ['استشارات متقدمة للتحسين المستمر', 'تدقيق أمني شامل', 'حلول مخصصة متقدمة']
-        };
+      for (const rec of recommendations) {
+        if (score >= rec.range[0] && score <= rec.range[1]) {
+          return rec.text;
+        }
       }
+      return "";
     }
 
-    // KSA Time Function
-    function nowInKSAIso() {
-      const parts = Object.fromEntries(
-        new Intl.DateTimeFormat('en-CA', {
-          timeZone: 'Asia/Riyadh',
-          hour12: false,
-          year: 'numeric', month: '2-digit', day: '2-digit',
-          hour: '2-digit', minute: '2-digit', second: '2-digit'
-        }).formatToParts(new Date()).map(p => [p.type, p.value])
-      );
-      return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+03:00`;
+    function updateProgress() {
+      let answered = 0;
+      for (let i = 1; i <= 10; i++) {
+        if (form.querySelector(`input[name="q${i}"]:checked`)) answered++;
+      }
+      const percent = (answered / 10) * 100;
+      progressBar.style.width = percent + "%";
     }
 
-    document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
+    form.addEventListener('change', updateProgress);
+
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
-      
-      const submitBtn = document.getElementById('submitBtn');
-      const messageEl = document.getElementById('message');
-      
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحليل وإنشاء تقريرك...';
-      
-      const formData = {
-        companyName: document.getElementById('companyName').value,
-        industry: document.getElementById('industry').value,
-        companySize: document.getElementById('companySize').value,
-        contactName: document.getElementById('contactName').value,
-        position: document.getElementById('position').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        question1: document.querySelector('input[name="question1"]:checked').value,
-        question2: document.querySelector('input[name="question2"]:checked').value,
-        question3: document.querySelector('input[name="question3"]:checked').value,
-        question4: document.querySelector('input[name="question4"]:checked').value,
-        question5: document.querySelector('input[name="question5"]:checked').value,
-        timestamp: new Date().toISOString()
+
+      if (!form.checkValidity()) {
+        alert('يرجى إكمال جميع الأسئلة');
+        return;
+      }
+
+      const score = calculateScore();
+      const scorePercent = Math.round((score / maxScore) * 100);
+      const level = getLevel(score);
+
+      scoreCircle.style.setProperty('--score', scorePercent);
+      scoreCircle.textContent = scorePercent;
+      scoreCircle.className = "score-circle " + level.className;
+      scoreText.textContent = `المستوى: ${level.text}`;
+      recommendationsDiv.innerHTML = getRecommendations(score);
+
+      form.style.display = 'none';
+      resultContainer.style.display = 'block';
+
+      // Prepare data to send
+      const templateParams = {
+        name: document.getElementById('name') ? document.getElementById('name').value.trim() : "غير معروف",
+        email: document.getElementById('email') ? document.getElementById('email').value.trim() : "غير معروف",
+        phone: document.getElementById('phone') ? document.getElementById('phone').value.trim() : "غير معروف",
+        service: "مقياس الجاهزية الرقمية",
+        score: scorePercent,
+        timestamp: new Date().toISOString(),
       };
 
-      // Generate unique report ID
-      const reportID = generateID();
-      
-      // Calculate score and recommendations
-      const score = calculateScore(formData);
-      const report = getRecommendations(score);
-
-      // Build report URL
-      const reportURL = `${window.location.origin}/report.html?id=${reportID}`;
-
+      // Send EmailJS
       try {
-        // Save to Google Sheets with report ID
-        await fetch(APPS_SCRIPT_URL, {
+        await emailjs.send('service_i7rpq9f', 'template_2ul5hcg', templateParams);
+      } catch (error) {
+        console.error("EmailJS send error:", error);
+      }
+
+      // Send to Google Sheets
+      try {
+        fetch(APPS_SCRIPT_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           mode: 'no-cors',
-          body: JSON.stringify({
-            timestamp: new Date().toISOString(),
-            ksa_time: nowInKSAIso(),
-            name: formData.contactName,
-            email: formData.email,
-            phone: formData.phone,
-            service: 'Digital Readiness Assessment',
-            source: 'website',
-            companyName: formData.companyName,
-            industry: formData.industry,
-            companySize: formData.companySize,
-            position: formData.position,
-            reportID: reportID,
-            score: score,
-            level: report.level,
-            question1: formData.question1,
-            question2: formData.question2,
-            question3: formData.question3,
-            question4: formData.question4,
-            question5: formData.question5
-          })
+          body: JSON.stringify(templateParams)
         });
+      } catch (error) {
+        console.error("Google Sheets send error:", error);
+      }
 
-        // Send email with report link
-        await emailjs.send('service_i7rpq9f', 'template_2ul5hcg', {
-          name: formData.contactName,
-          email: formData.email,
-          companyName: formData.companyName,
-          score: score,
-          level: report.level,
-          report_url: reportURL
+      // Google Analytics conversion event
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          method: 'digital_readiness_form'
         });
-
-        // Google Analytics
-        if (typeof gtag === 'function') {
-          gtag('event', 'assessment_completed', {
-            score: score,
-            level: report.level,
-            company_size: formData.companySize,
-            industry: formData.industry
-          });
-        }
-
-        // Redirect to thank you page
-        setTimeout(() => {
-          window.location.href = 'thank-you.html?source=assessment';
-        }, 500);
-
-      } catch (err) {
-        console.error(err);
-        messageEl.textContent = 'حدث خطأ. يرجى المحاولة مرة أخرى.';
-        messageEl.className = 'message error';
-        messageEl.style.display = 'block';
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> احصل على تقريرك المجاني الآن';
       }
     });
   </script>
