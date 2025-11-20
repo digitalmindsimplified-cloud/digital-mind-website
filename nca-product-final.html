@@ -1,804 +1,250 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NCA Dashboard Pro - حزمة الامتثال السيبراني الشاملة</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NCA Dashboard Pro - منصة Digital Mind Simplified</title>
+  <meta name="description" content="لوحة تحكم تفاعلية ومتقدمة للامتثال السيبراني - تقارير PDF، خطط عمل، تحديثات مجانية، وأدوات إدارة متكاملة" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYZVQRV1FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CYZVQRV1FL');
+  </script>
+  <!-- الخطوط -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- أيقونات FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
     body {
       font-family: 'Tajawal', sans-serif;
-      background: linear-gradient(135deg, #050505, #1a1a1a);
+      background: #050505;
       color: #fff;
-      overflow-x: hidden;
+      line-height: 1.6;
+      padding: 40px 15px;
     }
-
-    /* Header */
-    .header {
-      background: rgba(0,0,0,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid rgba(212,175,55,0.3);
-      padding: 20px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .header-logo {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #D4AF37, #FFD700);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: #000;
-    }
-
-    .header-logo svg {
-      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
-      transition: all 0.3s ease;
-    }
-
-    .header-logo:hover svg {
-      filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
-      transform: scale(1.1);
-    }
-
-    .header-title {
-      font-size: 1.8rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, #D4AF37, #FFD700);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .header-right {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .header-link {
-      color: #D4AF37;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-      cursor: pointer;
-    }
-
-    .header-link:hover {
-      color: #FFD700;
-    }
-
-    .header-whatsapp {
-      background: linear-gradient(135deg, #25D366, #20BA5C);
-      padding: 10px 20px;
-      border-radius: 50px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .header-whatsapp:hover {
-      background: linear-gradient(135deg, #20BA5C, #1aa050);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-    }
-
-    /* Main Content */
     .container {
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.05));
-      border: 2px solid rgba(212,175,55,0.3);
+      background: #1a1a1a;
       border-radius: 25px;
-      padding: 60px 40px;
-      text-align: center;
-      margin-bottom: 60px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(212,175,55,0.1), transparent);
-      border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(30px, -30px); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(212, 175, 55, 0.15);
+      box-shadow: 0 8px 40px rgba(212, 175, 55, 0.6);
+      padding: 50px 40px;
       border: 1px solid rgba(212, 175, 55, 0.3);
-      color: #D4AF37;
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 20px;
     }
-
-    .hero h1 {
-      font-size: 3.5rem;
+    h1 {
       font-weight: 900;
-      background: linear-gradient(135deg, #D4AF37, #fff);
+      font-size: 3rem;
+      text-align: center;
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
       margin-bottom: 20px;
-      line-height: 1.2;
     }
-
-    .hero p {
-      font-size: 1.4rem;
-      color: #ccc;
-      margin-bottom: 30px;
-      line-height: 1.8;
-    }
-
     .price-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin: 40px 0;
-      flex-wrap: wrap;
+      text-align: center;
+      margin: 30px 0 40px;
     }
-
-    .price-old {
-      font-size: 1.5rem;
-      color: #888;
+    .current-price {
+      font-size: 4rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      margin-right: 15px;
+    }
+    .old-price {
+      font-size: 1.6rem;
       text-decoration: line-through;
+      color: #999;
+      vertical-align: middle;
     }
-
-    .price-new {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #D4AF37;
-    }
-
     .discount-badge {
-      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      background: #10b981;
       color: #000;
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-weight: 900;
-      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 5px 15px;
+      border-radius: 25px;
+      font-size: 1rem;
+      display: inline-block;
+      margin-top: 8px;
     }
-
-    .cta-buttons {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin: 40px 0;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #D4AF37, #FFD700);
-      color: #000;
-      padding: 18px 50px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 900;
-      font-size: 1.2rem;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(212,175,55,0.3);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(212,175,55,0.5);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #D4AF37;
-      padding: 18px 50px;
+    .exclusive-offer {
       border: 2px solid #D4AF37;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 900;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(212, 175, 55, 0.1);
-      transform: translateY(-3px);
-    }
-
-    /* Features Section */
-    .features {
-      margin: 80px 0;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: #D4AF37;
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
-    }
-
-    .feature-card {
-      background: rgba(0,0,0,0.5);
-      border: 1px solid rgba(212,175,55,0.2);
       border-radius: 20px;
-      padding: 40px;
+      background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(255,215,0,0.07));
+      padding: 25px 30px;
+      margin-bottom: 40px;
       text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #fff;
     }
-
-    .feature-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(212,175,55,0.5);
-      box-shadow: 0 15px 40px rgba(212,175,55,0.2);
-    }
-
-    .feature-icon {
-      font-size: 3rem;
-      color: #D4AF37;
-      margin-bottom: 20px;
-    }
-
-    .feature-card h3 {
+    .exclusive-offer h2 {
+      background: linear-gradient(135deg, #fbbf24, #fcd34d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
       font-size: 1.5rem;
       margin-bottom: 15px;
-      color: #fff;
     }
-
-    .feature-card p {
+    .feature-list {
+      list-style: none;
+      row-gap: 18px;
+      display: flex;
+      flex-direction: column;
+      font-size: 1.3rem;
+      padding-left: 18px;
+      margin-bottom: 40px;
       color: #ccc;
-      line-height: 1.8;
     }
-
-    .feature-card.active {
-      background: rgba(212, 175, 55, 0.15);
-      border-color: rgba(212, 175, 55, 0.6);
-      transform: scale(1.05);
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding-left: 10px;
     }
-
-    .feature-card.active .feature-icon {
-      animation: pulse 0.6s ease-out;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-
-    /* What You Get Section */
-    .what-you-get {
-      background: linear-gradient(135deg, rgba(212,175,55,0.05), rgba(212,175,55,0.02));
-      border: 2px solid rgba(212,175,55,0.2);
-      border-radius: 20px;
-      padding: 50px;
-      margin: 80px 0;
-    }
-
-    .what-you-get h2 {
-      font-size: 2.2rem;
+    .feature-list li i {
       color: #D4AF37;
+      font-size: 1.7rem;
+      flex-shrink: 0;
+    }
+    .guarantee {
+      border: 2px solid #D4AF37;
+      border-radius: 15px;
+      padding: 25px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.6;
+      background: linear-gradient(135deg, rgba(251,191,36,0.1), rgba(252,211,77,0.07));
+      color: #fff;
       margin-bottom: 40px;
     }
-
-    .items-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+    .guarantee ul {
+      margin-top: 15px;
+      padding-left: 20px;
     }
-
-    .item {
-      background: rgba(0,0,0,0.3);
-      padding: 25px;
-      border-radius: 15px;
-      border: 1px solid rgba(212,175,55,0.15);
-    }
-
-    .item h4 {
-      color: #D4AF37;
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-
-    .item p {
-      color: #ccc;
-      line-height: 1.6;
-    }
-
-    /* Guarantee Section */
-    .guarantee {
-      background: rgba(0,0,0,0.8);
-      border: 2px solid rgba(212,175,55,0.3);
-      border-radius: 20px;
-      padding: 50px;
-      margin: 80px 0;
-      text-align: center;
-    }
-
-    .guarantee h2 {
-      font-size: 2.2rem;
-      color: #D4AF37;
-      margin-bottom: 20px;
-    }
-
-    .guarantee p {
-      font-size: 1.1rem;
-      color: #ddd;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .guarantee-items {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .guarantee-item {
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .guarantee-item i {
-      font-size: 2.5rem;
-      color: #D4AF37;
-      display: block;
+    .guarantee ul li {
       margin-bottom: 10px;
     }
-
-    /* FAQ Section */
-    .faq {
-      margin: 80px 0;
+    .guarantee ul li:before {
+      content: "✅";
+      margin-right: 8px;
     }
-
-    .faq-item {
-      background: rgba(0,0,0,0.5);
-      border: 1px solid rgba(212,175,55,0.2);
-      border-radius: 15px;
-      margin-bottom: 20px;
-      overflow: hidden;
+    .warning {
+      color: #facc15;
+      font-weight: 700;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
-
-    .faq-question {
-      padding: 25px;
-      background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.05));
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all 0.3s ease;
+    .contact-note {
+      font-weight: 600;
+      color: #fff;
+      margin-top: 10px;
+      font-size: 1rem;
     }
-
-    .faq-question:hover {
-      background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.1));
-    }
-
-    .faq-question h4 {
-      color: #D4AF37;
-      font-size: 1.1rem;
-    }
-
-    .faq-toggle {
-      color: #D4AF37;
-      transition: transform 0.3s ease;
-    }
-
-    .faq-item.open .faq-toggle {
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      padding: 25px;
-      background: rgba(0,0,0,0.3);
-      display: none;
-      color: #ccc;
-      line-height: 1.8;
-    }
-
-    .faq-item.open .faq-answer {
-      display: block;
-    }
-
-    /* CTA Section */
-    .final-cta {
+    .btn-buy {
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      color: #050505;
+      padding: 18px 50px;
+      font-size: 1.4rem;
+      font-weight: 900;
+      border-radius: 50px;
       text-align: center;
-      margin: 80px 0;
-      padding: 60px 40px;
-      background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.08));
-      border: 2px solid rgba(212,175,55,0.3);
-      border-radius: 25px;
-    }
-
-    .final-cta h2 {
-      font-size: 2.2rem;
-      color: #D4AF37;
-      margin-bottom: 20px;
-    }
-
-    .final-cta p {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-bottom: 30px;
-    }
-
-    /* Footer */
-    .footer {
-      background: rgba(0,0,0,0.95);
-      border-top: 2px solid rgba(212,175,55,0.3);
-      padding: 40px 20px;
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    .footer p {
-      color: #888;
-      margin: 10px 0;
-    }
-
-    .footer a {
-      color: #D4AF37;
       text-decoration: none;
-      transition: color 0.3s ease;
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px 0 rgba(212, 175, 55, 0.6);
+      transition: filter 0.3s ease;
+      cursor: pointer;
+      user-select: none;
     }
-
-    .footer a:hover {
-      color: #FFD700;
+    .btn-buy:hover {
+      filter: brightness(1.2);
     }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      .header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
+      .container {
+        padding: 30px 20px;
       }
-
-      .header-right {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1.1rem;
-      }
-
-      .price-new {
+      h1 {
         font-size: 2.5rem;
       }
-
-      .cta-buttons {
-        flex-direction: column;
+      .current-price {
+        font-size: 3rem;
       }
-
-      .btn-primary, .btn-secondary {
-        width: 100%;
-        justify-content: center;
+      .feature-list {
+        font-size: 1.1rem;
       }
-
-      .section-title {
-        font-size: 1.8rem;
+      .btn-buy {
+        font-size: 1.2rem;
+        padding: 16px 35px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="container" role="main" aria-label="صفحة منتج NCA Dashboard Pro">
+    <h1>NCA Dashboard Pro</h1>
 
-  <!-- Header -->
-  <div class="header">
-    <div class="header-left">
-      <div class="header-logo">
-        <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="45" fill="none" stroke="#D4AF37" stroke-width="3"/>
-          <path d="M 30 50 L 50 30 L 70 50 L 50 70 Z" fill="#D4AF37" opacity="0.8"/>
-          <text x="50" y="58" font-size="24" font-weight="900" text-anchor="middle" fill="#000" font-family="Arial">N</text>
-        </svg>
-      </div>
-      <div class="header-title">NCA Dashboard Pro</div>
-    </div>
-    <div class="header-right">
-      <a href="#features" class="header-link">المميزات</a>
-      <a href="#pricing" class="header-link">الأسعار</a>
-      <a href="https://wa.me/966581871332?text=السلام%20عليكم%20أريد%20الاستفسار%20عن%20NCA%20Dashboard%20Pro" class="header-whatsapp" target="_blank">
-        <i class="fab fa-whatsapp"></i> تواصل معنا
-      </a>
-    </div>
-  </div>
-
-  <!-- Main Content -->
-  <div class="container">
-
-    <!-- Hero Section -->
-    <div class="hero">
-      <div class="hero-content">
-        <span class="badge">🎉 عرض حصري محدود الوقت</span>
-        <h1>NCA Dashboard Pro</h1>
-        <p>حزمة الامتثال السيبراني الشاملة والاحترافية</p>
-        
-        <div class="price-section">
-          <span class="price-old">$99</span>
-          <span class="discount-badge">-50%</span>
-          <span class="price-new">$49</span>
-        </div>
-
-        <div class="cta-buttons">
-          <a href="https://payhip.com/b/WSmQl" class="btn-primary" target="_blank">
-            <i class="fas fa-shopping-cart"></i> اشتري الآن
-          </a>
-          <button class="btn-secondary" onclick="document.querySelector('.what-you-get').scrollIntoView({behavior: 'smooth'})">
-            <i class="fas fa-arrow-down"></i> تعرف على المزيد
-          </button>
-        </div>
-      </div>
+    <div class="price-section" aria-label="سعر المنتج">
+      <span class="current-price" aria-live="polite" aria-atomic="true">$49</span>
+      <span class="old-price" aria-hidden="true">$99</span>
+      <div class="discount-badge" aria-label="تخفيض 50%">وفّر 50%</div>
     </div>
 
-    <!-- Features Section -->
-    <div class="features" id="features">
-      <h2 class="section-title">لماذا NCA Dashboard Pro؟</h2>
-      <div class="features-grid">
-        <div class="feature-card" onclick="this.classList.toggle('active')">
-          <div class="feature-icon"><i class="fas fa-clock"></i></div>
-          <h3>وفّر 6 أشهر من العمل</h3>
-          <p>حزمة متكاملة جاهزة للاستخدام الفوري بدون الحاجة للبدء من الصفر</p>
-        </div>
-        <div class="feature-card" onclick="this.classList.toggle('active')">
-          <div class="feature-icon"><i class="fas fa-money-bill-wave"></i></div>
-          <h3>وفّر آلاف الدولارات</h3>
-          <p>توفر $5,000-15,000 من تكاليف الاستشارات والتطوير</p>
-        </div>
-        <div class="feature-card" onclick="this.classList.toggle('active')">
-          <div class="feature-icon"><i class="fas fa-language"></i></div>
-          <h3>100% باللغة العربية</h3>
-          <p>محتوى عربي شامل ونادر - صمم بخبرة متخصصة</p>
-        </div>
-        <div class="feature-card" onclick="this.classList.toggle('active')">
-          <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
-          <h3>متوافق 100% مع NCA</h3>
-          <p>معايير الهيئة الوطنية للأمن السيبراني ECC-2:2024</p>
-        </div>
-        <div class="feature-card" onclick="this.classList.toggle('active')">
-          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>تفاعلي وديناميكي</h3>
-          <p>لوحة تحكم تفاعلية مع رسوم بيانية احترافية وآنية</p>
-        </div>
-        <div class="feature-card" onclick="this.classList.toggle('active')">
-          <div class="feature-icon"><i class="fas fa-rocket"></i></div>
-          <h3>من 40% إلى 70% امتثال</h3>
-          <p>خارطة طريق واضحة لتحقيق امتثال عملي خلال أسبوع واحد</p>
-        </div>
-      </div>
+    <div class="exclusive-offer" aria-live="polite" aria-atomic="true" role="region">
+      <h2>🔥 عرض حصري محدود</h2>
+      ✨ <strong>وفّر 50%</strong> على السعر الأصلي<br />
+      ⚡ <strong>احصل عليه الآن</strong> قبل رفع السعر<br />
+      🛡️ <strong>ضمان 14 يوم</strong> للجودة والرضا<br />
+      💎 عرض خاص للعملاء الأوائل فقط
     </div>
 
-    <!-- What You Get -->
-    <div class="what-you-get" id="pricing">
-      <h2>📦 ماذا ستحصل عليه؟</h2>
-      <div class="items-grid">
-        <div class="item">
-          <h4>🔐 4 سياسات أمنية جاهزة</h4>
-          <p>سياسة كلمات المرور، MFA، التحكم في الوصول، النسخ الاحتياطي</p>
-        </div>
-        <div class="item">
-          <h4>📊 لوحة تحكم تفاعلية</h4>
-          <p>قائمة تحقق ذكية (40 ضابط NCA) مع Dashboard تلقائي</p>
-        </div>
-        <div class="item">
-          <h4>📈 تقرير تنفيذي احترافي</h4>
-          <p>تقرير مفصل مع رسوم بيانية وتوصيات مخصصة</p>
-        </div>
-        <div class="item">
-          <h4>🗺️ خارطة طريق 7 أيام</h4>
-          <p>خطة عملية محددة لتحقيق 70% امتثال بسرعة</p>
-        </div>
-        <div class="item">
-          <h4>📋 نموذج تقييم الموردين</h4>
-          <p>أداة شاملة لتقييم أمان موردينك والشركاء</p>
-        </div>
-        <div class="item">
-          <h4>⚠️ سجل المخاطر</h4>
-          <p>إدارة احترافية للمخاطر السيبرانية مع إجراءات تصحيحية</p>
-        </div>
-      </div>
-    </div>
+    <ul class="feature-list" aria-label="مميزات المنتج">
+      <li><i class="fas fa-tachometer-alt" aria-hidden="true"></i> لوحة تحكم تفاعلية للامتثال السيبراني</li>
+      <li><i class="fas fa-file-pdf" aria-hidden="true"></i> تقارير PDF تلقائية</li>
+      <li><i class="fas fa-users" aria-hidden="true"></i> 40 ضابط NCA</li>
+      <li><i class="fas fa-file-alt" aria-hidden="true"></i> 9 سياسات جاهزة</li>
+      <li><i class="fas fa-truck-loading" aria-hidden="true"></i> تسليم تلقائي فوري</li>
+      <li><i class="fas fa-envelope" aria-hidden="true"></i> رابط Dashboard يُرسل للإيميل تلقائياً</li>
+      <li><i class="fas fa-shield-alt" aria-hidden="true"></i> لا يحتاج أي تدخل منك</li>
+    </ul>
 
-    <!-- Guarantee Section -->
-    <div class="guarantee">
-      <h2>🛡️ ضمان الرضا 100%</h2>
-      <p>نحن واثقون جداً من جودة NCA Dashboard Pro، لذلك نقدم لك ضماناً كاملاً:</p>
-      
-      <div class="guarantee-items">
-        <div class="guarantee-item">
-          <i class="fas fa-undo"></i>
-          <h4>استرجاع كامل</h4>
-          <p>100% بدون شروط</p>
-        </div>
-        <div class="guarantee-item">
-          <i class="fas fa-calendar"></i>
-          <h4>30 يوم</h4>
-          <p>ضمان مال العودة</p>
-        </div>
-        <div class="guarantee-item">
-          <i class="fas fa-question-circle"></i>
-          <h4>بدون أسئلة</h4>
-          <p>إضافية أو شروط</p>
-        </div>
-        <div class="guarantee-item">
-          <i class="fas fa-bolt"></i>
-          <h4>استرداد فوري</h4>
-          <p>خلال 3-5 أيام عمل</p>
-        </div>
-      </div>
+    <section class="guarantee" aria-label="قسم الضمان">
+      <p><strong>🛡️ ضمان الجودة والرضا</strong></p>
+      <p>ضمان 14 يوم - استرداد في حالات محددة</p>
+      <ul>
+        <li>✅ في حالة وجود مشكلة تقنية في Dashboard</li>
+        <li>✅ إذا كان المحتوى غير مطابق للوصف المذكور</li>
+        <li>✅ يرجى التواصل معنا أولاً لحل أي مشكلة</li>
+      </ul>
+      <p class="warning">⚠️ الضمان لا يشمل تغيير الرأي بعد استلام الوصول للـ Dashboard</p>
+      <p class="contact-note">💬 تواصل معنا عبر <a href="https://wa.me/966581871332" target="_blank" rel="noopener noreferrer" style="color:#D4AF37;">WhatsApp</a> لأي استفسار</p>
+    </section>
 
-      <p style="margin-top: 30px; color: #D4AF37; font-weight: 700;">
-        ✅ في حالة عدم استفادتك من المنتج بشكل كامل<br>
-        ✅ أو إذا لم يطابق التوقعات<br>
-        ✅ حصول على استرجاع فوري بدون متاعب
-      </p>
-    </div>
-
-    <!-- FAQ Section -->
-    <div class="faq">
-      <h2 class="section-title">الأسئلة الشائعة</h2>
-      
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>هل المنتج فعلاً شامل كما هو موصوف؟</h4>
-          <i class="faq-toggle fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-          نعم بالتأكيد! المنتج حقيقي وشامل جداً. تم تطويره بخبرة أكثر من 10 سنوات في مجال الأمن السيبراني. يحتوي على 9 ملفات كاملة جاهزة للاستخدام الفوري.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>كم من الوقت أحتاج لتطبيق المنتج؟</h4>
-          <i class="faq-toggle fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-          يمكنك البدء فوراً! الملفات جاهزة للاستخدام. تحتاج من 3-7 أيام لتطبيق كامل السياسات والإجراءات حسب حجم شركتك.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>هل يمكن تخصيص المنتج لشركتي؟</h4>
-          <i class="faq-toggle fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-          نعم! جميع المستندات والسياسات قابلة للتخصيص بسهولة. يمكنك تعديل الأسماء والأرقام والإجراءات حسب احتياجات شركتك الخاصة.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>هل هناك دعم متخصص بعد الشراء؟</h4>
-          <i class="faq-toggle fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-          نعم! تواصل معنا عبر WhatsApp: 00966581871332 أو البريد: support@digitalmindsimplified.com. الرد عادة خلال 24 ساعة.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>ماذا لو اشتريت المنتج ثم لم يعجبك؟</h4>
-          <i class="faq-toggle fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-          لا تقلق! لديك 30 يوم ضمان مال العودة 100% بدون أي شروط أو أسئلة. استرجاع فوري خلال 3-5 أيام عمل.
-        </div>
-      </div>
-    </div>
-
-    <!-- Final CTA -->
-    <div class="final-cta">
-      <h2>هل أنت مستعد للامتثال الحقيقي؟</h2>
-      <p>انضم لمئات الشركات التي حققت امتثالاً احترافياً مع NCA Dashboard Pro</p>
-      <a href="https://payhip.com/b/WSmQl" class="btn-primary" target="_blank">
-        <i class="fas fa-shopping-cart"></i> اشتري الآن بـ $49 فقط
-      </a>
-      <p style="margin-top: 20px; color: #888; font-size: 0.95rem;">
-        🔒 الدفع آمن 100% عبر PayHip | 🌍 توصيل فوري
-      </p>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <p><strong>© 2025 Digital Mind Simplified</strong></p>
-    <p>تم تطويره بواسطة: Eng. Abdelrahman Hassanien</p>
-    <p>للدعم والاستفسارات: <a href="https://wa.me/966581871332" target="_blank">💬 WhatsApp: 00966581871332</a> | <a href="mailto:support@digitalmindsimplified.com">📧 support@digitalmindsimplified.com</a></p>
-    <p style="margin-top: 20px; color: #666;">
-      ضمان 30 يوم استرجاع المبلغ بالكامل | التوافق 100% مع NCA ECC-2:2024
-    </p>
+    <a href="https://payhip.com/b/WSmQl" id="buyBtn" class="btn-buy" target="_blank" rel="noopener noreferrer" aria-label="اشترِ الآن لوحة تحكم NCA Dashboard Pro">
+      <i class="fas fa-shopping-cart" aria-hidden="true"></i> اشترِ الآن
+    </a>
   </div>
 
   <script>
-    // Smooth scroll for buttons
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
+    document.getElementById('buyBtn').addEventListener('click', function() {
+      if (typeof gtag === "function") {
+        gtag('event', 'purchase_click', {
+          event_category: 'Product',
+          event_label: 'NCA Dashboard Pro'
+        });
+      }
     });
   </script>
-
 </body>
 </html>
