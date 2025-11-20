@@ -4,489 +4,201 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>شكراً لك - Digital Mind Simplified</title>
+  <meta name="description" content="تم استلام طلبك بنجاح - شكراً لثقتك في Digital Mind Simplified">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYZVQRV1FL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-CYZVQRV1FL');
-    
-    gtag('event', 'conversion', {
-      'send_to': 'G-CYZVQRV1FL',
-      'event_category': 'form_submission',
-      'event_label': 'thank_you_page'
-    });
   </script>
 
-  <!-- خطوط -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- أيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {
-      font-family: 'Tajawal', sans-serif;
-      background: linear-gradient(135deg, #050505, #1a1a1a);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Tajawal',sans-serif;background:linear-gradient(135deg,#050505,#1a1a1a);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
     
-    .container {
-      max-width: 800px;
-      width: 100%;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(212,175,55,.2);
-      border-radius: 20px;
-      padding: 60px 40px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 20px 60px rgba(0,0,0,.5);
-    }
+    .container{max-width:800px;width:100%}
     
-    .success-icon {
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(135deg, #10b981, #34d399);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 30px;
-      font-size: 3rem;
-      color: #000;
-      animation: scaleIn 0.5s ease-out;
-      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
-    }
+    /* Success Card */
+    .success-card{background:linear-gradient(135deg,rgba(30,30,30,.9),rgba(20,20,20,.9));border:2px solid rgba(16,185,129,.4);border-radius:25px;padding:60px 40px;text-align:center;box-shadow:0 20px 60px rgba(16,185,129,.2)}
     
-    @keyframes scaleIn {
-      from {transform: scale(0); opacity: 0;}
-      to {transform: scale(1); opacity: 1;}
-    }
+    /* Success Icon */
+    .success-icon{width:120px;height:120px;background:linear-gradient(135deg,#10b981,#34d399);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 30px;font-size:4rem;color:#fff;animation:scaleIn 0.5s ease-out}
+    @keyframes scaleIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
     
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #D4AF37, #fff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    /* Logo */
+    .logo{margin-bottom:30px}
+    .logo img{width:60px;height:60px}
     
-    .subtitle {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-bottom: 40px;
-      line-height: 1.8;
-    }
+    h1{font-size:2.5rem;color:#10b981;margin-bottom:20px;font-weight:900}
+    .subtitle{font-size:1.3rem;color:#ccc;margin-bottom:40px;line-height:1.8}
     
-    /* Email Reminder - For Assessment */
-    .email-reminder {
-      background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(251, 191, 36, 0.05));
-      border: 2px solid rgba(251, 191, 36, 0.4);
-      border-radius: 15px;
-      padding: 30px;
-      margin: 30px 0;
-      text-align: center;
-      animation: pulse 2s infinite;
-    }
+    /* Info Box */
+    .info-box{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);border-radius:15px;padding:30px;margin-bottom:40px;text-align:right}
+    .info-box h3{color:#D4AF37;font-size:1.5rem;margin-bottom:20px;text-align:center}
+    .info-item{display:flex;align-items:center;gap:15px;padding:15px 0;border-bottom:1px solid rgba(212,175,55,.1)}
+    .info-item:last-child{border-bottom:none}
+    .info-item i{color:#D4AF37;font-size:1.5rem;width:30px;text-align:center}
+    .info-item span{color:#fff;font-size:1.1rem}
     
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-    }
+    /* Next Steps */
+    .next-steps{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:15px;padding:30px;margin-bottom:40px}
+    .next-steps h3{color:#10b981;font-size:1.5rem;margin-bottom:20px;text-align:center}
+    .steps-list{text-align:right}
+    .step{display:flex;align-items:start;gap:15px;padding:15px 0}
+    .step-number{width:35px;height:35px;background:linear-gradient(135deg,#10b981,#34d399);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;flex-shrink:0}
+    .step-content h4{color:#fff;font-size:1.1rem;margin-bottom:5px}
+    .step-content p{color:#ccc;font-size:1rem;line-height:1.6}
     
-    .email-reminder i {
-      font-size: 3.5rem;
-      color: #fbbf24;
-      margin-bottom: 20px;
-      animation: bounce 1s infinite;
-    }
+    /* Products Grid */
+    .products-section{margin-top:50px}
+    .products-section h3{color:#D4AF37;font-size:1.8rem;margin-bottom:30px;text-align:center}
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .product-card{background:rgba(30,30,30,.6);border:1px solid rgba(212,175,55,.2);border-radius:15px;padding:25px;text-align:center;transition:.3s}
+    .product-card:hover{transform:translateY(-5px);border-color:rgba(212,175,55,.4)}
+    .product-card i{font-size:2.5rem;color:#D4AF37;margin-bottom:15px}
+    .product-card h4{color:#fff;font-size:1.2rem;margin-bottom:10px}
+    .product-card p{color:#ccc;font-size:0.95rem;margin-bottom:15px}
+    .product-card a{display:inline-block;background:linear-gradient(135deg,#D4AF37,#FFD700);color:#050505;padding:10px 20px;border-radius:25px;text-decoration:none;font-weight:700;font-size:0.9rem;transition:.3s}
+    .product-card a:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(212,175,55,.4)}
     
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+    /* Buttons */
+    .action-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1.1rem;transition:.3s}
+    .btn-primary{background:linear-gradient(135deg,#D4AF37,#FFD700);color:#050505}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(212,175,55,.4)}
+    .btn-secondary{background:transparent;color:#10b981;border:2px solid #10b981}
+    .btn-secondary:hover{background:rgba(16,185,129,.1)}
     
-    .email-reminder h3 {
-      color: #fbbf24;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      font-weight: 900;
-    }
+    /* WhatsApp Button */
+    .whatsapp-btn{background:linear-gradient(135deg,#25D366,#20BA5C);color:#fff;border:none}
+    .whatsapp-btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.4)}
     
-    .email-reminder p {
-      color: #fff;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 10px;
-    }
-    
-    .email-reminder .highlight {
-      background: rgba(251, 191, 36, 0.2);
-      padding: 5px 15px;
-      border-radius: 5px;
-      font-weight: 700;
-      color: #fbbf24;
-    }
-    
-    /* Assessment Message */
-    .assessment-message {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.05));
-      border: 2px solid rgba(16, 185, 129, 0.3);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 40px;
-      text-align: right;
-    }
-    
-    .assessment-message h2 {
-      color: #10b981;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    
-    .assessment-message ul {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .assessment-message li {
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(16, 185, 129, 0.1);
-      color: #ccc;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    
-    .assessment-message li:last-child {
-      border-bottom: none;
-    }
-    
-    .assessment-message li::before {
-      content: '✓';
-      color: #10b981;
-      font-weight: 900;
-      margin-left: 10px;
-      font-size: 1.2rem;
-    }
-    
-    /* Regular subscription info */
-    .info-box {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(212,175,55,.15);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 40px;
-      text-align: right;
-    }
-    
-    .info-title {
-      font-size: 1.3rem;
-      color: #D4AF37;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    
-    .info-list {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .info-list li {
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(212,175,55,.1);
-      color: #ccc;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    
-    .info-list li:last-child {
-      border-bottom: none;
-    }
-    
-    .info-list li::before {
-      content: '✓';
-      color: #10b981;
-      font-weight: 900;
-      margin-left: 10px;
-      font-size: 1.2rem;
-    }
-    
-    /* Special Offer */
-    .special-offer {
-      background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05));
-      border: 2px solid rgba(251, 191, 36, 0.3);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    
-    .special-offer h2 {
-      font-size: 1.8rem;
-      color: #fbbf24;
-      margin-bottom: 15px;
-      font-weight: 900;
-    }
-    
-    .special-offer p {
-      color: #ccc;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-    
-    .price-display {
-      font-size: 2.5rem;
-      margin: 20px 0;
-    }
-    
-    .price-old {
-      text-decoration: line-through;
-      color: #888;
-      font-size: 1.5rem;
-      margin: 0 10px;
-    }
-    
-    .price-new {
-      color: #fbbf24;
-      font-weight: 900;
-    }
-    
-    .discount-code {
-      display: inline-block;
-      background: rgba(0,0,0,.3);
-      color: #fbbf24;
-      padding: 15px 40px;
-      border-radius: 10px;
-      font-size: 1.8rem;
-      font-weight: 900;
-      border: 2px dashed #fbbf24;
-      margin: 20px 0;
-    }
-    
-    .offer-note {
-      color: #ef4444;
-      font-weight: 600;
-      font-size: 1rem;
-      margin-top: 15px;
-    }
-    
-    .buttons {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-    
-    .btn {
-      display: inline-block;
-      padding: 18px 40px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-    
-    .btn-primary {
-      background: linear-gradient(135deg, #D4AF37, #FFD700);
-      color: #050505;
-      box-shadow: 0 10px 30px rgba(212,175,55,.3);
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(212,175,55,.5);
-    }
-    
-    .btn-secondary {
-      background: transparent;
-      color: #D4AF37;
-      border: 2px solid #D4AF37;
-    }
-    
-    .btn-secondary:hover {
-      background: rgba(212,175,55,.1);
-      transform: translateY(-3px);
-    }
-    
-    @media (max-width: 768px) {
-      .container {padding: 40px 20px;}
-      h1 {font-size: 2rem;}
-      .subtitle {font-size: 1rem;}
-      .buttons {flex-direction: column; align-items: center;}
-      .btn {width: 100%; max-width: 300px;}
-      .discount-code {font-size: 1.3rem; padding: 12px 30px;}
-      .email-reminder i {font-size: 2.5rem;}
+    @media (max-width:768px){
+      .success-card{padding:40px 25px}
+      h1{font-size:2rem}
+      .products-grid{grid-template-columns:1fr}
+      .action-buttons{flex-direction:column}
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="success-icon">
-      <i class="fas fa-check"></i>
-    </div>
-    
-    <h1 id="pageTitle">تم استلام طلبك بنجاح</h1>
-    <p class="subtitle" id="pageSubtitle">
-      شكراً لثقتك في <strong>Digital Mind Simplified</strong>.
-    </p>
-    
-    <!-- Content will be dynamically inserted here based on source -->
-    <div id="dynamicContent"></div>
-    
-    <div class="buttons" id="actionButtons">
-      <!-- Buttons will be dynamically inserted -->
+    <div class="success-card">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="https://z-cdn-media.chatglm.cn/files/c0da9ded-07be-4c09-8aca-bd981ada03d0_logo.png?auth_key=1790691197-267071ae1a1a416b89d485e461dea30d-0-2b87d551cfc90fcf9458eab0cc40520d" alt="Digital Mind Logo">
+      </div>
+
+      <!-- Success Icon -->
+      <div class="success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+
+      <!-- Title -->
+      <h1>تم استلام طلبك بنجاح! 🎉</h1>
+      <p class="subtitle">شكراً لثقتك في Digital Mind Simplified - نحن سعداء بانضمامك إلى عائلتنا</p>
+
+      <!-- Info Box -->
+      <div class="info-box">
+        <h3>ماذا حدث الآن؟</h3>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <span>تم إرسال رسالة تأكيد إلى بريدك الإلكتروني</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-clipboard-check"></i>
+          <span>تم حفظ بياناتك في نظامنا بشكل آمن</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-gift"></i>
+          <span>سنتواصل معك قريباً بالتفاصيل والعروض الحصرية</span>
+        </div>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="next-steps">
+        <h3>الخطوات التالية</h3>
+        <div class="steps-list">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>تحقق من بريدك الإلكتروني</h4>
+              <p>ستصلك رسالة تأكيد تحتوي على جميع التفاصيل (تحقق من مجلد Spam/Junk)</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>تفقد عروضنا الحصرية</h4>
+              <p>احصل على خصم 10% على أي منتج إضافي باستخدام الكود الموجود في الإيميل</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>تواصل معنا عند الحاجة</h4>
+              <p>فريقنا جاهز لمساعدتك في أي وقت عبر WhatsApp</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Section -->
+      <div class="products-section">
+        <h3>استكشف منتجاتنا الأخرى</h3>
+        <div class="products-grid">
+          <div class="product-card">
+            <i class="fas fa-tachometer-alt"></i>
+            <h4>NCA Dashboard Pro</h4>
+            <p>لوحة تحكم احترافية للامتثال السيبراني</p>
+            <a href="nca-product-final.html">اكتشف المزيد</a>
+          </div>
+          
+          <div class="product-card">
+            <i class="fas fa-lock"></i>
+            <h4>حزمة الأمن السيبراني</h4>
+            <p>سياسات وإجراءات جاهزة للتطبيق</p>
+            <a href="index.html#subscription">قريباً</a>
+          </div>
+          
+          <div class="product-card">
+            <i class="fas fa-robot"></i>
+            <h4>حزمة الأتمتة الذكية</h4>
+            <p>أدوات وسكريبتات للأتمتة بالذكاء الاصطناعي</p>
+            <a href="index.html#subscription">قريباً</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <a href="index.html" class="btn btn-primary">
+          <i class="fas fa-home"></i>
+          العودة للرئيسية
+        </a>
+        
+        <a href="https://wa.me/966581871332?text=السلام%20عليكم%20تم%20التسجيل%20بنجاح%20وأريد%20الاستفسار" class="btn whatsapp-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+          تواصل معنا
+        </a>
+      </div>
     </div>
   </div>
 
   <script>
-    const LAUNCH_DATE = new Date('2025-11-13');
-    const DAYS_UNTIL_PRICE_CHANGE = 50;
-
-    const endDate = new Date(LAUNCH_DATE);
-    endDate.setDate(endDate.getDate() + DAYS_UNTIL_PRICE_CHANGE);
-    
-    const now = new Date();
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const source = urlParams.get('source');
-
-    const contentDiv = document.getElementById('dynamicContent');
-    const buttonsDiv = document.getElementById('actionButtons');
-
-    if (source === 'assessment') {
-      // FROM DIGITAL READINESS ASSESSMENT
-      document.getElementById('pageTitle').textContent = '🎉 تم إرسال تقريرك بنجاح!';
-      document.getElementById('pageSubtitle').innerHTML = 'شكراً لإتمام تقييم الجاهزية الرقمية!';
-
-      contentDiv.innerHTML = `
-        <div class="email-reminder">
-          <i class="fas fa-envelope-open-text"></i>
-          <h3>📧 تقريرك المفصل في بريدك الإلكتروني الآن!</h3>
-          <p>أرسلنا لك رسالة تحتوي على <span class="highlight">رابط تقريرك المخصص</span></p>
-          <p style="font-size: 1rem; margin-top: 15px; color: #fbbf24; font-weight: 700;">
-            ✅ تحقق من صندوق الوارد أو البريد غير المرغوب فيه
-          </p>
-        </div>
-
-        <div class="assessment-message">
-          <h2><i class="fas fa-gift"></i> ما الذي ستجده في التقرير؟</h2>
-          <ul>
-            <li><strong>تقييم شامل</strong> لمستوى التحول الرقمي لشركتك (نسبة مئوية)</li>
-            <li><strong>نقاط القوة</strong> التي تميز شركتك</li>
-            <li><strong>مجالات التحسين</strong> المطلوبة بناءً على إجاباتك</li>
-            <li><strong>توصيات مخصصة</strong> لتطوير شركتك رقمياً</li>
-            <li><strong>كود خصم حصري 10%</strong> على جميع منتجاتنا</li>
-          </ul>
-        </div>
-
-        <div class="special-offer">
-          <h2>🎁 عرض حصري لمن أكمل التقييم!</h2>
-          <p>احصل على NCA Starter Kit بسعر خاص</p>
-          ${now < endDate ? `
-            <div class="price-display">
-              <span class="price-old">$19</span>
-              <span class="price-new">$17</span>
-            </div>
-            <p style="color: #10b981; font-weight: 600;">✨ خصم 10% إضافي + خصم الإطلاق 68%</p>
-            <div class="discount-code">ASSESS10</div>
-            <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">استخدم هذا الكود عند الشراء</p>
-          ` : `
-            <div class="price-display">
-              <span class="price-old">$59</span>
-              <span class="price-new">$53</span>
-            </div>
-            <p style="color: #10b981; font-weight: 600;">✨ خصم حصري 10% دائم لمن أكمل التقييم</p>
-            <div class="discount-code">ASSESS10</div>
-            <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">استخدم هذا الكود عند الشراء</p>
-          `}
-        </div>
-      `;
-
-      buttonsDiv.innerHTML = `
-        <a href="nca-starter-kit.html" class="btn btn-primary">
-          <i class="fas fa-shopping-cart" style="margin-left: 8px;"></i>
-          اشترِ الآن بالخصم
-        </a>
-        <a href="index.html#products" class="btn btn-secondary">
-          <i class="fas fa-box-open" style="margin-left: 8px;"></i>
-          تصفح المنتجات
-        </a>
-      `;
-
-    } else {
-      // FROM REGULAR SUBSCRIPTION (not assessment)
-      document.getElementById('pageTitle').textContent = 'تم استلام طلبك بنجاح';
-      document.getElementById('pageSubtitle').innerHTML = 'شكراً لثقتك في <strong>Digital Mind Simplified</strong>. سيتم التواصل معك خلال 24 ساعة.';
-
-      contentDiv.innerHTML = `
-        <div class="info-box">
-          <div class="info-title">الخطوات التالية:</div>
-          <ul class="info-list">
-            <li>ستصلك رسالة تأكيد إلى بريدك الإلكتروني</li>
-            <li>سيتواصل معك فريقنا عبر الجوال/الإيميل لمتابعة اهتمامك</li>
-            <li>ستحصل على معلومات تفصيلية عن منتجاتنا وخدماتنا</li>
-          </ul>
-        </div>
-
-        <div class="special-offer">
-          ${now < endDate ? `
-            <h2>🎁 عرض الإطلاق الخاص!</h2>
-            <p>احصل على <strong>NCA Starter Kit</strong> بسعر مخفض</p>
-            <div class="price-display">
-              <span class="price-old">$59</span>
-              <span class="price-new">$19</span>
-            </div>
-            <p style="color: #10b981; font-weight: 600;">✨ وفّر 68% - $40 خصم</p>
-            <p class="offer-note">⚠️ السعر يعود إلى $59 بعد ${DAYS_UNTIL_PRICE_CHANGE} يوماً</p>
-          ` : `
-            <h2>🛍️ منتجاتنا الرقمية</h2>
-            <p>استكشف حلولنا الجاهزة للتحول الرقمي</p>
-            <div class="price-display">
-              <span class="price-new">$59</span>
-            </div>
-            <p style="color: #ccc;">NCA Starter Kit - حزمة الامتثال السيبراني الشاملة</p>
-          `}
-        </div>
-      `;
-
-      buttonsDiv.innerHTML = `
-        <a href="index.html#products" class="btn btn-primary">
-          <i class="fas fa-shopping-bag" style="margin-left: 8px;"></i>
-          تصفح المنتجات
-        </a>
-        <a href="index.html" class="btn btn-secondary">
-          <i class="fas fa-home" style="margin-left: 8px;"></i>
-          العودة للرئيسية
-        </a>
-      `;
-    }
-
-    // Google Analytics
-    if (typeof gtag === 'function') {
+    // Track page view
+    if(typeof gtag === 'function') {
       gtag('event', 'page_view', {
         page_title: 'Thank You Page',
-        page_location: window.location.href,
-        page_path: window.location.pathname,
-        source: source || 'direct'
+        page_location: window.location.href
       });
     }
   </script>
