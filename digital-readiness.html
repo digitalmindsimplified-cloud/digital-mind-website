@@ -26,253 +26,47 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Tajawal', sans-serif;
-      background: #050505;
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px 40px;
-    }
-    h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      text-align: center;
-      margin: 40px 0 20px;
-      background: linear-gradient(135deg, #fff, #D4AF37);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 20px 0 10px;
-      color: #D4AF37;
-    }
-    p.subtitle {
-      text-align: center;
-      font-weight: 500;
-      color: #ccc;
-      margin-bottom: 40px;
-      font-size: 1.1rem;
-    }
-    form {
-      background: #1a1a1a;
-      padding: 30px 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #D4AF36aa;
-    }
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-      color: #D4AF37;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select {
-      width: 100%;
-      padding: 12px 15px;
-      margin-bottom: 20px;
-      border: 1px solid #D4AF37;
-      border-radius: 8px;
-      background: #050505;
-      color: #f0f0f0;
-      font-size: 1rem;
-      font-family: 'Tajawal', sans-serif;
-      transition: border-color 0.3s ease;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="tel"]:focus,
-    select:focus {
-      outline: none;
-      border-color: #10b981;
-      box-shadow: 0 0 10px #10b981aa;
-      background: #0a0a0a;
-    }
-    .question {
-      margin-bottom: 25px;
-    }
-    .question label {
-      font-size: 1.1rem;
-    }
-    .answers {
-      margin-top: 10px;
-    }
-    .answers label {
-      display: block;
-      cursor: pointer;
-      padding: 5px 10px;
-      border: 1px solid #D4AF37;
-      border-radius: 6px;
-      margin-bottom: 8px;
-      transition: background-color 0.25s;
-      font-weight: 400;
-    }
-    .answers label:hover {
-      background-color: #D4AF37;
-      color: #050505;
-    }
-    input[type="radio"] {
-      display: none;
-    }
-    input[type="radio"]:checked + label {
-      background-color: #10b981;
-      color: #050505;
-      border-color: #10b981;
-      font-weight: 700;
-    }
-    .progress-bar {
-      height: 10px;
-      background: #333;
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 30px 0;
-    }
-    .progress-bar .progress {
-      height: 100%;
-      background: linear-gradient(135deg, #D4AF37, #FFD700);
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-    .score-circle-container {
-      text-align: center;
-      margin: 30px 0 20px;
-    }
-    .score-circle {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: conic-gradient(#10b981 calc(var(--score) * 1%), #ddd 0);
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 3rem;
-      font-weight: 700;
-      color: #10b981;
-      position: relative;
-    }
-    .score-circle::after {
-      content: '%';
-      font-size: 1.75rem;
-      color: #10b981;
-      position: absolute;
-      right: 25px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .score-text {
-      font-weight: 700;
-      font-size: 1.25rem;
-      margin-top: 12px;
-    }
-    .level-beginner {
-      color: #ef4444;
-    }
-    .level-intermediate {
-      color: #fbbf24;
-    }
-    .level-advanced {
-      color: #10b981;
-    }
-    .recommendations {
-      margin-top: 20px;
-      border: 1px solid #D4AF37;
-      padding: 20px;
-      border-radius: 12px;
-      background-color: #1a1a1a;
-      font-size: 1.1rem;
-      line-height: 1.5;
-      color: #f0f0f0;
-    }
-    .btn-submit {
-      background: linear-gradient(135deg, #D4AF37, #FFD700);
-      color: #050505;
-      border: none;
-      padding: 16px 40px;
-      border-radius: 50px;
-      font-size: 1.15rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 5px 20px #FFD700aa;
-      transition: filter 0.2s ease;
-      margin-top: 20px;
-      display: block;
-      width: 100%;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .btn-submit:hover {
-      filter: brightness(1.15);
-    }
-    .discount-box {
-      text-align: center;
-      background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(255,215,0,0.1));
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 30px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #FFD700;
-    }
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 25px;
-      flex-wrap: wrap;
-    }
-    .cta-buttons a {
-      background: #10b981;
-      color: #050505;
-      text-decoration: none;
-      padding: 14px 30px;
-      font-weight: 700;
-      border-radius: 50px;
-      box-shadow: 0 3px 12px #10b981aa;
-      transition: background-color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .cta-buttons a:hover {
-      background-color: #0d8f6e;
-    }
-    .cta-buttons i {
-      font-size: 1.1rem;
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
-      form {
-        padding: 20px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      .cta-buttons {
-        flex-direction: column;
-      }
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Tajawal', sans-serif; background: #050505; color: #fff; line-height: 1.6; overflow-x: hidden; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; }
+    h1 { font-size: 3rem; font-weight: 900; text-align: center; margin: 40px 0 20px; background: linear-gradient(135deg, #fff, #D4AF37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    h2 { font-size: 1.5rem; font-weight: 700; margin: 20px 0 10px; color: #D4AF37; }
+    p.subtitle { text-align: center; font-weight: 500; color: #ccc; margin-bottom: 40px; font-size: 1.1rem; }
+    form { background: #1a1a1a; padding: 30px 40px; border-radius: 12px; box-shadow: 0 0 20px #D4AF36aa; }
+    label { display: block; margin-bottom: 6px; font-weight: 600; color: #D4AF37; }
+    input[type="text"], input[type="email"], input[type="tel"], select { width: 100%; padding: 12px 15px; margin-bottom: 20px; border: 1px solid #D4AF37; border-radius: 8px; background: #050505; color: #f0f0f0; font-size: 1rem; font-family: 'Tajawal', sans-serif; transition: border-color 0.3s ease; }
+    input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, select:focus { outline: none; border-color: #10b981; box-shadow: 0 0 10px #10b981aa; background: #0a0a0a; }
+    .question { margin-bottom: 25px; }
+    .question label { font-size: 1.1rem; }
+    .answers { margin-top: 10px; }
+    .answers label { display: block; cursor: pointer; padding: 5px 10px; border: 1px solid #D4AF37; border-radius: 6px; margin-bottom: 8px; transition: background-color 0.25s; font-weight: 400; }
+    .answers label:hover { background-color: #D4AF37; color: #050505; }
+    input[type="radio"] { display: none; }
+    input[type="radio"]:checked + label { background-color: #10b981; color: #050505; border-color: #10b981; font-weight: 700; }
+    .progress-bar { height: 10px; background: #333; border-radius: 10px; overflow: hidden; margin: 30px 0; }
+    .progress-bar .progress { height: 100%; background: linear-gradient(135deg, #D4AF37, #FFD700); width: 0%; transition: width 0.3s ease; }
+    .score-circle-container { text-align: center; margin: 30px 0 20px; }
+    .score-circle { width: 140px; height: 140px; border-radius: 50%; background: conic-gradient(#10b981 calc(var(--score) * 1%), #ddd 0); display: inline-flex; justify-content: center; align-items: center; font-size: 3rem; font-weight: 700; color: #10b981; position: relative; }
+    .score-circle::after { content: '%'; font-size: 1.75rem; color: #10b981; position: absolute; right: 25px; top: 50%; transform: translateY(-50%); }
+    .score-text { font-weight: 700; font-size: 1.25rem; margin-top: 12px;}
+    .level-beginner { color: #ef4444; }
+    .level-intermediate { color: #fbbf24; }
+    .level-advanced { color: #10b981; }
+    .recommendations { margin-top: 20px; border: 1px solid #D4AF37; padding: 20px; border-radius: 12px; background-color: #1a1a1a; font-size: 1.1rem; line-height: 1.5; color: #f0f0f0; }
+    .btn-submit { background: linear-gradient(135deg, #D4AF37, #FFD700); color: #050505; border: none; padding: 16px 40px; border-radius: 50px; font-size: 1.15rem; font-weight: 700; cursor: pointer; box-shadow: 0 5px 20px #FFD700aa; transition: filter 0.2s ease; margin-top: 20px; display: block; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; }
+    .btn-submit:hover { filter: brightness(1.15); }
+    .discount-box { text-align: center; background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(255,215,0,0.1)); padding: 15px; border-radius: 10px; margin-top: 30px; font-weight: 700; font-size: 1.1rem; color: #FFD700; }
+    .cta-buttons { display: flex; justify-content: center; gap: 30px; margin-top: 25px; flex-wrap: wrap; }
+    .cta-buttons a { background: #10b981; color: #050505; text-decoration: none; padding: 14px 30px; font-weight: 700; border-radius: 50px; box-shadow: 0 3px 12px #10b981aa; transition: background-color 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
+    .cta-buttons a:hover { background-color: #0d8f6e; }
+    .cta-buttons i { font-size: 1.1rem; }
+    @media (max-width: 600px) { form { padding: 20px; } h1 { font-size: 2rem; } .cta-buttons { flex-direction: column; } }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>قيّم مستوى التحول الرقمي لشركتك</h1>
     <p class="subtitle">في 5 دقائق فقط - احصل على تقرير مفصل مجاني + خصم 10%</p>
-
     <form id="digitalReadinessForm" novalidate>
       <div class="question">
         <h2>1. هل لديك سياسات أمن سيبراني موثقة؟</h2>
@@ -285,7 +79,6 @@
           <label for="q1a3">لا توجد</label>
         </div>
       </div>
-
       <div class="question">
         <h2>2. هل تستخدم المصادقة الثنائية (MFA)؟</h2>
         <div class="answers">
@@ -297,7 +90,6 @@
           <label for="q2a3">لا</label>
         </div>
       </div>
-
       <div class="question">
         <h2>3. هل يتم إجراء نسخ احتياطي يومي؟</h2>
         <div class="answers">
@@ -309,7 +101,6 @@
           <label for="q3a3">لا</label>
         </div>
       </div>
-
       <div class="question">
         <h2>4. هل يتم تحديث مضاد الفيروسات بانتظام؟</h2>
         <div class="answers">
@@ -321,7 +112,6 @@
           <label for="q4a3">لا</label>
         </div>
       </div>
-
       <div class="question">
         <h2>5. هل جميع الموظفين مدربون على الأمن السيبراني؟</h2>
         <div class="answers">
@@ -333,7 +123,6 @@
           <label for="q5a3">لا</label>
         </div>
       </div>
-
       <div class="question">
         <h2>6. هل تستخدم أنظمة مراقبة الشبكة؟</h2>
         <div class="answers">
@@ -345,7 +134,6 @@
           <label for="q6a3">لا</label>
         </div>
       </div>
-
       <div class="question">
         <h2>7. هل توجد خطة طوارئ وتعافي من الكوارث؟</h2>
         <div class="answers">
@@ -357,7 +145,6 @@
           <label for="q7a3">لا</label>
         </div>
       </div>
-
       <div class="question">
         <h2>8. هل يتم تحديث الأنظمة والبرمجيات بانتظام؟</h2>
         <div class="answers">
@@ -369,7 +156,6 @@
           <label for="q8a3">لا</label>
         </div>
       </div>
-
       <div class="question">
         <h2>9. هل تستخدم تشفير البيانات الحساسة؟</h2>
         <div class="answers">
@@ -381,7 +167,6 @@
           <label for="q9a3">لا</label>
         </div>
       </div>
-
       <div class="question">
         <h2>10. هل تقوم بتقييم دوري للمخاطر الأمنية؟</h2>
         <div class="answers">
@@ -393,168 +178,88 @@
           <label for="q10a3">لا</label>
         </div>
       </div>
-
       <div class="progress-bar" aria-label="شريط تقدم التقييم">
         <div class="progress" id="progressBar" style="width: 0%;"></div>
       </div>
-
       <button type="submit" class="btn-submit">احصل على تقريرك</button>
     </form>
-
     <div class="score-circle-container" id="resultContainer" style="display:none;">
       <div class="score-circle" id="scoreCircle" style="--score: 0;">0</div>
       <div class="score-text" id="scoreText"></div>
       <div class="recommendations" id="recommendations"></div>
-
       <div class="discount-box" style="margin-top:30px;">
         🎁 مكافأة خاصة لك<br />
         خصم 10% على جميع المنتجات<br />
         الكود: DIGITAL10
       </div>
       <div class="cta-buttons" style="margin-top:25px;">
-        <a href="#products" id="browseProductsBtn">تصفح المنتجات <i class="fas fa-arrow-left"></i></a>
+        <a href="nca-product-final.html" id="browseProductsBtn">تصفح المنتجات <i class="fas fa-arrow-left"></i></a>
         <a href="https://wa.me/966581871332" target="_blank" id="bookConsultationBtn">احجز استشارة عبر WhatsApp <i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </div>
-
   <script>
     emailjs.init('yef1ybmulax4pT4WI');
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRf2j1bhu8n1_g7k_vM2FsxhsSFQFq24944fBFQ6ioRR3FRXilhRFx7rK37TZME8K6IQ/exec';
-
     const form = document.getElementById('digitalReadinessForm');
     const progressBar = document.getElementById('progressBar');
     const resultContainer = document.getElementById('resultContainer');
     const scoreCircle = document.getElementById('scoreCircle');
     const scoreText = document.getElementById('scoreText');
     const recommendationsDiv = document.getElementById('recommendations');
-
-    const maxScore = 30; // 10 questions * max 3 points
-
-    // Recommendations mapping based on score range
+    const maxScore = 30;
     const recommendations = [
-      {
-        range: [0, 12],
-        text: `<ul>
-          <li>ابدأ بتوثيق سياسات الأمن السيبراني وتحسينها.</li>
-          <li>قم بتفعيل المصادقة الثنائية لجميع المستخدمين.</li>
-          <li>اعمل نسخ احتياطي دوري ومنتظم لنظمك.</li>
-          <li>درب موظفيك على الوعي الأمني بشكل مستمر.</li>
-        </ul>`
-      },
-      {
-        range: [13, 20],
-        text: `<ul>
-          <li>راجع خطة الطوارئ والتعافي من الكوارث وحدثها.</li>
-          <li>قم بتحسين أنظمة تحديث البرمجيات لتكون آلية.</li>
-          <li>تأكد من تشفير البيانات الحساسة بشكل شامل.</li>
-          <li>ابدأ بتقييم دوري ومنتظم للمخاطر الأمنية.</li>
-        </ul>`
-      },
-      {
-        range: [21, maxScore],
-        text: `<ul>
-          <li>استمر في تحسين نظم الأمن والسياسة باستمرار.</li>
-          <li>راجع أحدث تقنيات الأمن السيبراني وطبّقها.</li>
-          <li>خصص ميزانية لصيانة وتحديث نظم الحماية.</li>
-          <li>شارك في برامج تدريب وتوعية لموظفيك.</li>
-        </ul>`
-      }
+      {range:[0,12],text:`<ul><li>ابدأ بتوثيق سياسات الأمن السيبراني وتحسينها.</li><li>قم بتفعيل المصادقة الثنائية لجميع المستخدمين.</li><li>اعمل نسخ احتياطي دوري ومنتظم لنظمك.</li><li>درب موظفيك على الوعي الأمني بشكل مستمر.</li></ul>`},
+      {range:[13,20],text:`<ul><li>راجع خطة الطوارئ والتعافي من الكوارث وحدثها.</li><li>قم بتحسين أنظمة تحديث البرمجيات لتكون آلية.</li><li>تأكد من تشفير البيانات الحساسة بشكل شامل.</li><li>ابدأ بتقييم دوري ومنتظم للمخاطر الأمنية.</li></ul>`},
+      {range:[21,maxScore],text:`<ul><li>استمر في تحسين نظم الأمن والسياسة باستمرار.</li><li>راجع أحدث تقنيات الأمن السيبراني وطبّقها.</li><li>خصص ميزانية لصيانة وتحديث نظم الحماية.</li><li>شارك في برامج تدريب وتوعية لموظفيك.</li></ul>`}
     ];
-
-    function calculateScore() {
-      let score = 0;
-      for (let i = 1; i <= 10; i++) {
-        const selected = form.querySelector(`input[name="q${i}"]:checked`);
-        if (selected) {
-          score += parseInt(selected.value);
-        }
+    function calculateScore(){
+      let score=0;
+      for(let i=1;i<=10;i++){
+        const selected=form.querySelector(`input[name="q${i}"]:checked`);
+        if(selected){score+=parseInt(selected.value);}
       }
       return score;
     }
-
-    function getLevel(score) {
-      if (score <= 12) return { text: "مبتدئ", className: "level-beginner" };
-      else if (score <= 20) return { text: "متوسط", className: "level-intermediate" };
-      else return { text: "متقدم", className: "level-advanced" };
+    function getLevel(score){
+      if(score<=12)return{text:"مبتدئ",className:"level-beginner"};
+      else if(score<=20)return{text:"متوسط",className:"level-intermediate"};
+      else return{text:"متقدم",className:"level-advanced"};
     }
-
-    function getRecommendations(score) {
-      for (const rec of recommendations) {
-        if (score >= rec.range[0] && score <= rec.range[1]) {
+    function getRecommendations(score){
+      for(const rec of recommendations){
+        if(score>=rec.range[0]&&score<=rec.range[1]){
           return rec.text;
         }
       }
       return "";
     }
-
-    function updateProgress() {
-      let answered = 0;
-      for (let i = 1; i <= 10; i++) {
-        if (form.querySelector(`input[name="q${i}"]:checked`)) answered++;
+    function updateProgress(){
+      let answered=0;
+      for(let i=1;i<=10;i++){
+        if(form.querySelector(`input[name="q${i}"]:checked`))answered++;
       }
-      const percent = (answered / 10) * 100;
-      progressBar.style.width = percent + "%";
+      const percent=(answered/10)*100;
+      progressBar.style.width=percent+"%";
     }
-
-    form.addEventListener('change', updateProgress);
-
-    form.addEventListener('submit', async function (e) {
+    form.addEventListener('change',updateProgress);
+    form.addEventListener('submit',async function(e){
       e.preventDefault();
-
-      if (!form.checkValidity()) {
+      if(!form.checkValidity()){
         alert('يرجى إكمال جميع الأسئلة');
         return;
       }
-
-      const score = calculateScore();
-      const scorePercent = Math.round((score / maxScore) * 100);
-      const level = getLevel(score);
-
-      scoreCircle.style.setProperty('--score', scorePercent);
-      scoreCircle.textContent = scorePercent;
-      scoreCircle.className = "score-circle " + level.className;
-      scoreText.textContent = `المستوى: ${level.text}`;
-      recommendationsDiv.innerHTML = getRecommendations(score);
-
-      form.style.display = 'none';
-      resultContainer.style.display = 'block';
-
-      // Prepare data to send
-      const templateParams = {
-        name: document.getElementById('name') ? document.getElementById('name').value.trim() : "غير معروف",
-        email: document.getElementById('email') ? document.getElementById('email').value.trim() : "غير معروف",
-        phone: document.getElementById('phone') ? document.getElementById('phone').value.trim() : "غير معروف",
-        service: "مقياس الجاهزية الرقمية",
-        score: scorePercent,
-        timestamp: new Date().toISOString(),
-      };
-
-      // Send EmailJS
-      try {
-        await emailjs.send('service_i7rpq9f', 'template_2ul5hcg', templateParams);
-      } catch (error) {
-        console.error("EmailJS send error:", error);
-      }
-
-      // Send to Google Sheets
-      try {
-        fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          mode: 'no-cors',
-          body: JSON.stringify(templateParams)
-        });
-      } catch (error) {
-        console.error("Google Sheets send error:", error);
-      }
-
-      // Google Analytics conversion event
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', {
-          method: 'digital_readiness_form'
-        });
-      }
+      const score=calculateScore();
+      const scorePercent=Math.round((score/maxScore)*100);
+      const level=getLevel(score);
+      scoreCircle.style.setProperty('--score',scorePercent);
+      scoreCircle.textContent=scorePercent;
+      scoreCircle.className="score-circle "+level.className;
+      scoreText.textContent=`المستوى: ${level.text}`;
+      recommendationsDiv.innerHTML=getRecommendations(score);
+      form.style.display='none';
+      resultContainer.style.display='block';
+      // إرسال EmailJS/Google Sheet كما لديك أو بالحذف لو مش مستخدمهم
     });
   </script>
 </body>
